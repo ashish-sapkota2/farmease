@@ -9,17 +9,17 @@ if($count>0){
     $otp=rand(11111,99999);
     mysqli_query($conn,"update farmerlogin set otp='$otp' where email ='$email'");
 	$html="Your otp verification code for Agriculture Portal is ".$otp;
-	$_SESSION['farmer_login_user'];
+	$_SESSION['farmer_login_user']= $email;
     smtp_mailer($email,'OTP Verification',$html); 
-    echo "yes";
 }
 else{
     echo "not exist";
 }
  
 function smtp_mailer($to,$subject, $msg){
-	require_once("../smtp/class.phpmailer.php");
-	$mail = new PHPMailer(); 
+	require '../smtp/class.phpmailer.php';
+	
+	$mail = new PHPMailer(true); 
 	$mail->IsSMTP(); 
 	$mail->SMTPDebug = 0; 
 	$mail->SMTPAuth = TRUE; 
@@ -29,16 +29,25 @@ function smtp_mailer($to,$subject, $msg){
 	$mail->IsHTML(true);
 	$mail->CharSet = 'UTF-8';
 	$mail->Username = "farmease10@gmail.com";   
-    $mail->Password = "ymavxkoblrwasvme"; 	
-    $mail->SetFrom("farmease10@gmail.com","OTP verification");  
+    $mail->Password = "yypejrzurkcuvbft"; 	
+    $mail->SetFrom("farmease10@gmail.com");  
 	$mail->Subject = $subject;
 	$mail->Body =$msg;
 	$mail->AddAddress($to);
-	if(!$mail->Send()){
-		return 0;
+	// if(!$mail->Send()){
+	// 	echo $mail->ErrorInfo;
+	// 	return 0;
+	// }else{
+	// 	return 1;
+	// }
+	if($mail->Send()){
+		echo "OTP sent";
+        header("location:ftwostep.php");
 	}else{
+		echo "OTP could not be sent. Error message: " . $mail->ErrorInfo;
 		return 1;
 	}
+	
 }
 ?>
 
