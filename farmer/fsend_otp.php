@@ -2,7 +2,7 @@
 session_start();
 require('../sql.php'); // Includes Login Script
 
-$email=$_SESSION['farmer_login_user'];
+$email=$_POST['farmer_email'];
 $res=mysqli_query($conn,"select * from farmerlogin where email='$email'");
 $count=mysqli_num_rows($res);
 if($count>0){
@@ -39,7 +39,7 @@ function smtp_mailer($to,$subject, $msg){
 	// 	return 0;
 	// }else{
 	// 	return 1;
-	// }//
+	// }
 	if($mail->Send()){
 		echo "OTP sent";
         header("location:ftwostep.php");
