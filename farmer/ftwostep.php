@@ -188,12 +188,12 @@ $user = $_SESSION['farmer_login_user'];
  
 <form method=""  action="">
 					
-					<div class="alert alert-success alert-dismissible fade show text-center" style="display: none;" id="popup" role="alert">
-			<strong class="text-center text-dark ">OTP Sent Successfully</strong>
+					<!-- <div class="alert alert-success alert-dismissible fade show text-center" style="display: none;" id="popup" role="alert">
+			<strong class="text-center text-dark ">OTP Sent..</strong>
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>
-			</div>
+			</div> -->
 			
 			<div class="alert alert-danger alert-dismissible fade show text-center" style="display: none;" id="invalid" role="alert">
 			<strong class="text-center text-dark ">Invalid OTP</strong>
