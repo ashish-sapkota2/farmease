@@ -1,7 +1,9 @@
 <?php
 session_start();
 require('../sql.php'); // Includes Login Script
-
+//require '../smtp/class.phpmailer.php';
+//require '../smtp/class.pop3.php';
+//require '../smtp/exception.php';
 $email=$_POST['farmer_email'];
 $res=mysqli_query($conn,"select * from farmerlogin where email='$email'");
 $count=mysqli_num_rows($res);
@@ -18,7 +20,8 @@ else{
  
 function smtp_mailer($to,$subject, $msg){
 	require '../smtp/class.phpmailer.php';
-	
+	require '../smtp/class.pop3.php';
+	require '../smtp/exception.php';
 	$mail = new PHPMailer(true); 
 	$mail->IsSMTP(); 
 	$mail->SMTPDebug = 0; 
