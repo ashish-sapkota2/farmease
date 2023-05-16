@@ -64,12 +64,12 @@ $error = '
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $gender, $dob, $statename, $district, $city) 
+function create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city) 
 {
 	global $conn;
 	
-      $query = "INSERT INTO `farmerlogin` (farmer_name, password, email, phone_no, F_gender, F_birthday, F_State, F_District, F_Location) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$gender', '$dob', '$statename', '$district', '$city')";
+      $query = "INSERT INTO `farmerlogin` (farmer_name, password, email, phone_no, F_gender, F_birthday, F_province, F_District, F_Location) 
+	  VALUES ('$name', '$password', '$email', '$mobile', '$gender', '$dob', '$provincename', '$district', '$city')";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -88,21 +88,21 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
 	$mobile = $_POST['mobile'];
     $gender = $_POST['gender'];
 	$dob = $_POST['dob'];
-    $state = $_POST['state'];
+    $province = $_POST['province'];
 	$district = $_POST['district'];
     $city = $_POST['city'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
 	
 	
-	$query5 = "SELECT StateName from state where StCode ='$state'";
+	$query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
-              $statename = $row5['StateName'];
+              $provincename = $row5['ProvinceName'];
 
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $gender, $dob, $statename, $district, $city )) {
+        if (create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city )) {
 			$_SESSION['farmer_login_user']=$email; // Initializing Session    
         header("location: ftwostep.php");
         }else{	

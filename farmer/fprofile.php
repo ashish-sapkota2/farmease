@@ -14,7 +14,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 			  $para6 = $row4['phone_no'];
 			  $para7 = $row4['F_gender'];
 			  $para8 = $row4['F_birthday'];
-			  $para9 = $row4['F_State'];
+			  $para9 = $row4['F_province'];
 			  $para10 = $row4['F_District'];
 			  $para11 = $row4['F_Location'];
 
@@ -26,17 +26,17 @@ if(isset($_POST['farmerupdate']))
 	  $mobile = ($_POST['mobile']);
 	  $gender = ($_POST['gender']);
 	  $dob = ($_POST['dob']);
-	  $state = ($_POST['state']);
+	  $province = ($_POST['province']);
 		$district = ($_POST['district']);		
 		$city = ($_POST['city']);
 		$pass = ($_POST['pass']);
 
-$query5 = "SELECT StateName from state where StCode ='$state'";
+$query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
-              $statename = $row5['StateName'];
+              $provincename = $row5['ProvinceName'];
 			  
-    $updatequery1 = "UPDATE farmerlogin set  farmer_name='$name', email='$email', phone_no='$mobile',  F_gender='$gender',  F_birthday='$dob',  F_State='$statename', F_District='$district', F_Location='$city', password='$pass'  where farmer_id='$id'";mysqli_query($conn, $updatequery1);
+    $updatequery1 = "UPDATE farmerlogin set  farmer_name='$name', email='$email', phone_no='$mobile',  F_gender='$gender',  F_birthday='$dob',  F_province='$statename', F_District='$district', F_Location='$city', password='$pass'  where farmer_id='$id'";mysqli_query($conn, $updatequery1);
   header("location: fprofile.php");
   }		  
 ?>
@@ -160,7 +160,7 @@ $query5 = "SELECT StateName from state where StCode ='$state'";
 				  
 				     <div class="row mb-1">
                     <div class="col-sm-3">
-                      <h6 class="mb-0 font-weight-bold">State</h6>
+                      <h6 class="mb-0 font-weight-bold">province</h6>
                     </div>
                     <div class="col-sm-9 text-dark">
                       <?php echo $para9 ?>
@@ -291,11 +291,11 @@ $query5 = "SELECT StateName from state where StCode ='$state'";
 			  
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > State</label>
+                <label for="staffid" class="col-md-3 col-form-label text-white" > province</label>
                 <div class="col-md-9">
-				<select onChange="getdistrict(this.value);"  name="state" id="state" class="form-control" >
+				<select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" >
                     <option value=""><?php echo "$para9"?></option>
-                   	<?php $query =mysqli_query($conn,"SELECT * FROM state");
+                   	<?php $query =mysqli_query($conn,"SELECT * FROM province");
 					while($row=mysqli_fetch_array($query))
 					{ ?>
 					<option value="<?php echo $row['StCode'];?>"><?php echo $row['StateName'];?></option>
