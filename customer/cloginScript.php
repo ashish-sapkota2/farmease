@@ -25,7 +25,7 @@ if(isset($_POST ['customerlogin'])) {
        $error = "Username or Password is invalid";
      }
     
- mysqli_close($conn); // Closing Connection
+ mysqli_close($conn); // Closing Connection.
 
 }
 

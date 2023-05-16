@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('../sql.php'); // Includes Login Script
+require('../sql.php'); // Includes Login Script.
 
 $email=$_SESSION['customer_login_user'];
 $res=mysqli_query($conn,"select * from custlogin where email='$email'");

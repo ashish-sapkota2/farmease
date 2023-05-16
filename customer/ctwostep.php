@@ -258,7 +258,7 @@ $user = $_SESSION['customer_login_user'];
 
  function send_otp () {
       $.ajax({
-        url:"csend_otp.php", //the page containing php script
+        url:"csend_otp.php", //the page containing php script.
         type: "POST", //request type
         success:function(result){
 			 $("#popup").css({'display':'block'}); 
