@@ -4,7 +4,7 @@ require('../sql.php'); // Includes Login Script
 //require '../smtp/class.phpmailer.php';
 //require '../smtp/class.pop3.php';
 //require '../smtp/exception.php';
-$email=$_POST['farmer_email'];
+$email=$_SESSION['farmer_login_user'];
 $res=mysqli_query($conn,"select * from farmerlogin where email='$email'");
 $count=mysqli_num_rows($res);
 if($count>0){
