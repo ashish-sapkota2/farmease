@@ -103,8 +103,8 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
         if (create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city )) {
-			$_SESSION['farmer_login_user']=$email; // Initializing Session    
-        header("location: ftwostep.php");
+			$_SESSION['farmer_login_user']=$email; // Initializing Session  
+        header("location: flogin.php");
         }else{	
 		
 			$error = '
