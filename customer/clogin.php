@@ -184,7 +184,7 @@ include('cloginScript.php'); // Includes Login Script
  
  
  
-                 <form method="POST" action="">     
+                 <form method="POST" action="cloginScript.php">     
                         
 					<div class="form-group row">
                     <label for="email" class="col-md-3 col-form-label"
