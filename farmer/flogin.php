@@ -184,7 +184,7 @@ include('floginScript.php'); // Includes Login Script
  
  
  
-        <form method="POST" action="fsend_otp.php">     
+        <form method="POST" action="floginscript.php">     
                         
 					<div class="form-group row">
                     <label for="email" class="col-md-3 col-form-label"
