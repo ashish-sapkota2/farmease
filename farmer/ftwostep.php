@@ -37,7 +37,7 @@ $user = $_SESSION['farmer_login_user'];
 
 </head>
 
-  <body class="bg-white" id="top" onload="send_otp();" >
+  <body class="bg-white" id="top" >
     <!-- Navbar -->
     <nav
       id="navbar-main"
