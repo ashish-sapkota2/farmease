@@ -1,5 +1,5 @@
 <?php
-include('cloginScript.php'); // Includes Login Script
+include('cloginScript.php'); // Includes Login Script..
 
 ?>
 

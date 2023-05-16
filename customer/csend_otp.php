@@ -39,7 +39,7 @@ function smtp_mailer($to,$subject, $msg){
 	// 	return 0;
 	// }else{
 	// 	return 1;
-	// }
+	/// }
 	if($mail->Send()){
 		echo "OTP sent";
         header("location:ctwostep.php");
