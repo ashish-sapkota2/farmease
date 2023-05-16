@@ -1,7 +1,7 @@
 <?php
 session_start();// Starting Session
 require('../sql.php'); // Includes Login Script
-// Storing Session
+// Storing Sessions
 $user = $_SESSION['farmer_login_user'];
 
 ?>

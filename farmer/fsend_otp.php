@@ -1,7 +1,6 @@
 <?php
 session_start();
 require('../sql.php'); // Includes Login Script
-//require '../smtp/class.phpmailer.php';
 //require '../smtp/class.pop3.php';
 //require '../smtp/exception.php';
 $email=$_POST['farmer_email'];
