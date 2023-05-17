@@ -64,12 +64,12 @@ if ($password != $cpassword) {
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $provincename, $district, $address, $pincode) 
+function create_user($name, $password, $email, $mobile, $provincename, $district, $address) 
 {
 	global $conn;
 	
-      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address, pincode ) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address', '$pincode' )";
+      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address) 
+	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address' )";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -89,7 +89,6 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     $province = $_POST['province'];
 	$district = $_POST['district'];
 	$address = $_POST['address'];
-	$pincode = $_POST['pincode'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
 
@@ -102,7 +101,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, $pincode )) {
+        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, )) {
 			$_SESSION['customer_login_user']=$email; // Initializing Session    
         header("location: ctwostep.php");
         }else{

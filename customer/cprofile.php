@@ -15,7 +15,6 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 			  $para7 = $row4['province'];
 			  $para8 = $row4['district'];
 			  $para9 = $row4['address'];
-			  $para10 = $row4['pincode'];
 
 		  
 if(isset($_POST['custupdate']))
@@ -27,7 +26,6 @@ if(isset($_POST['custupdate']))
 	  $province = ($_POST['province']);
 		$district = ($_POST['district']);
 		$address = ($_POST['address']);
-		$pincode = ($_POST['pincode']);
 		$pass = ($_POST['pass']);
 
 $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
@@ -35,7 +33,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               $row5 = mysqli_fetch_assoc($ses_sq5);
               $provincename = $row5['ProvinceName'];
 			  
-    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', pincode='$pincode', password='$pass'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
+    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', password='$pass'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
 	 header("location: cprofile.php");
   }			  
 ?>
@@ -164,14 +162,14 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
                     </div>
                   </div>
 				  
-				     <div class="row mb-1">
+				     <!-- <div class="row mb-1">
                     <div class="col-sm-3">
                       <h6 class="mb-0 font-weight-bold">Pincode</h6>
                     </div>
                     <div class="col-sm-9 text-dark">
                       <?php echo $para10 ?>
                     </div>
-                  </div>
+                  </div> -->
 				  
 				  
 				     <div class="row mb-1">
@@ -278,13 +276,6 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
                 <label for="staffid" class="col-md-3 col-form-label text-white" > Address </label>
                 <div class="col-md-9">
                   <input class="form-control" type="text" name="address" value="<?php echo "$para9"?>" />
-                </div>
-              </div>
-			  
-			 <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Pincode </label>
-                <div class="col-md-9">
-                  <input class="form-control" type="number" min="0" min="6" name="pincode" value="<?php echo "$para10"?>" />
                 </div>
               </div>
 			  

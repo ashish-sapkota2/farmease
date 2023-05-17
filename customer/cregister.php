@@ -265,12 +265,6 @@ function getdistrict(val) {
                 </div>
               </div>
 			  
-			  	  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Pincode <strong class="text-default"> *</strong></label>
-                <div class="col-md-9">
-                  <input class="form-control" type="number" min="0" min="6" name="pincode" required="true" />
-                </div>
-              </div>
 			  
 			  		 <div class="form-group row">
                 <label for="staffid" class="col-md-3 col-form-label text-white" > Password <strong class="text-default"> *</strong></label>
