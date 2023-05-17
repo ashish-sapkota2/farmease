@@ -64,12 +64,21 @@ if ($password != $cpassword) {
 }
 
 // function for creating user
+<<<<<<< HEAD
 function create_user($name, $password, $email, $mobile, $provincename, $district, $city, $address, $pincode) 
 {
 	global $conn;
 	
       $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, C_province, C_District, city, address, pincode ) 
 	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$city', '$address', '$pincode' )";
+=======
+function create_user($name, $password, $email, $mobile, $provincename, $district, $address) 
+{
+	global $conn;
+	
+      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address) 
+	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address' )";
+>>>>>>> 8087b81cda0e4bf1b1e99b0ddfe5fdb11ccd6899
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -88,9 +97,11 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
 	$mobile = $_POST['mobile'];
     $province = $_POST['province'];
 	$district = $_POST['district'];
+<<<<<<< HEAD
 	$city = $_POST['city'];
+=======
+>>>>>>> 8087b81cda0e4bf1b1e99b0ddfe5fdb11ccd6899
 	$address = $_POST['address'];
-	$pincode = $_POST['pincode'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
 
@@ -103,7 +114,11 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
+<<<<<<< HEAD
         if (create_user($name, $password, $email, $mobile, $provincename, $district, $city, $address, $pincode )) {
+=======
+        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, )) {
+>>>>>>> 8087b81cda0e4bf1b1e99b0ddfe5fdb11ccd6899
 			$_SESSION['customer_login_user']=$email; // Initializing Session    
         header("location: ctwostep.php");
         }else{
