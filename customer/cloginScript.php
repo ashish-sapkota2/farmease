@@ -19,7 +19,7 @@ if(isset($_POST ['customerlogin'])) {
       $deletequery="DELETE FROM cart";
       $deletecart=mysqli_query($conn,$deletequery);
 
-    header("location: ctwostep.php"); // Redirecting To Other Page
+    header("location: csend_otp.php"); // Redirecting To Other Page
     } 
     else  {
        $error = "Username or Password is invalid";
