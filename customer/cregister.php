@@ -39,7 +39,7 @@ function getdistrict(val) {
 	$.ajax({
 	type: "POST",
 	url: "cget_district.php",
-	data:'state_id='+val,
+	data:'province_id='+val,
 	success: function(data){
 		$("#district-list").html(data);
 	}
@@ -233,14 +233,14 @@ function getdistrict(val) {
 			  
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" required="true"> State <strong class="text-default"> *</strong></label>
+                <label for="staffid" class="col-md-3 col-form-label text-white" required="true"> Province <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
-                 <select onChange="getdistrict(this.value);"  name="state" id="state" class="form-control" >
-                    <option value="">Select State</option>
-                   	<?php $query =mysqli_query($conn,"SELECT * FROM state");
+                 <select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" >
+                    <option value="">Select Province</option>
+                   	<?php $query =mysqli_query($conn,"SELECT * FROM province");
 					while($row=mysqli_fetch_array($query))
 					{ ?>
-					<option value="<?php echo $row['StCode'];?>"><?php echo $row['StateName'];?></option>
+					<option value="<?php echo $row['PrCode'];?>"><?php echo $row['ProvinceName'];?></option>
 					<?php
 					}
 					?>
@@ -250,10 +250,10 @@ function getdistrict(val) {
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" required="true"> City <strong class="text-default"> *</strong></label>
+                <label for="staffid" class="col-md-3 col-form-label text-white" required="true"> District <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
-	<select  name="city" id="district-list" class="form-control">
-<option value="">Select City</option>
+	<select  name="district" id="district-list" class="form-control">
+<option value="">Select district</option>
 </select>
                 </div>
               </div>

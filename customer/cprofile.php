@@ -12,8 +12,8 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
               $para3 = $row4['password'];
 			  $para5 = $row4['email'];
 			  $para6 = $row4['phone_no'];
-			  $para7 = $row4['state'];
-			  $para8 = $row4['city'];
+			  $para7 = $row4['province'];
+			  $para8 = $row4['district'];
 			  $para9 = $row4['address'];
 			  $para10 = $row4['pincode'];
 
@@ -24,18 +24,18 @@ if(isset($_POST['custupdate']))
 	  $name = ($_POST['name']);
 	  $email = ($_POST['email']);
 	  $mobile = ($_POST['mobile']);
-	  $state = ($_POST['state']);
-		$city = ($_POST['city']);
+	  $province = ($_POST['province']);
+		$district = ($_POST['district']);
 		$address = ($_POST['address']);
 		$pincode = ($_POST['pincode']);
 		$pass = ($_POST['pass']);
 
-$query5 = "SELECT StateName from state where StCode ='$state'";
+$query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
-              $statename = $row5['StateName'];
+              $provincename = $row5['ProvinceName'];
 			  
-    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  state='$statename',  city='$city',  address='$address', pincode='$pincode', password='$pass'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
+    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', pincode='$pincode', password='$pass'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
 	 header("location: cprofile.php");
   }			  
 ?>
@@ -139,7 +139,7 @@ $query5 = "SELECT StateName from state where StCode ='$state'";
 				   
 				       <div class="row mb-1">
                     <div class="col-sm-3">
-                      <h6 class="mb-0 font-weight-bold">State</h6>
+                      <h6 class="mb-0 font-weight-bold">Province</h6>
                     </div>
                     <div class="col-sm-9 text-dark">
                       <?php echo $para7 ?>
@@ -148,7 +148,7 @@ $query5 = "SELECT StateName from state where StCode ='$state'";
 			  
 				       <div class="row mb-1">
                     <div class="col-sm-3">
-                      <h6 class="mb-0 font-weight-bold">City</h6>
+                      <h6 class="mb-0 font-weight-bold">District</h6>
                     </div>
                     <div class="col-sm-9 text-dark">
                       <?php echo $para8 ?>
@@ -250,14 +250,14 @@ $query5 = "SELECT StateName from state where StCode ='$state'";
 			  
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > State</label>
+                <label for="staffid" class="col-md-3 col-form-label text-white" > Province</label>
                 <div class="col-md-9">
-                  <select onChange="getdistrict(this.value);"  name="state" id="state" class="form-control" >
+                  <select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" >
                     <option value=""><?php echo "$para7"?></option>
-                   	<?php $query =mysqli_query($conn,"SELECT * FROM state");
+                   	<?php $query =mysqli_query($conn,"SELECT * FROM province");
 					while($row=mysqli_fetch_array($query))
 					{ ?>
-					<option value="<?php echo $row['StCode'];?>"><?php echo $row['StateName'];?></option>
+					<option value="<?php echo $row['PrCode'];?>"><?php echo $row['ProvinceName'];?></option>
 					<?php
 					}
 					?>
@@ -266,9 +266,9 @@ $query5 = "SELECT StateName from state where StCode ='$state'";
               </div>
 			  
 			    <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > City </label>
+                <label for="staffid" class="col-md-3 col-form-label text-white" > District </label>
                 <div class="col-md-9">
-					<select  name="city" id="district-list" class="form-control">
+					<select  name="district" id="district-list" class="form-control">
 				<option value=""><?php echo "$para8"?></option>
 				</select>
                 </div>
@@ -353,7 +353,7 @@ function getdistrict(val) {
 	$.ajax({
 	type: "POST",
 	url: "cget_district.php",
-	data:'state_id='+val,
+	data:'province_id='+val,
 	success: function(data){
 		$("#district-list").html(data);
 	}

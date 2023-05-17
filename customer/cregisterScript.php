@@ -64,12 +64,12 @@ if ($password != $cpassword) {
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $statename, $city, $address, $pincode) 
+function create_user($name, $password, $email, $mobile, $provincename, $district, $address, $pincode) 
 {
 	global $conn;
 	
-      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, state, city, address, pincode ) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$statename', '$city', '$address', '$pincode' )";
+      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address, pincode ) 
+	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address', '$pincode' )";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -86,23 +86,23 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     $name = $_POST['name'];
     $email = $_POST['email'];	
 	$mobile = $_POST['mobile'];
-    $state = $_POST['state'];
-	$city = $_POST['city'];
+    $province = $_POST['province'];
+	$district = $_POST['district'];
 	$address = $_POST['address'];
 	$pincode = $_POST['pincode'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
 
 
-$query5 = "SELECT StateName from state where StCode ='$state'";
+$query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
-              $statename = $row5['StateName'];
+              $provincename = $row5['ProvinceName'];
 			  
 			  
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $statename, $city, $address, $pincode )) {
+        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, $pincode )) {
 			$_SESSION['customer_login_user']=$email; // Initializing Session    
         header("location: ctwostep.php");
         }else{
