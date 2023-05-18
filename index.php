@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
-    <title>Agriculture Portal</title>
+    <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
   
@@ -46,7 +46,7 @@
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item dropdown">
             <a href="index.php" class="navbar-brand mr-lg-5 text-white">
-                               <img src="assets/img/nav.png" />
+                               <img src="assets/img/farmease-transparent.png" />
             </a>
           </li>
         </ul>
