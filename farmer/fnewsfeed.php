@@ -19,9 +19,12 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
   <body class="bg-white" id="top">
   
  <script>
-  window.addEventListener("load", function() {
-    const endpoint = "https://newsapi.org/v2/everything?q=farmers&sortBy=popularity&apiKey=e13c1810209a4e6ca7997d39b797152c";
-    fetch(endpoint)
+  window.addEventListener("load", function() {  
+   
+    //const endpoint = "https://newsapi.org/v2/everything?q=farmers&sortBy=popularity&apiKey=92fd49637e7a4fce943db375af3644a1"; //MY api
+  const endpoint = "https://newsapi.org/v2/everything?q=farmers&sortBy=publishedAt&apiKey=92fd49637e7a4fce943db375af3644a1"; //My API
+  //const endpoint ="https://newsdata.io/api/1/news?country=np&apikey=pub_22346af493ad120bd53c93b565d27071c551f" ; 
+  fetch(endpoint)
     .then(response => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -91,10 +94,10 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
     <?php
 	error_reporting(E_ERROR | E_PARSE);
-
-	       // https://newsapi.org/v2/everything?q=Agriculture&sortBy=popularity&apiKey=e13c1810209a4e6ca7997d39b797152c
 	
-        $url="https://newsapi.org/v2/everything?q=farmers&sortBy=popularity&apiKey=e13c1810209a4e6ca7997d39b797152c";   //Your API KEY
+       // $url="https://newsapi.org/v2/everything?q=farmers&sortBy=popularity&apiKey=92fd49637e7a4fce943db375af3644a1"; //MY API popularity based
+      $url="https://newsapi.org/v2/everything?q=farmers&sortBy=publishedAt&apiKey=92fd49637e7a4fce943db375af3644a1";  //MY API recent
+      //$url="https://newsdata.io/api/1/news?country=np&apikey=pub_22346af493ad120bd53c93b565d27071c551f";
 		
         $response=file_get_contents($url);
         $newsdata= json_decode($response);
@@ -112,7 +115,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 							</tr>
 							
-						
+
         <?php
              }
         ?>   
