@@ -232,7 +232,8 @@ include('floginScript.php'); // Includes Login Script
                     </div>
 					</div>
 					
-					   <span><?php if (isset($_GET['error'])) {
+					   <span>
+              <?php if (isset($_GET['error'])) {
     $error = $_GET['error'];
     echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
     <strong class='text-center text-dark '>$error</strong>

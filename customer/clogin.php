@@ -233,6 +233,7 @@ include('cloginScript.php'); // Includes Login Script.
 					</div>
 					
 					   <span><?php
+
 if (isset($_GET['error'])) {
     $error = $_GET['error'];
     echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
