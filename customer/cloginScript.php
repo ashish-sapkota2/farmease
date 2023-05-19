@@ -16,13 +16,14 @@ if(isset($_POST ['customerlogin'])) {
   if ($rowcount==true) {
     $_SESSION['customer_login_user']=$customer_email; // Initializing Session
 	
-      // $deletequery="DELETE FROM cart";
-      // $deletecart=mysqli_query($conn,$deletequery);
+      $deletequery="DELETE FROM cart";
+      $deletecart=mysqli_query($conn,$deletequery);
 
     header("location: csend_otp.php"); // Redirecting To Other Page
     } 
     else  {
        $error = "Username or Password is invalid";
+       header("location: clogin.php?error=" . urlencode($error)); // Redirect with error message
      }
     
  mysqli_close($conn); // Closing Connection.

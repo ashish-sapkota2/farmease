@@ -21,6 +21,7 @@ if(isset($_POST ['farmerlogin'])) {
     } 
     else  {
        $error = "Username or Password is invalid";
+       header("location: flogin.php?error=" . urlencode($error)); // Redirect with error message
      }
     
  mysqli_close($conn); // Closing Connection

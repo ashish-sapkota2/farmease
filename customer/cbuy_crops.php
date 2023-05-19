@@ -147,69 +147,53 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 						<th width="5%">Action</th>
 					</tr>
 					<?php
-					if(!empty($_SESSION["shopping_cart"]))
-					{
-						$total = 0;
-						foreach($_SESSION["shopping_cart"] as $keys => $values)
-						{
-					?>
 
-	
-					<tr class=" bg-white">
-						<td><?php echo ucfirst($values["item_name"]); ?></td>
-						<td><?php echo $values["item_quantity"]; ?></td>
-						<td>Rs. <?php echo $values["item_price"]; ?> </td>
-				
-					<td><a href="cbuy_crops.php?action=delete&id=<?php echo $values["item_id"]; ?>" type="button" class="btn btn-warning btn-block" >Remove</a></td>
-					
-					</tr>
+$userlogin = $_SESSION['customer_login_user'];
+require('../sql.php'); // Includes SQL connection script
 
-<?php
+// Retrieve cust_id from the custlogin table based on the customer's email
+$query1 = "SELECT cust_id FROM custlogin WHERE email = '" . $userlogin . "';";
+$run = mysqli_query($conn, $query1);
+$row = mysqli_fetch_array($run);
+$cust_pid = $row['0'];
 
-		if(isset($_GET["action"]))
-		{
-			if($_GET["action"] == "delete")
-			{
-				foreach($_SESSION["shopping_cart"] as $keys => $values)
-				{
-					if($values["item_id"] == $_GET["id"])
-					{
-						unset($_SESSION["shopping_cart"][$keys]);
-						$b=$_GET["id"];
-						
-						$query5="SELECT Trade_crop from farmer_crops_trade where trade_id= $b";
-						$result5 = mysqli_query($conn, $query5);
-						$row5 = $result5->fetch_assoc(); 
-						$a=$row5["Trade_crop"];
-						
-						
-						$query6="DELETE FROM `cart` WHERE `cropname` = '".$a."'";
-						$result6 = mysqli_query($conn, $query6); 
 
-						echo '<script>alert("Item Removed")</script>';
-						echo '<script>window.location="cbuy_crops.php"</script>';
-		
+// Retrieve cart items from the cart table based on the cust_id
+$query2 = "SELECT cid, cropname, quantity, price FROM cart WHERE cust_id = '$cust_pid';";
+$result = mysqli_query($conn, $query2);
 
-					     
-						
-					}
-				}
-			}
-		}
+if (mysqli_num_rows($result) > 0) {
+    $total = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <tr class="bg-white">
+            <td><?php echo ucfirst($row["cropname"]); ?></td>
+            <td><?php echo $row["quantity"]; ?></td>
+            <td>Rs. <?php echo $row["price"]; ?></td>
+            <td>
+                <a href="cbuy_crops.php?action=delete&id=<?php echo $row["cid"]; ?>" type="button" class="btn btn-warning btn-block">Remove</a>
+            </td>
+        </tr>
+        <?php
+        $total += $row["price"];
+    }
+
+if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"])) {
+    $delete_id = $_GET["id"];
+
+    // Remove the item from the database
+    $query3 = "DELETE FROM cart WHERE cid = '$delete_id';";
+    $result3 = mysqli_query($conn, $query3);
+
+    if ($result3) {
+        echo '<script>alert("Item Removed")</script>';
+        echo '<script>window.location="cbuy_crops.php"</script>';
+    } else {
+        echo '<script>alert("Failed to remove item")</script>';
+    }
+}
 ?>
-
-					<?php
-							$total = $total +  $values["item_price"];
-							$_SESSION['Total_Cart_Price']=$total;
-						}
-					?>
-					<tr class="text-dark">
-						<td colspan="2" align="right" >Total</td>
-						<td align="right">Rs. <?php echo number_format($total,2); ?></td>
-
-						<td>
-						
-			<!-- <?php
+	 <!-- <?php
 
 						
 							// require_once "StripePayment/config.php";
@@ -230,27 +214,31 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 							// 		'success_url' => 'http://localhost/agriculture_portal/customer/cupdatedb.php',
 							// 		'cancel_url' => 'http://localhost/agriculture_portal/customer/cbuy_crops.php',
 							// 	]);
+						 ?> -->
 
-												
+<tr class="text-dark">
+    <td colspan="2" align="right">Total</td>
+    <td align="right">Rs. <?php echo number_format($total, 2); ?></td>
+    <td>
+        <form action="checkout.php" method="POST">
+            <button class="btn btn-info form-control" name="pay" type="submit" id="checkout-button">Pay</button>
+        </form>
+    </td>
+</tr>	
+		
 
-    					?> -->
-						<button class="btn btn-info form-control" name="pay" type="submit" id="checkout-button">Pay</button>
-											
 						
-						</td>
-					</tr>
 					<?php
+					}else {
+						// No items found in the cart
+						echo "<tr><td colspan='4'>No items in the cart</td></tr>";
 					}
+					
+					
 					?>
 						
 				</table>
 			</div>
-
-
-
-
-
-
 
 
 </div>
