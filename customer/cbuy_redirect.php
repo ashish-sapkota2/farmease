@@ -20,26 +20,69 @@ if (isset($_POST['add_to_cart'])) {
     $result2 = mysqli_query($conn, $query2);
 
     if (mysqli_num_rows($result2) > 0) {
-        // Item already exists, update the quantity
-        $query3 = "UPDATE cart SET quantity = quantity + $quantity WHERE cust_id = '$cust_pid' AND cropname = '$crop'";
-        $result3 = mysqli_query($conn, $query3);
 
-        if ($result3) {
-            echo "Item quantity updated in cart" . "<br>";
-        } else {
-            echo "Error updating item quantity in cart: " . mysqli_error($conn) . "<br>";
+        $row = mysqli_fetch_assoc($result2);
+        $availableQuantity = $row['quantity'];
+
+        // Calculate the remaining quantity that can be added to the cart
+        $updatedQuantity = $availableQuantity + $quantity;
+        $query3 = "SELECT quantity FROM production_approx WHERE crop = '$crop'";
+        $result3 = mysqli_query($conn, $query3);
+    
+        if ($row = mysqli_fetch_assoc($result3)) {
+            $maxQuantity = $row['quantity'];
+    
+            if ($updatedQuantity > $maxQuantity) {
+                //echo "Error: Total quantity exceeds the available quantity.";
+                $_SESSION['error_message'] = "Error: Total quantity exceeds the available quantity.";
+                header("Location: cbuy_crops.php?action=add&id=$tradeID");
+                exit;
+            }
         }
-    } else {
-        // Item does not exist, insert a new record
-        $query4 = "INSERT INTO cart (cust_id, cropname, quantity, price) VALUES ('$cust_pid', '$crop', '$quantity', '$price')";
-        $result4 = mysqli_query($conn, $query4);
+    
+       // Update the quantity
+       $query4 = "UPDATE cart SET quantity = $updatedQuantity WHERE cust_id = '$cust_pid' AND cropname = '$crop'";
+       $result4 = mysqli_query($conn, $query4);
 
         if ($result4) {
-            echo "Item added to cart" . "<br>";
+         //   echo "Item quantity updated in cart" . "<br>";
+            $_SESSION['success_message'] = "Item quantity updated in cart";
         } else {
-            echo "Error adding item to cart: " . mysqli_error($conn) . "<br>";
+           // echo "Error updating item quantity in cart: " . mysqli_error($conn) . "<br>";
+            $_SESSION['error_message'] = "Error updating item quantity in cart: " . mysqli_error($conn);
+        }
+    }else{
+            
+    
+        // Item does not exist, insert a new record
+        // Check if the quantity exceeds the available quantity
+        $query5 = "SELECT quantity FROM production_approx WHERE crop = '$crop'";
+        $result5 = mysqli_query($conn, $query5);
+    
+        if ($row = mysqli_fetch_assoc($result5)) {
+            $maxQuantity = $row['quantity'];
+    
+            if ($quantity > $maxQuantity) {
+              //  echo "Error: Total quantity exceeds the available quantity.";
+                $_SESSION['error_message'] = "Error: Total quantity exceeds the available quantity.";
+                header("Location: cbuy_crops.php?action=add&id=$tradeID");
+                exit;
+            }
+        }
+        $query6 = "INSERT INTO cart (cust_id, cropname, quantity, price) VALUES ('$cust_pid', '$crop', '$quantity', '$price')";
+        $result6 = mysqli_query($conn, $query6);
+    
+        if ($result6) {
+           // echo "Item added to cart" . "<br>";
+            $_SESSION['success_message'] = "Item added to cart";
+
+        } else {
+           // echo "Error adding item to cart: " . mysqli_error($conn) . "<br>";
+           $_SESSION['error_message'] = "Error adding item to cart: " . mysqli_error($conn);
         }
     }
+    header("Location: cbuy_crops.php?action=add&id=$tradeID");
+    exit;
 }
 
 if (isset($_POST["add_to_cart"])) {
@@ -48,37 +91,63 @@ if (isset($_POST["add_to_cart"])) {
     }
 
     $tradeID = $_POST['tradeid'];
+    $crop = $_POST['crops'];
+    $quantity = $_POST['quantity'];
+    $price = $_POST['price'];
 
-    $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+    // Check if the item already exists in the cart
+    $item_exists = false;
+    foreach ($_SESSION["shopping_cart"] as $key => $value) {
+        if ($value['item_id'] == $tradeID) {
+            $item_exists = true;
+            // Check if adding the quantity exceeds the maximum available quantity
+            $total_quantity = $value['item_quantity'] + $quantity;
 
-    if (!in_array($tradeID, $item_array_id)) {
-        $item_array = array(
-            'item_id' => $tradeID,
-            'item_name' => $_POST["crops"],
-            'item_price' => $_POST["price"],
-            'item_quantity' => $_POST["quantity"]
-        );
-        array_push($_SESSION['shopping_cart'], $item_array);
-    } else {
-        foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-            if ($values["item_id"] == $tradeID) {
-                $_SESSION["shopping_cart"][$keys]["item_quantity"] += $_POST["quantity"];
-                break;
-            }
-        }
-    }
+            $query = "SELECT quantity FROM production_approx WHERE crop = '$crop'";
+            $result = mysqli_query($conn, $query);
 
-    header("Location: cbuy_crops.php?action=add&id=$tradeID");
+            if ($row = mysqli_fetch_assoc($result)) {
+                $availableQuantity = $row['quantity'];
+
+                if ($total_quantity > $availableQuantity) {
+             // Display an error message if the total quantity exceeds the available quantity
+           //  echo "Error: Total quantity exceeds the available quantity";
+           $_SESSION['error_message'] = "Error: Total quantity exceeds the available quantity.";
+           header("Location: cbuy_crops.php?action=add&id=$tradeID");  
+           exit;
+         } else {
+             // Update the quantity
+             $_SESSION["shopping_cart"][$key]["item_quantity"] = $total_quantity;
+             break;
+         }
+     }
+ }
 }
-if (isset($_POST['logout'])) {
-    // Clear shopping cart data
-    unset($_SESSION['shopping_cart']);
 
-    // Destroy the session
-    session_destroy();
-
-    // Redirect to the login page or any other page
-    header("Location: index.php");
-    exit;
+if (!$item_exists) {
+ // Item does not exist, add it to the cart
+ $item_array = array(
+     'item_id' => $tradeID,
+     'item_name' => $_POST["crops"],
+     'item_price' => $_POST["price"],
+     'item_quantity' => $_POST["quantity"]
+ );
+ array_push($_SESSION['shopping_cart'], $item_array);
 }
+
+header("Location: cbuy_crops.php?action=add&id=$tradeID");
+exit;
+}
+
+// if (isset($_POST['logout'])) {
+//     // Clear shopping cart data
+//     unset($_SESSION['shopping_cart']);
+
+//     // Destroy the session
+//     session_destroy();
+
+//     // Redirect to the login page or any other page
+//     header("Location: index.php");
+//     exit;
+// }
 ?>

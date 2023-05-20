@@ -81,61 +81,78 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 					
 			
 						 
-<form method="POST" action="cbuy_redirect.php">
+	<form method="POST" action="cbuy_redirect.php">
+    <td>
+        <div class="form-group">
+            <?php
+            // Query the database table for crops with quantity greater than zero
+            $sql = "SELECT crop, quantity FROM production_approx WHERE quantity > 0";
+            $result = $conn->query($sql);
 
-						<td>
-                        <div class="form-group" >						
-									<?php  									
-						// query database table for crops with quantity greater than zero
-						$sql = "SELECT crop FROM production_approx where quantity > 0 ";
-						$result = $conn->query($sql);
+            // Populate dropdown menu options with the crop names and available quantity
+            echo "<select id='crops' name='crops' class='form-control text-dark'>";
+            echo "<option value=''>Select Crop</option>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row["crop"] . "' data-quantity='" . $row["quantity"] . "'>" . $row["crop"] . "</option>";
+            }
+            echo "</select>";
+            ?>
+        </div>
+		</td>
 
-						// populate dropdown menu options with the crop names
-						echo "<select id='crops' name='crops' class='form-control text-dark'>";
-						echo "<option value=' '>Select Crop</option>";
-						while($row = $result->fetch_assoc()) {							
-							echo "<option value='" . $row["crop"] . "'>" . $row["crop"] . "</option>";
-						}
-						echo "</select>";
-						
-
-						?>	
-											
-						</div>					
-						</td>
-			
-			
-<input hidden name="tradeid" id="tradeid"  value="">
+    <input type="hidden" name="tradeid" id="tradeid" value="">
 
 
+    <td>
+        <div class="form-group">
+            <input id="quantity" type="number" placeholder="Available Quantity" name="quantity" required class="form-control text-dark" min="1" max ="1">
+        </div>
+    </td>
 
-						<td>   
-						  <div class="form-group">     
-							<input id="quantity" type="number" placeholder="Available Quantity" max="10" name="quantity" required class="form-control text-dark">   
-						  </div> 
-						</td>
+    <td>
+        <div class="form-group">
+            <input id="price" type="text" value="0" name="price" readonly class="form-control text-dark">
+        </div>
+    </td>
 
-
-                        <td>
-                        <div class="form-group" >
-                        <input id="price" type="text" value="0" name="price"  readonly class="form-control text-dark">
-                        </div>
-						</td>	
-						
-						
-						 
-						<td>
-						 <div class="form-group" >
-						<button class="btn btn-success form-control" name="add_to_cart" type="submit" disabled >Add To Cart </button>
-						</div>
-						</td>
-							    
-	</form>
-	
-		
-						</tr>
+    <td>
+        <div class="form-group">
+            <button class="btn btn-success form-control" name="add_to_cart" type="submit" disabled>Add To Cart</button>
+        </div>
+    </td>
+</form></tr>
 						</tbody>
                         </table> 
+	
+						<script>
+  // JavaScript code to update the max attribute based on the selected crop's available quantity
+  document.getElementById('crops').addEventListener('change', function() {
+    var selectedOption = this.options[this.selectedIndex];
+    var quantityInput = document.getElementById('quantity');
+    quantityInput.max = selectedOption.getAttribute('data-quantity');
+    quantityInput.value = ""; // Reset the quantity input field
+    checkQuantityValidity(); // Call the function to check the quantity validity
+  });
+
+  // Function to check the quantity validity and enable/disable the Add to Cart button
+  function checkQuantityValidity() {
+    var quantityInput = document.getElementById('quantity');
+    var addToCartButton = document.getElementsByName('add_to_cart')[0];
+
+    if (parseInt(quantityInput.value) <= parseInt(quantityInput.max)) {
+      addToCartButton.disabled = false; // Enable the Add to Cart button
+    } else {
+      addToCartButton.disabled = true; // Disable the Add to Cart button
+    }
+  }
+
+  // Event listener to check the quantity validity whenever the quantity input field is changed
+  document.getElementById('quantity').addEventListener('input', function() {
+    checkQuantityValidity(); // Call the function to check the quantity validity
+  });
+</script>
+
+				
 
 			<h3 class=" text-white">Order Details</h3>
 			<div class="table-responsive">
@@ -233,7 +250,10 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 						// No items found in the cart
 						echo "<tr><td colspan='4'>No items in the cart</td></tr>";
 					}
-					
+					if (isset($_SESSION['error_message'])) {
+						echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';
+						unset($_SESSION['error_message']); // Remove the error message from the session
+					}
 					
 					?>
 						
