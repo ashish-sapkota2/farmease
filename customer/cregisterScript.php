@@ -103,7 +103,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
     {	
         if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, )) {
 			$_SESSION['customer_login_user']=$email; // Initializing Session    
-        header("location: ctwostep.php");
+        header("location: csend_otp.php");
         }else{
 			
 						$error = '
