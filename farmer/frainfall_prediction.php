@@ -71,7 +71,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
                                  <tr class="text-center">
 
                                    <td>
-                                    	<div class="form-group ">
+								   <div class="form-group ">
 											    <select id="region-select" name="region" class="form-control" required>
 													<option value="">Select Region</option>
 												</select>

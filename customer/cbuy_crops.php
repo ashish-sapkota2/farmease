@@ -357,7 +357,7 @@ const addToCartBtn = document.querySelector('[name="add_to_cart"]');
 const quantityInput = document.getElementById("quantity");
 
 quantityInput.addEventListener("change", () => {
-  const max = document.getElementById("quantity").placeholder;
+  const max = document.getElementById("quantity").placeholder.value;
   
   if (quantityInput.value > max) {
     alert(`Maximum quantity exceeded. Please enter a quantity less than or equal to ${max}.`);

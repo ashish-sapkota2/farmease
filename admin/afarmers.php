@@ -69,7 +69,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 					<th><center>Email ID</center></th>
 					<th><center>Phone no.</center></th>
 					<th><center>Date of Birth</center></th>
-					<th><center>State</center></th>
+					<th><center>Province</center></th>
 					<th><center>District</center></th>
 					<th><center>City</center></th>
 					<th><center>Delete</center></th>
@@ -78,7 +78,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
     </thead>
     <tbody>
   						<?php 
-$sql = "SELECT farmer_name, farmer_id, F_gender, email, phone_no, F_birthday, F_State, F_District, F_Location FROM farmerlogin";
+$sql = "SELECT farmer_name, farmer_id, F_gender, email, phone_no, F_birthday, F_province, F_District, F_Location FROM farmerlogin";
 
 								$query = mysqli_query($conn,$sql);
 
@@ -92,7 +92,7 @@ $sql = "SELECT farmer_name, farmer_id, F_gender, email, phone_no, F_birthday, F_
 							 <td> <?php echo $res['email'];  ?> </td>
 							 <td> <?php echo $res['phone_no'];  ?> </td>
 							 <td> <?php echo $res['F_birthday'];  ?> </td>
-							 <td> <?php echo $res['F_State'];  ?> </td>
+							 <td> <?php echo $res['F_province'];  ?> </td>
 							 <td> <?php echo $res['F_District'];  ?> </td>
 							 <td> <?php echo $res['F_Location'];  ?> </td>
 							 	
