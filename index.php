@@ -2,14 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/png" href="assets/img/logo.png" /> -->
     <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
   
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
 	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -18,91 +19,32 @@
 	
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  
-  <!-- Nucleo Icons -->
+ 
+  <!-- Nucleo Icons-->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
 
- 
-  <link rel="stylesheet" href="assets/css/creativetim.min.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/theme.css" type="text/css"> 
 
 </head>
 
-  <body class="bg-white" id="top" onload="myFunction()">
+  <body class="bg-white" id="top">
+  <main class="main" id="top">
     <!-- Navbar -->
     <nav
       id="navbar-main"
-      class="
-        navbar navbar-main navbar-expand-lg
-        bg-default
-        navbar-light
-        position-sticky
-        top-0
-        shadow
-        py-0
-      "
-    >
-      <div class="container">
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-          <li class="nav-item dropdown">
-            <a href="index.php" class="navbar-brand mr-lg-5 text-white">
-                               <img src="assets/img/farmease-transparent.png" />
-            </a>
-          </li>
-        </ul>
-
-        <button
-          class="navbar-toggler bg-white"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar_global"
-          aria-controls="navbar_global"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon text-white"></span>
-        </button>
-        <div class="navbar-collapse collapse bg-default" id="navbar_global">
-          <div class="navbar-collapse-header">
-            <div class="row">
-              <div class="col-10 collapse-brand">
-                <a href="index.html">
-                  <img src="assets/img/nav.png" />
-                </a>
-              </div>
-              <div class="col-2 collapse-close bg-danger">
-                <button
-                  type="button"
-                  class="navbar-toggler"
-                  data-toggle="collapse"
-                  data-target="#navbar_global"
-                  aria-controls="navbar_global"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span></span>
-                  <span></span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <ul class="navbar-nav align-items-lg-center ml-auto">
-		  
-		   <li class="nav-item">
-              <a href="contact.php" class="nav-link">
-                <span class="text-white nav-link-inner--text"
-                  ><i class="text-white fas fa-address-card"></i> Contact</span
-                >
-              </a>
-            </li>
-			
-			
-			  <li class="nav-item">
-			   <div class="dropdown show ">
-		  <a class="nav-link dropdown-toggle text-white " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                  <span class="text-white nav-link-inner--text"
-                  ><i class="text-white fas fa-user-plus"></i> Sign Up</span
+      class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-light opacity-85" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand" href="index.php"><img class="d-inline-block align-top img-fluid" src="assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+         <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="#header">Home</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="contact.php">Contact</a></li>
+          <li class="nav-item px-2"><a class="nav-link fw-medium" href="#Opportuanities">Opportunities</a></li>
+          <li class="nav-item px-2"><div class="dropdown show">
+		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                  <span class="nav-link-inner--text"
+                  ><i class="fas fa-user-plus"></i> Sign Up</span
                 >
 		  </a>
 
@@ -114,11 +56,11 @@
 			</li>
 			
 		  
-				  <li class="nav-item">
+				  <li class="nav-item px-2">
 			   <div class="dropdown show ">
-		  <a class="nav-link dropdown-toggle text-white " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                  <span class="text-white nav-link-inner--text"
-                  ><i class="text-white fas fa-sign-in-alt"></i> Login</span
+		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                  <span class="nav-link-inner--text"
+                  ><i class="fas fa-sign-in-alt"></i> Login</span
                 >
 		  </a>
 
@@ -132,56 +74,33 @@
 			
           
           </ul>
+          
         </div>
       </div>
     </nav>
     <!-- End Navbar -->
+    <section class="py-0" id="header">
+        <div class="bg-holder d-none d-md-block" style="background-image:url(assets/img/illustrations/2.png);background-position:right top;background-size:contain;">
+        </div>
 
-<div class="wrapper" >
-
-    <div class="wrapper">
-      <header class="jumbotron bg-gradient-warning">
         <div class="container">
-          <div class="row row-header">
-            <div class="col-12 col-sm-6">
-              <h1 class="text-white">Agriculture Portal</h1>
-              <p class="text-white">
-               A True Farmer's Friend.
-              </p>
-              <div class="cg">
-                <div class="card card-body bg-gradient-success">
-                  <blockquote cite="blockquote">
-                    <h6 class="mb-0 text-dark">
-                      <em><b  id="quote"> “Farming looks mighty easy when your plow is a pencil, and you're a thousand miles from the corn field..”</b ></em>
-                    </h6>
-                    <br />
-
-                    <footer class="blockquote-footer vg text-dark"  >
-                      <span id="author"> DWIGHT D. EISENHOWER	</span>	
-					<button id="sendButton" class="btn btn-sm btn-outline-secondary pull-right mx-auto mr-auto bg-gradient-danger" onclick="myFunction()">
-					  <i class="fa fa-refresh text-white"></i>
-					</button>					  
-                    </footer>				
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-3 offset-sm-2 align-self-center">
-              <img src="assets/img/plant-bulb.png" class="img-fluid" alt="" />
+          <div class="row align-items-center min-vh-75 min-vh-lg-100">
+            <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
+              <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Bridging the Gap for<br class="d-block d-lg-block" />Farmers & Customers</h1>
+              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture portal offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p><a class="btn btn-lg btn-success" href="#" role="button">Learn More</a>
             </div>
           </div>
         </div>
-      </header>
-<!-- Page Content -->
+      </section>
+<!-- <div class="wrapper" > -->
 
-<!-- ======================================================================================================================================== -->
+<!-- Page Content -->
 
     <div class="section features-6 text-dark bg-white" id="services">
       <div class="container ">
 
         <div class="row">
                 <div class="col-md-8 mx-auto text-center">
-                    <span class="badge badge-primary badge-pill mb-3">Insight</span>
                     <h3 class="display-3 ">Features</h3>
                 </div>
             </div>
@@ -192,8 +111,9 @@
             <div class="info info-horizontal info-hover-success">
               <div class="description pl-4">
                 <h3 class="title" >Farmers</h3>
-           <p class=" ">Farmers can get recommendations for crop n fertilizer and even 
-            predict the weather and get the news related to agriculture. Farmers can directly sell the crops to the customers.</p>
+           <p class=" ">
+           Farmers can benefit from personalized crop and fertilizer recommendations, accurate weather predictions, access to agricultural news, and the opportunity to directly sell their crops to customers. These features empower farmers to make informed decisions, optimize their yield, and maximize profitability, while establishing transparent and fair trade relationships.
+           </p>
                         
               </div>
             </div>
@@ -202,14 +122,14 @@
 		  
 		  
           <div class="col-lg-6 col-10 mx-md-auto d-none d-md-block">
-            <img class="ml-lg-5  pull-right" src="assets/img/agri.png" width="100%">
+            <img class="ml-lg-5  pull-right" src="assets/img/farmer.png" width="100%">
           </div>
         </div>
 		
 		
-		        <div class="row align-items-center">
+		<div class="row align-items-center">
 				  <div class="col-lg-6 col-10 mx-md-auto d-none d-md-block">
-            <img class="ml-lg-5" src="assets/img/customers.png" width="80%">
+            <img class="ml-lg-5" src="assets/img/customer.png" width="80%">
           </div>
      
 		
@@ -219,249 +139,74 @@
             <div class="info info-horizontal info-hover-warning mt-5">
               <div class="description pl-4">
                 <h3 class="title">Customers</h3>
-                <p class=" ">Customers can buy crops directly from the faarmers without the involvement of any middlemen.</p>
+                <p class=" ">Customers enjoy the convenience of purchasing fresh and locally sourced produce directly from farmers. They can trace the origin of their crops, discover and connect with local farmers, and experience a transparent farm-to-table journey. Online purchasing features provide a seamless and secure way to browse products, place orders, and support local farmers.</p>
               </div>
             </div>
       
           </div>
-   </div>
+        </div>
       </div>
     </div>
 
 
-     
-<!-- ======================================================================================================================================== -->
+    <section class="py-5" id="Opportuanities">
+        
+       
 
-      <div class="section features-2 text-dark bg-white" id="features"> 
-        <div class="container"> 
-          <div class="row align-items-center"> 
-            <div class="col-lg-5 col-md-8 mr-auto text-left"> 
-              <div class="pr-md-5"> 
-                <div class="icon icon-lg icon-shape icon-shape-primary shadow rounded-circle mb-5"> <i class="ni ni-favourite-28"> </i></div>
-                <h3 class="display-3 text-justify">Features</h3>
-                <p>The time is now for the next step in farming. We bring you the future of farming along with great tools for asisting the farmers.</p>
-                <ul class="list-unstyled mt-5"> 
-                  <li class="py-2"> 
-                    <div class="d-flex align-items-center"> 
-                      <div>
-                        <div class="badge badge-circle badge-primary mr-3"> <i class="ni ni-settings-gear-65"> </i></div>
-                      </div>
-                      <div>
-                        <h6 class="mb-0">Highly Reliable and Accurate.</h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="py-2"> 
-                    <div class="d-flex align-items-center"> 
-                      <div>
-                        <div class="badge badge-circle badge-primary mr-3"> <i class="ni ni-html5"> </i></div>
-                      </div>
-                      <div>
-                        <h6 class="mb-0">Faster & Responsive website.</h6>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 mx-auto text-center mb-3">
+              <h3 class="display-3">Innovations</h3>
+              <p class="mb-5">Revolutionize agriculture with Farmease - connecting farmers and customers like never before.</p>
+            </div>
+          </div>
+          <div class="row flex-center h-100">
+            <div class="col-xl-9">
+              <div class="row">
+                <div class="col-md-4 mb-5">
+                  <div class="card h-100 shadow px-4 px-md-2 px-lg-3 card-span pt-6">
+                    <div class="text-center text-md-start card-hover"><img class="ps-3 icons" src="assets/img/icons/farmer.svg" height="60" alt="" />
+                      <div class="card-body">
+                        <h6 class="fw-bold fs-1 heading-color">Connect directly with farmers</h6>
+                        <p class="mt-3 mb-md-0 mb-lg-2">Discover the power of direct connection by engaging with our farmers. Experience the satisfaction of supporting local agriculture and building a stronger farming community.</p>
                       </div>
                     </div>
-                  </li>
-                  <li class="py-2"> 
-                    <div class="d-flex align-items-center"> 
-                      <div>
-                        <div class="badge badge-circle badge-primary mr-3"> <i class="ni ni-settings-gear-65"> </i></div>
-                      </div>
-                      <div>
-                        <h6 class="mb-0">Real time weather forecast.</h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="py-2"> 
-                    <div class="d-flex align-items-center"> 
-                      <div>
-                        <div class="badge badge-circle badge-primary mr-3"> <i class="ni ni-satisfied"> </i></div>
-                      </div>
-                      <div>
-                        <h6 class="mb-0">Integrated news feature.</h6>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                  <div class="card h-100 shadow px-4 px-md-2 px-lg-3 card-span pt-6">
+                    <div class="text-center text-md-start card-hover"><img class="ps-3 icons" src="assets/img/icons/growth.svg" height="60" alt="" />
+                      <div class="card-body">
+                        <h6 class="fw-bold fs-1 heading-color">Unlocking Potential: Explore the Possibilities</h6>
+                        <p class="mt-3 mb-md-0 mb-lg-2">Discover a world of possibilities as farmers access personalized recommendations, accurate weather predictions, and valuable agricultural news, while customers enjoy the convenience of purchasing fresh produce directly from farmers.</p>
                       </div>
                     </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                  <div class="card h-100 shadow px-4 px-md-2 px-lg-3 card-span pt-6">
+                    <div class="text-center text-md-start card-hover"><img class="ps-3 icons" src="assets/img/icons/future.svg" height="60" alt="" />
+                      <div class="card-body">
+                        <h6 class="fw-bold fs-1 heading-color">Embrace the Future: Tap into Promising Prospects</h6>
+                        <p class="mt-3 mb-md-0 mb-lg-2">Embrace the future by tapping into promising prospects as farmers optimize yield, embrace sustainable practices, and connect with new markets, while customers access high-quality, locally sourced produce and support sustainable farming practices.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-			
-
-		  
-            <div class="col-lg-7 col-md-12 pl-md-0"> 
- <img class="img-fluid ml-lg-5" src="assets/img/features.png" width="100%">
- </div>
-			
-			
           </div>
         </div>
-        <span > </span>
-      </div>
+      </section>
      
 	<!-- ======================================================================================================================================== -->
- 
-	 
 
- <div class="section features-6 text-dark bg-white" id="tech">
-        <div class="container-fluid shado">
-
-            <div class="row">
-                <div class="col-md-8 mx-auto text-center">
-                    <span class="badge badge-primary badge-pill mb-3">stack</span>
-                    <h3 class="display-3 ">Technologies Used</h3>
-                    <p class="" >Our Development Stack</p>
-                </div>
-            </div>
-
-            <div class="row text-lg-center align-self-center">
-
-                  <div class="col-md-4">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/html.png" alt="HTML5">                       
-                        <h6 class="info-title text-uppercase text-primary">HTML5</h6>
-                    </div>
-                </div>
-
-               <div class="col-md-4">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/css3.png" alt="CSS3">                       
-                        <h6 class="info-title text-uppercase text-primary">CSS3</h6>
-                    </div>
-                </div>
-
-               <div class="col-md-4">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/js.png" alt="JavaScript">                       
-                        <h6 class="info-title text-uppercase text-primary">JavaScript</h6>
-                    </div>
-                </div>
-
-
-
-</div>
-
-<div class="row text-center ">            
-
-                 <div class="col-md-4 d-none d-md-block">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/bootstrap.png" alt="BootStrap4">                       
-                        <h6 class="info-title text-uppercase text-primary">BootStrap4</h6>
-                    </div>
-                </div>
-
-                 <div class="col-md-4 d-none d-md-block">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/apache.png" alt="Apache">                       
-                        <h6 class="info-title text-uppercase text-primary">Apache</h6>
-                    </div>
-                </div>
-                
-                 <div class="col-md-4 d-none d-md-block">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/mysql.png" alt="MySQL">                       
-                        <h6 class="info-title text-uppercase text-primary">MySQL</h6>
-                    </div>
-                </div>
-
-                
-            </div>
-			
-			
-<div class="row text-center ">            
-
-                 <div class="col-md-4 d-none d-md-block">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/jquery.png" alt="BootStrap4">                       
-                        <h6 class="info-title text-uppercase text-primary">JQUERY</h6>
-                    </div>
-                </div>
-
-                 <div class="col-md-4 d-none d-md-block">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/openai2.png" alt="Apache">                       
-                        <h6 class="info-title text-uppercase text-primary">OPEN AI</h6>
-                    </div>
-                </div>
-                
-                 <div class="col-md-4 d-none d-md-block">
-                    <div class="info">
-                    <img class=" img-fluid" src="assets/img/php2.png" alt="MySQL">                       
-                        <h6 class="info-title text-uppercase text-primary">PHP</h6>
-                    </div>
-                </div>
-
-                
-            </div>
-
-
-        </div>
-    </div>
-
+      
+      </main>
 <?php require("footer.php");?>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script>
-
-const apiKey = "sk-xxxxxxxxxxxxxxxxxxx";   // Enter your apikey here
-const chatbox = document.getElementById("quote");
-const authorN = document.getElementById("author");
-
-let messages = [];
-
-function myFunction(){
-	const msg = "give me a quote related to agriculture and farming";
-    if (msg) {
-        messages.push({
-            "role": "user",
-            "content": msg
-        });
-        fetchMessages();
-    }
-};
-
-function fetchMessages() {
-    try {
-        var settings = {
-            url: "https://api.openai.com/v1/chat/completions",
-            method: "POST",
-            timeout: 0,
-            headers: {
-                Authorization: "Bearer " + apiKey,
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: messages
-            })
-        };
-        $.ajax(settings).done(function(response) {
-			chatbox.innerHTML = '';  
-			authorN.innerHTML = ''; 
-
-			const message = response.choices[0].message;
-            messages.push({
-                "role": message.role,
-                "content": message.content
-            });					
-            Rquote=message.content;	
-
-			parts = Rquote.split(" - ")
-			QuoteR = parts[0]
-			authorName = parts[1]
-
-			chatbox.append(QuoteR);
-			authorN.append(authorName);
-			
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-			chatbox.innerHTML = '';  
-			let errorMessage = 'Farming looks mighty easy when your plow is a pencil, and youre a thousand miles from the corn field.';
-			chatbox.append(errorMessage);
-        });
-    } catch (error) {
-		chatbox.innerHTML = '';  
-		let errorMessage2 = 'Farming looks mighty easy when your plow is a pencil, and youre a thousand miles from the corn field.';
-		chatbox.append(errorMessage2);
-    }
-}
- </script>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
 
 </body>
 
