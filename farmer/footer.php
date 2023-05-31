@@ -73,11 +73,14 @@
 
 
 
-<!-- <footer class="footer">
+
+<!-- 
+
+<footer class="footer">
         <div class="container">
                     <div class="row">         
                 <div class="col-4 col-md-2   align-self-center">				
-                    <img class="align-text-center img-fluid"  src="../assets/img/footer-logo.png" />               
+                    <img class="align-text-center img-fluid"  src="assets/img/footer-logo.png" />               
                 </div>				
                 <div class="offset-sm-2 col-5 ">
                     <h5>Our Address</h5>
@@ -139,6 +142,4 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-	<script src="https://use.fontawesome.com/ee1c3da296.js"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+	<script src="https://use.fontawesome.com/ee1c3da296.js"></script> -->
