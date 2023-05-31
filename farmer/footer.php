@@ -142,4 +142,4 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-	<script src="https://use.fontawesome.com/ee1c3da296.js"></script> -->
+	<script src="https://use.fontawesome.com/ee1c3da296.js"></script>
