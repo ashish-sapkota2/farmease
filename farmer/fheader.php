@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" type="image/png" href="../assets/img/logo.png" />
-    <title>Agriculture Portal - Farmer</title>
+    <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
   
@@ -25,7 +25,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 		
 
-  <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css">
+  <!-- <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css"> -->
+  <link rel="stylesheet" href="../assets/css/theme.css" type="text/css">
 
 
 <script src="../assets/js/state_district_crops_dropdown.js"></script>
