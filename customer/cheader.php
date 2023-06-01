@@ -25,7 +25,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 		
 
-  <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css">
+  <!-- <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css"> -->
+  <link rel="stylesheet" href="../assets/css/theme.css" type="text/css">
 
 
 <script src="../assets/js/state_district_crops_dropdown.js"></script>

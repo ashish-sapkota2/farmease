@@ -41,18 +41,18 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 
 <div class="container ">
     
-    	 <div class="row">
+    	 <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-danger badge-pill mb-3">Shopping</span>
           </div>
-        </div>
+        </div> -->
 		
           <div class="row row-content">
             <div class="col-md-12 mb-3">
 
-				<div class="card text-white bg-gradient-danger mb-3">
+				<div class="card text-dark bg-gradient-danger mb-3">
 				  <div class="card-header">
-				  <span class=" text-danger display-4" > Buy Crops </span>
+				  <span class=" text-color display-4" > Buy Crops </span>
 				  
 					
 				  </div>
@@ -64,7 +64,7 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 
                 <table class="table table-striped table-bordered table-responsive-md btn-table  ">
 
-                    <thead class=" text-white text-center">
+                    <thead class=" text-dark text-center">
                     <tr>
 					
                         <th>Crop Name</th>
@@ -154,7 +154,7 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 
 				
 
-			<h3 class=" text-white">Order Details</h3>
+			<h3 class=" text-dark">Order Details</h3>
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-responsive-md btn-table display" id="myTable">
 					<tr class=" bg-dange">
