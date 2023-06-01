@@ -154,7 +154,7 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 
 				
 
-			<h3 class=" text-dark">Order Details</h3>
+			<h3 class=" text-title">Order Details</h3>
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-responsive-md btn-table display" id="myTable">
 					<tr class=" bg-dange">
