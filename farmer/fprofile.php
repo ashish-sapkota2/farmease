@@ -80,8 +80,8 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
           </div>
         </div>
 		
-          <div class="row row-content">
-            <div class="col-md-4 mb-3">
+          <div class="column column-content">
+            <div class="col-md-12 mb-3">
         
 				<div class="card">
                 <div class="card-body bg-gradient-warning">
@@ -101,7 +101,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
             </div>
 			
 			
-                <div class="col-md-8">
+                <div class="col-md-12">
               <div class="card mb-3">
                 <div class="card-body bg-gradient-success">
 				
@@ -231,7 +231,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               <div class="form-group row">
                 <label
                   for="name"
-                  class="col-md-3 col-form-label text-white"
+                  class="col-md-3 col-form-label text-black"
                   >Farmer ID</label
                 >
                 <div class="col-md-9">
@@ -245,21 +245,21 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
 			  
 			   <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Farmer Name </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Farmer Name </label>
                 <div class="col-md-9">
                   <input class="form-control" type="text" name="name" value="<?php echo "$para2"?>" />
                 </div>				
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Email Address </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Email Address </label>
                 <div class="col-md-9">
                   <input class="form-control" type="email" name="email" value="<?php echo "$para5"?>" readonly />
                 </div>
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Mobile No </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Mobile No </label>
                 <div class="col-md-9">
                   <input class="form-control" type="number" min="0" name="mobile" value="<?php echo "$para6"?>" />
                 </div>
@@ -267,7 +267,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
 			  
 			    <div class="form-group row">
-                <label class="col-md-3 col-form-label text-white" for="email"
+                <label class="col-md-3 col-form-label text-black" for="email"
                   >Gender </label
                 >
                 <div class=" col-md-9">
@@ -283,7 +283,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
 			  				  
 			      <div class="form-group row">
-                <label class="col-md-3 col-form-label text-white" for="dob"
+                <label class="col-md-3 col-form-label text-black" for="dob"
                   >DOB</label
                 >
                 <div class="col-md-9">
@@ -298,14 +298,14 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > province</label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > province</label>
                 <div class="col-md-9">
 				<select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" >
                     <option value=""><?php echo "$para9"?></option>
                    	<?php $query =mysqli_query($conn,"SELECT * FROM province");
 					while($row=mysqli_fetch_array($query))
 					{ ?>
-					<option value="<?php echo $row['StCode'];?>"><?php echo $row['StateName'];?></option>
+					<option value="<?php echo $row['PrCode'];?>"><?php echo $row['ProvinceName'];?></option>
 					<?php
 					}
 					?>
@@ -314,7 +314,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > District </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > District </label>
                 <div class="col-md-9">
                  <select  name="district" id="district-list" class="form-control">
 				<option value=""><?php echo "$para10"?></option>
@@ -323,14 +323,14 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > City </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > City </label>
                 <div class="col-md-9">
                   <input class="form-control" type="text" name="city" value="<?php echo "$para11"?>" />
                 </div>
               </div>
 			  
 			  		 <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Password </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Password </label>
 			   <div class="col-9">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -348,7 +348,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 		   </div>
 
        <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Photo </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Photo </label>
                 <div class="col-md-9">
                   <input class="form-control" type="file" name="photo"/>
                 </div>				
@@ -404,7 +404,7 @@ function getdistrict(val) {
 	$.ajax({
 	type: "POST",
 	url: "fget_district.php",
-	data:'state_id='+val,
+	data:'province_id='+val,
 	success: function(data){
 		$("#district-list").html(data);
 	}
