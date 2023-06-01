@@ -49,7 +49,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 				<div class="card text-white bg-gradient-success mb-3">
 				  <div class="card-header">
-				  <span class=" text-success display-4" > Update Crop Stock  </span>					
+				  <span class=" text-color display-4" > Update Crop Stock  </span>					
 				  </div>
 
 				  <div class="card-body text-dark">
@@ -73,10 +73,10 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 			</div>
 			
 			
-				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display" id="myTable">
+				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display text-dark" id="myTable">
 
     <thead>
-					<tr class="font-weight-bold text-default">
+					<tr class="font-weight-bold text-default text-dark">
 					<th><center>Crop Name</center></th>
 					<th><center>Quantity (in KG)</center></th>
 					<th><center>Cost borne by farmer per KG (in Rs)</center></th>

@@ -49,7 +49,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 				<div class="card text-white bg-gradient-success mb-3">
 				  <div class="card-header">
-				  <span class=" text-success display-4" > Crop Prediction  </span>					
+				  <span class=" text-color display-4" > Crop Prediction  </span>					
 				  </div>
 
 				  <div class="card-body text-dark">
@@ -123,7 +123,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 <div class="card text-white bg-gradient-success mb-3">
 				  <div class="card-header">
-				  <span class=" text-success display-4" > Result  </span>					
+				  <span class=" text-color display-4" > Result  </span>					
 				  </div>
 
 					<h4>
