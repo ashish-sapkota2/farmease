@@ -33,7 +33,9 @@ if(isset($_POST['farmerupdate']))
 		$pass = ($_POST['pass']);
     $photo= $_FILES["photo"]["name"];
     $tempname=$_FILES["photo"]["tmp_name"];
-    $folder="../assets/u_image/".$photo;
+    $extension = pathinfo($photo, PATHINFO_EXTENSION); // Get the file extension
+    $folder = "../assets/u_image/$mobile.$extension";
+    // $folder="../assets/u_image/$mobile.jpg";
     move_uploaded_file($tempname, $folder);
     
 
