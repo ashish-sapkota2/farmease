@@ -138,7 +138,7 @@ function getdistrict(val) {
  
  
  
-<form name="insert" action="" method="post">	
+<form name="insert" action="" method="post" enctype="multipart/form-data">	
 		
 		  <div id="success"> <?php echo $error; ?>    </div>
 		 <script>		
@@ -273,7 +273,12 @@ function getdistrict(val) {
 		  					   
 
 		   </div>
-		   
+       <div class="form-group row">
+                <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark" > Profile Picture <strong class="text-default"> *</strong></label>
+                <div class="col-md-9">
+                  <input class="form-control" type="file"  name="photo" required="true"/>
+                </div>
+              </div>
 			  
 			   <div class="form-group row">
                 <label for="staffid" class="col-md-3 col-form-label text-white" >  </label>

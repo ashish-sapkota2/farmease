@@ -64,12 +64,12 @@ $error = '
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city) 
+function create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder) 
 {
 	global $conn;
 	
-      $query = "INSERT INTO `farmerlogin` (farmer_name, password, email, phone_no, F_gender, F_birthday, F_province, F_District, F_Location) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$gender', '$dob', '$provincename', '$district', '$city')";
+      $query = "INSERT INTO `farmerlogin` (farmer_name, password, email, phone_no, F_gender, F_birthday, F_province, F_District, F_Location, photo) 
+	  VALUES ('$name', '$password', '$email', '$mobile', '$gender', '$dob', '$provincename', '$district', '$city', '$folder')";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -93,7 +93,16 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     $city = $_POST['city'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
-	
+	// $photo = $_POST['photo'];
+	// $imagefile = "../assets/u_image/$mobile.jpg" ;
+    // $folder="../assets/u_image/$mobile.jpg";
+	// $filehandler = fopen($imagefile, 'wb' );
+    // fwrite($filehandler, base64_decode($photo));
+    // fclose($filehandler);
+	$photo= $_FILES["photo"]["name"];
+	$tempname=$_FILES["photo"]["tmp_name"];
+	$folder="../assets/u_image/".$photo;
+	move_uploaded_file($tempname, $folder);
 	
 	$query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
@@ -102,7 +111,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
 
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city )) {
+        if (create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder)) {
 			$_SESSION['farmer_login_user']=$email; // Initializing Session  
         header("location: fsend_otp.php");
         }else{	
