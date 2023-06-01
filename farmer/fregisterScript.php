@@ -35,7 +35,35 @@ function is_valid_email($email)
      }
 
 }
+function is_valid_phone($mobile)
+{
+	global $conn;
+	global $error;
+	
+     $slquery = "SELECT farmer_id FROM farmerlogin WHERE phone_no = '$mobile'";
+     $selectresult = mysqli_query($conn, $slquery);
+	 $rowcount=mysqli_num_rows($selectresult);
+	   
+	 if ($rowcount==true) {
+		 
+		$error = '
+		
+		<div class="alert alert-info alert-dismissible fade show text-center" id="popup" role="alert">
+			<strong class="text-center text-dark ">This phone_no already exists</strong>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		
+		';
 
+		return false;		
+ }
+    else  {
+        return true;
+     }
+
+}
 
  
 // function for password verification
@@ -93,6 +121,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     $city = $_POST['city'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
+	
 	// $photo = $_POST['photo'];
 	// $imagefile = "../assets/u_image/$mobile.jpg" ;
     // $folder="../assets/u_image/$mobile.jpg";
@@ -101,7 +130,9 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     // fclose($filehandler);
 	$photo= $_FILES["photo"]["name"];
 	$tempname=$_FILES["photo"]["tmp_name"];
-	$folder="../assets/u_image/".$photo;
+	$extension = pathinfo($photo, PATHINFO_EXTENSION); // Get the file extension
+    $folder = "../assets/u_image/$mobile.$extension";
+	// $folder="../assets/u_image/$mobile.jpg";
 	move_uploaded_file($tempname, $folder);
 	
 	$query5 = "SELECT ProvinceName from province where PrCode ='$province'";
@@ -109,7 +140,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
               $row5 = mysqli_fetch_assoc($ses_sq5);
               $provincename = $row5['ProvinceName'];
 
-    if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
+    if (is_valid_email($email) == true && is_valid_phone($mobile) == true && is_valid_passwords($password,$cpassword) == true)
     {	
         if (create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder)) {
 			$_SESSION['farmer_login_user']=$email; // Initializing Session  
