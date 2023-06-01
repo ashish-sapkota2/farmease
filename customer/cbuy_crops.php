@@ -188,7 +188,7 @@ if (mysqli_num_rows($result) > 0) {
             <td><?php echo $row["quantity"]; ?></td>
             <td>Rs. <?php echo $row["price"]; ?></td>
             <td>
-                <a href="cbuy_crops.php?action=delete&id=<?php echo $row["cid"]; ?>" type="button" class="btn btn-warning btn-block">Remove</a>
+                <a href="cbuy_crops.php?action=delete&id=<?php echo $row["cid"]; ?>" type="button" class="btn btn-red btn-block">Remove</a>
             </td>
         </tr>
         <?php

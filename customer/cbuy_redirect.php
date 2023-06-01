@@ -23,9 +23,11 @@ if (isset($_POST['add_to_cart'])) {
 
         $row = mysqli_fetch_assoc($result2);
         $availableQuantity = $row['quantity'];
+        $availableprice = $row['price'];
 
         // Calculate the remaining quantity that can be added to the cart
         $updatedQuantity = $availableQuantity + $quantity;
+        $updatedprice = $availableprice + $price;
         $query3 = "SELECT quantity FROM production_approx WHERE crop = '$crop'";
         $result3 = mysqli_query($conn, $query3);
     
@@ -41,15 +43,15 @@ if (isset($_POST['add_to_cart'])) {
         }
     
        // Update the quantity
-       $query4 = "UPDATE cart SET quantity = $updatedQuantity WHERE cust_id = '$cust_pid' AND cropname = '$crop'";
+       $query4 = "UPDATE cart SET quantity = $updatedQuantity, price = $updatedprice WHERE cust_id = '$cust_pid' AND cropname = '$crop'";
        $result4 = mysqli_query($conn, $query4);
 
         if ($result4) {
          //   echo "Item quantity updated in cart" . "<br>";
-            $_SESSION['success_message'] = "Item quantity updated in cart";
+            $_SESSION['success_message'] = "Item quantity and price updated in cart";
         } else {
            // echo "Error updating item quantity in cart: " . mysqli_error($conn) . "<br>";
-            $_SESSION['error_message'] = "Error updating item quantity in cart: " . mysqli_error($conn);
+            $_SESSION['error_message'] = "Error updating item quantity and price in cart: " . mysqli_error($conn);
         }
     }else{
             
@@ -102,12 +104,14 @@ if (isset($_POST["add_to_cart"])) {
             $item_exists = true;
             // Check if adding the quantity exceeds the maximum available quantity
             $total_quantity = $value['item_quantity'] + $quantity;
+            $total_price = $value['item_price'] + $price;
 
             $query = "SELECT quantity FROM production_approx WHERE crop = '$crop'";
             $result = mysqli_query($conn, $query);
 
             if ($row = mysqli_fetch_assoc($result)) {
                 $availableQuantity = $row['quantity'];
+                $availableprice = $row['price'];
 
                 if ($total_quantity > $availableQuantity) {
              // Display an error message if the total quantity exceeds the available quantity
@@ -118,6 +122,7 @@ if (isset($_POST["add_to_cart"])) {
          } else {
              // Update the quantity
              $_SESSION["shopping_cart"][$key]["item_quantity"] = $total_quantity;
+             $_SESSION["shopping_cart"][$key]["item_price"] = $total_price;
              break;
          }
      }

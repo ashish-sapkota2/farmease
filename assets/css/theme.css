@@ -3561,8 +3561,8 @@ fieldset:disabled .btn {
 
 .btn-success:hover {
   color: #fff;
-  background-color: #579f5a;
-  border-color: #529655;
+  background-color: #074142;
+  border-color: #074142;
 }
 
 .btn-check:focus + .btn-success, .btn-success:focus {
@@ -3640,7 +3640,16 @@ fieldset:disabled .btn {
   background-color: #FFA024;
   border-color: #FFA024;
 }
-
+.btn-red{
+  color: #fff;
+  background-color: #ca0707;
+  border-color: #ca0707;
+}
+.btn-red:hover{
+  color: #fff;
+  background-color: #800c0c;
+  border-color: #800c0c;
+}
 .btn-warning:hover {
   color: #fff;
   background-color: #d9881f;
