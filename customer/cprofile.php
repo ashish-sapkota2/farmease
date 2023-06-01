@@ -15,6 +15,7 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 			  $para7 = $row4['province'];
 			  $para8 = $row4['district'];
 			  $para9 = $row4['address'];
+        $para12 = $row4['photo'];
 
 		  
 if(isset($_POST['custupdate']))
@@ -27,13 +28,19 @@ if(isset($_POST['custupdate']))
 		$district = ($_POST['district']);
 		$address = ($_POST['address']);
 		$pass = ($_POST['pass']);
+    $photo= $_FILES["photo"]["name"];
+    $tempname=$_FILES["photo"]["tmp_name"];
+    $extension = pathinfo($photo, PATHINFO_EXTENSION); // Get the file extension
+    $folder = "../assets/c_image/$mobile.$extension";
+    // $folder="../assets/u_image/$mobile.jpg";
+    move_uploaded_file($tempname, $folder);
 
 $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
               $provincename = $row5['ProvinceName'];
 			  
-    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', password='$pass'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
+    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', password='$pass', photo='$folder'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
 	 header("location: cprofile.php");
   }			  
 ?>
@@ -77,7 +84,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 				<div class="card">
                 <div class="card-body bg-gradient-warning">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="../assets/img/customers.png" alt="student" class="rounded-circle img-fluid" width="202px">
+                    <img src="<?php echo $para12?>" alt="student" class="rounded-circle img-fluid" width="202px">
                     <div class="mt-3">
                       <h4>                Welcome     <?php echo $login_session ?></h4>
                       		  <button data-toggle="modal" data-target="#edit" class="btn btn-danger">Edit Profile</button>
@@ -205,6 +212,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               class="col s12 l5 white-text"
               method="POST"
               autocomplete="new-password"
+              enctype="multipart/form-data"
 			 
             >
 			
@@ -298,7 +306,12 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
           </div>
 		   </div>
 			  
-			  
+       <div class="form-group row">
+                <label for="staffid" class="col-md-3 col-form-label text-white" > Photo </label>
+                <div class="col-md-9">
+                  <input class="form-control" type="file" name="photo" required="true"/>
+                </div>				
+              </div>
 			   <div class="form-group row">
                 <label for="staffid" class="col-md-3 col-form-label text-white" >  </label>
                 <div class="col-md-9">

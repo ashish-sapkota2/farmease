@@ -35,7 +35,35 @@ function is_valid_email($email)
      }
 
 }
+function is_valid_phone($mobile)
+{
+	global $conn;
+	global $error;
+	
+     $slquery = "SELECT cust_id FROM custlogin WHERE phone_no = '$mobile'";
+     $selectresult = mysqli_query($conn, $slquery);
+	 $rowcount=mysqli_num_rows($selectresult);
+	   
+	 if ($rowcount==true) {
+		 
+		$error = '
+		
+		<div class="alert alert-info alert-dismissible fade show text-center" id="popup" role="alert">
+			<strong class="text-center text-dark ">This phone_no already exists</strong>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		
+		';
 
+		return false;		
+ }
+    else  {
+        return true;
+     }
+
+}
 
  
 // function for password verification
@@ -64,12 +92,12 @@ if ($password != $cpassword) {
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $provincename, $district, $address) 
+function create_user($name, $password, $email, $mobile, $provincename, $district, $address, $folder) 
 {
 	global $conn;
 	
-      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address' )";
+      $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address, photo) 
+	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address', '$folder')";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -91,6 +119,12 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
 	$address = $_POST['address'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
+	$photo= $_FILES["photo"]["name"];
+	$tempname=$_FILES["photo"]["tmp_name"];
+	$extension = pathinfo($photo, PATHINFO_EXTENSION); // Get the file extension
+    $folder = "../assets/c_image/$mobile.$extension";
+	// $folder="../assets/u_image/$mobile.jpg";
+	move_uploaded_file($tempname, $folder);
 
 
 $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
@@ -101,7 +135,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, )) {
+        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, $folder)) {
 			$_SESSION['customer_login_user']=$email; // Initializing Session    
         header("location: csend_otp.php");
         }else{

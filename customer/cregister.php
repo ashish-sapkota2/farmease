@@ -125,7 +125,7 @@ function getdistrict(val) {
         <div class="tab-content py-3 px-3 px-sm-0 bg-gradient-inf" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="card card-body bg-gradient-warning">
-              <form name="insert" action="" method="post">	
+              <form name="insert" action="" method="post"  enctype="multipart/form-data">	
                 <div id="success"><?php echo $error; ?></div>
                 <script>		
                   $("#success").fadeTo(2000, 500).slideUp(500, function(){
@@ -231,6 +231,13 @@ function getdistrict(val) {
                     </div>
                   </div>
                 </div>
+
+                <div class="form-group row">
+                <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark" > Profile Picture <strong class="text-default"> *</strong></label>
+                <div class="col-md-9">
+                  <input class="form-control" type="file"  name="photo" required="true"/>
+                </div>
+              </div>
 
                 <div class="form-group row">
                   <label for="staffid" class="col-md-3 col-form-label text-white"></label>

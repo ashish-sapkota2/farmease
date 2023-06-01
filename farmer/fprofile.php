@@ -352,7 +352,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
        <div class="form-group row">
                 <label for="staffid" class="col-md-3 col-form-label text-white" > Photo </label>
                 <div class="col-md-9">
-                  <input class="form-control" type="file" name="photo"/>
+                  <input class="form-control" type="file" name="photo" required="true"/>
                 </div>				
               </div>
 			  
