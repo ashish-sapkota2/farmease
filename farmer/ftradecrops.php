@@ -38,11 +38,11 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 <div class="container ">
     
-    	 <div class="row">
+    	 <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-danger badge-pill mb-3">Trade</span>
           </div>
-        </div>
+        </div> -->
 		
           <div class="row row-content">
             <div class="col-md-12 mb-3">

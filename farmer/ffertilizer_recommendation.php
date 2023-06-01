@@ -38,11 +38,11 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 <div class="container-fluid ">
     
-    	 <div class="row">
+    	 <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-danger badge-pill mb-3">Recommendation</span>
           </div>
-        </div>
+        </div> -->
 		
           <div class="row row-content">
             <div class="col-md-12 mb-3">
@@ -62,7 +62,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display text-dark" id="myTable">
 
     <thead>
-					<tr class="font-weight-bold text-default">
+					<tr class="font-weight-bold text-dark">
 					<th><center> Nitrogen</center></th>
 					<th><center>Phosporous</center></th>
 					<th><center>Potasioum</center></th>

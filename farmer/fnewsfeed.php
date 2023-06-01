@@ -60,11 +60,11 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 <div class="container-fluid ">
     
-    	 <div class="row">
+    	 <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-danger badge-pill mb-3">News</span>
           </div>
-        </div>
+        </div> -->
 		
                     <div class="row row-content">
             <div class="col-md-12 mb-3">
@@ -72,14 +72,14 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
         <div class="col-md-12">
 				<div class="card text-white bg-gradient-secondary mb-3">
 				  <div class="card-header">
-				  <span class=" text-warning display-4" > News List  </span> 					
+				  <span class=" text-color display-4" > News List  </span> 					
 				  </div>
 				  
 				  <div class="card-body text-dark">
 				<table class="table table-striped table-hover table-responsive table-bordered bg-gradient-white text-center display" id="myTable">
 
     <thead>
-					<tr class="font-weight-bold text-default">
+					<tr class="font-weight-bold text-dark">
 					<th><center>Image</center></th>
 					<th><center>Title</center></th>				
 					<th><center>Author</center></th>
@@ -111,7 +111,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 							 <td class="text-wrap text-justify"> <?php echo $news->title ?> </td>						 
 							 <td class="text-wrap text-justify"> <?php echo $news->author  ?> </td>
 							 <td class=" text-justify"> <?php echo $news->publishedAt  ?> </td>		
-<td>  <button class="btn btn-sm btn-info" > <a  href=<?php echo $news->url ?> class=" nav-link text-white" target="_blank">Visit</a> </button></td>
+<td>  <button class="btn btn-sm btn-success" > <a  href=<?php echo $news->url ?> class=" nav-link text-white" target="_blank">Visit</a> </button></td>
 
 							</tr>
 							
