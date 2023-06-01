@@ -77,8 +77,8 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
           </div>
         </div>
 		
-          <div class="row row-content">
-            <div class="col-md-4 mb-3">
+          <div class="column column-content">
+            <div class="col-md-12 mb-3">
 			
 			
 				<div class="card">
@@ -97,7 +97,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
             </div>
 			
 			
-                <div class="col-md-8">
+                <div class="col-md-12">
               <div class="card mb-3">
                 <div class="card-body bg-gradient-success">
 				
@@ -219,7 +219,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               <div class="form-group row">
                 <label
                   for="name"
-                  class="col-md-3 col-form-label text-white"
+                  class="col-md-3 col-form-label text-black"
                   >Customer ID</label
                 >
                 <div class="col-md-9">
@@ -233,21 +233,21 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
 			  
 			   <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Customer Name </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Customer Name </label>
                 <div class="col-md-9">
                   <input class="form-control" type="text" name="name" value="<?php echo "$para2"?>" />
                 </div>				
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Email Address </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Email Address </label>
                 <div class="col-md-9">
                   <input class="form-control" type="email" name="email" value="<?php echo "$para5"?>" readonly />
                 </div>
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Mobile No </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Mobile No </label>
                 <div class="col-md-9">
                   <input class="form-control" type="number" min="0" name="mobile" value="<?php echo "$para6"?>" />
                 </div>
@@ -256,9 +256,9 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Province</label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Province <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
-                  <select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" >
+                  <select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" required="true" >
                     <option value=""><?php echo "$para7"?></option>
                    	<?php $query =mysqli_query($conn,"SELECT * FROM province");
 					while($row=mysqli_fetch_array($query))
@@ -272,16 +272,16 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
 			  
 			    <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > District </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > District <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
-					<select  name="district" id="district-list" class="form-control">
+					<select  name="district" id="district-list" class="form-control" required="true">
 				<option value=""><?php echo "$para8"?></option>
 				</select>
                 </div>
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Address </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Address </label>
                 <div class="col-md-9">
                   <input class="form-control" type="text" name="address" value="<?php echo "$para9"?>" />
                 </div>
@@ -289,7 +289,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
 			  
 			  		 <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Password </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Password </label>
 			   <div class="col-9">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -307,7 +307,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 		   </div>
 			  
        <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Photo </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Photo <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
                   <input class="form-control" type="file" name="photo" required="true"/>
                 </div>				

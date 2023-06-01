@@ -9461,6 +9461,16 @@ fieldset:disabled .btn {
 .text-dark {
   color: #1F1534 !important;
 }
+.text-lskin {
+  color: #FFCB9A !important;
+}
+.text-skin {
+  color: #D9B08C !important;
+}
+.text-title {
+  /* color: #FF8B28 !important; */
+  color: #D86E39 !important;
+}
 
 .text-white {
   color: #fff !important;
