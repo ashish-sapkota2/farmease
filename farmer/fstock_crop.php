@@ -52,16 +52,16 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 				<div class="card text-white bg-gradient-warning mb-3">
 				  <div class="card-header">
-				  <span class=" text-warning display-4" > Crop Availability </span>
+				  <span class=" text-color display-4" > Crop Availability </span>
 				  
 					
 				  </div>
 				  
 				  <div class="card-body text-white">
-				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display" id="myTable">
+				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display text-dark" id="myTable">
 				
 				    <thead>
-		<tr class="font-weight-bold text-default">
+		<tr class="font-weight-bold text-default text-dark">
 						
 								
 					<th><center>Crop Name</center></th>
@@ -82,7 +82,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 								while($res = mysqli_fetch_array($query)){	
 				 ?>		  
 						  
-		 <tr class="text-center">
+		 <tr class="text-center text-dark">
 							 <td> <?php echo $res['crop'];  ?> </td>
 							 <td> <?php echo $res['quantity'];  ?> </td>
 							</tr>

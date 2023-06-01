@@ -50,16 +50,16 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 				<div class="card text-white bg-gradient-success mb-3">
 				<form role="form" action="#" method="post" >  
 				  <div class="card-header">
-				  <span class=" text-info display-4" > Fertilizer Recommendation  </span>	
+				  <span class=" text-color display-4" > Fertilizer Recommendation  </span>	
 						<span class="pull-right">
-							<button type="submit" value="Recommend" name="Fert_Recommend" class="btn btn-warning btn-submit">SUBMIT</button>
+							<button type="submit" value="Recommend" name="Fert_Recommend" class="btn btn-submit text-white">SUBMIT</button>
 						</span>		
 				  
 				  </div>
 
 				  <div class="card-body text-dark">
 					 
-				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display" id="myTable">
+				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display text-dark" id="myTable">
 
     <thead>
 					<tr class="font-weight-bold text-default">
@@ -163,7 +163,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 <div class="card text-white bg-gradient-success mb-3">
 				  <div class="card-header">
-				  <span class=" text-success display-4" > Result  </span>					
+				  <span class=" text-color display-4" > Result  </span>					
 				  </div>
 
 					<h4>

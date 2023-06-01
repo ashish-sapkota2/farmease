@@ -55,7 +55,7 @@ $result = mysqli_query($conn, $sql);
 
 				<div class="card text-white bg-gradient-warning mb-3">
 				  <div class="card-header">
-				  <span class=" text-warning display-4" > Selling History​  </span>					
+				  <span class=" text-color display-4" > Selling History​  </span>					
 				  </div>
 
 				  <div class="card-body text-dark">
@@ -63,7 +63,7 @@ $result = mysqli_query($conn, $sql);
 <!-- Form Wizard -->
 				<form role="form" onsubmit="return tradecrops()" id="sellcrops" action="ftradecropsScript.php" method="POST" >                                            
 
-				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display" id="myTable">
+				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display text-dark" id="myTable">
 
     <thead>
 					
