@@ -21,8 +21,7 @@ $("#nav li a").each(function() {
 });
   </script>
 
-
-
+<!-- check -->
   <nav
   id="navbar-main"
       class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-light opacity-85" data-navbar-on-scroll="data-navbar-on-scroll">
