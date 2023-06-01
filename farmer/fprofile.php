@@ -44,9 +44,6 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 <!DOCTYPE html>
 <html>
 <?php include ('fheader.php');  ?>
-<head>
-<!-- <link rel="stylesheet" href="../assets/css/theme.css"> -->
-</head>
 
   <body class="bg-white" id="top">
   

@@ -74,9 +74,7 @@
 <!--footer -->
 
 
-<!-- 
-
-<footer class="footer">
+<!-- <footer class="footer">
         <div class="container">
                     <div class="row">         
                 <div class="col-4 col-md-2   align-self-center">				
@@ -124,7 +122,7 @@
                 </div>
            </div>
         </div>
-    </footer>
+    </footer> -->
 
   	<script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script>
 	

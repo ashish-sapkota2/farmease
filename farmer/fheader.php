@@ -25,10 +25,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 		
 
-<<<<<<< HEAD
   <!-- <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css"> -->
-=======
->>>>>>> 6c7f6295147e599d44a39240d3685e160bc10d78
   <link rel="stylesheet" href="../assets/css/theme.css" type="text/css">
 
 

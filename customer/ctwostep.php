@@ -41,12 +41,12 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
     <nav
       id="navbar-main"
       class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-light opacity-85" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="index.php"><img class="d-inline-block align-top img-fluid" src="../assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
+      <div class="container"><a class="navbar-brand" href="../index.php"><img class="d-inline-block align-top img-fluid" src="../assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="index.php">Home</a></li>
-		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="contact.php">Contact</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="../index.php">Home</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="../contact.php">Contact</a></li>
           <!-- <li class="nav-item px-2"><a class="nav-link fw-medium" href="index.php">Opportunities</a></li> -->
           <li class="nav-item px-2"><div class="dropdown show">
 		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,7 +56,7 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 		  </a>
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="farmer/fregister.php">Farmer</a>
+			<a class="dropdown-item" href="../farmer/fregister.php">Farmer</a>
 			<a class="dropdown-item" href="customer/cregister.php">Customer</a>
 		  </div>
 		</div>
