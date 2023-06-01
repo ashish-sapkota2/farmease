@@ -300,7 +300,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-black" > province</label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > province <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
 				<select onChange="getdistrict(this.value);"  name="province" id="province" class="form-control" >
                     <option value=""><?php echo "$para9"?></option>
@@ -316,7 +316,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
 			  
 			  <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-black" > District </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > District <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
                  <select  name="district" id="district-list" class="form-control">
 				<option value=""><?php echo "$para10"?></option>
@@ -350,9 +350,9 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 		   </div>
 
        <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-black" > Photo </label>
+                <label for="staffid" class="col-md-3 col-form-label text-black" > Photo  <strong class="text-default"> *</strong></label>
                 <div class="col-md-9">
-                  <input class="form-control" type="file" name="photo"/>
+                  <input class="form-control" type="file" name="photo" required="true"/>
                 </div>				
               </div>
 			  
