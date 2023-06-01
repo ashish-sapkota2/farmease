@@ -121,6 +121,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     $city = $_POST['city'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
+	
 	// $photo = $_POST['photo'];
 	// $imagefile = "../assets/u_image/$mobile.jpg" ;
     // $folder="../assets/u_image/$mobile.jpg";
