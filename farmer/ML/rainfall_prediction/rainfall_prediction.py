@@ -19,7 +19,7 @@ def predict_rainfall(state, month):
 Jregion = sys.argv[1]
 Jmonth = sys.argv[2]
 
-#predicted_rainfall = predict_rainfall('ANDAMAN & NICOBAR ISLANDS', 'JAN')
+#predicted_rainfall = predict_rainfall('Arghankhanchi', 'JAN')
 
 predicted_rainfall = predict_rainfall(Jregion, Jmonth)
 print(predicted_rainfall)

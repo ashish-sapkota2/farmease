@@ -123,7 +123,6 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 					$Jregion=json_encode($region);
 					$Jmonth=json_encode($month);
-
 					$command = escapeshellcmd("python ML/rainfall_prediction/rainfall_prediction.py $Jregion $Jmonth ");
                     $output = passthru($command);
 					echo $output;	

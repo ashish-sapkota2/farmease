@@ -3,8 +3,8 @@
 var state_arr = new Array("Arghakhanchi", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra and Nagar Haveli", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir ", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu","Telangana ", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal");
 
 var s_a = new Array();
-s_a[0]="Arghakhanchi";
-s_a[1]="";
+s_a[0]="";
+s_a[1]="Arghakhanchi";
 s_a[2]=" ANANTAPUR | CHITTOOR | EAST GODAVARI | GUNTUR | KADAPA | KRISHNA | KURNOOL | PRAKASAM | SPSR NELLORE | SRIKAKULAM | VISAKHAPATANAM | VIZIANAGARAM | WEST GODAVARI ";
 s_a[3]=" ANJAW | CHANGLANG | DIBANG VALLEY | EAST KAMENG | EAST SIANG | KURUNG KUMEY | LOHIT | LONGDING | LOWER DIBANG VALLEY | LOWER SUBANSIRI | NAMSAI | PAPUM PARE | TAWANG | TIRAP | UPPER SIANG | UPPER SUBANSIRI | WEST KAMENG | WEST SIANG ";
 s_a[4]=" BAKSA | BARPETA | BONGAIGAON | CACHAR | CHIRANG | DARRANG | DHEMAJI | DHUBRI | DIBRUGARH | DIMA HASAO | GOALPARA | GOLAGHAT | HAILAKANDI | JORHAT | KAMRUP | KAMRUP METRO | KARBI ANGLONG | KARIMGANJ | KOKRAJHAR | LAKHIMPUR | MARIGAON | NAGAON | NALBARI | SIVASAGAR | SONITPUR | TINSUKIA | UDALGURI ";
@@ -78,7 +78,12 @@ function print_months(month_id) {
 }
 
 
-var region = ["Arghakhanchi", "ARUNACHAL PRADESH", "ASSAM & MEGHALAYA", "NAGA MANI MIZO TRIPURA", "SUB HIMALAYAN WEST BENGAL & SIKKIM", "GANGETIC WEST BENGAL", "ORISSA", "JHARKHAND", "BIHAR", "EAST UTTAR PRADESH", "WEST UTTAR PRADESH", "UTTARAKHAND", "HARYANA DELHI & CHANDIGARH", "PUNJAB", "HIMACHAL PRADESH", "JAMMU & KASHMIR", "WEST RAJASTHAN", "EAST RAJASTHAN", "WEST MADHYA PRADESH", "EAST MADHYA PRADESH", "GUJARAT REGION", "SAURASHTRA & KUTCH", "KONKAN & GOA", "MADHYA MAHARASHTRA", "MATATHWADA", "VIDARBHA", "CHHATTISGARH", "COASTAL ANDHRA PRADESH", "TELANGANA", "RAYALSEEMA", "TAMIL NADU", "COASTAL KARNATAKA", "NORTH INTERIOR KARNATAKA", "SOUTH INTERIOR KARNATAKA", "KERALA", "LAKSHADWEEP"];
+var region = ["Arghakhanchi", "Baglung", "Baitadi", "Bajang", "Banke", "Bara", "Bardiya", "Bhaktapur", "Chitawan", "Dadeldhura",
+ "Dailekh", "Dang", "Darchula", "Dhading", "Dhankuta", "Dhanusa", "Dolkha", "Dolpa", "Doti", "Gorkha", "Gulmi", "Humla", "Ilam", 
+ "Jhapa", "Jumla", "Kabhre", "Kailali", "Kanchanpur", "Kaski", "Kathmandu", "Lalitpur", "Lamjung", "Mahottari", "Makwanpur", "Manang",
+  "Morang", "Mugu", "Mustang", "Myagdi", "Nawalparasi", "Nuwakot", "Okhaldhunga", "Palpa", "Panchther", "Parbat", "Rasuwa", "Routahat",
+  "Rukum", "Rupandehi", "Salyan", "Sankhuwasabha", "Saptari", "Sarlahi", "Sindhuli", "Solukhumbu", "Sunsari", "Surkhet", "Syangja",
+  "Tanahun", "Taplejung", "Terhathum", "Udayapur"];
 
 function print_region(region_id) {
     var option_region = document.getElementById(region_id);
