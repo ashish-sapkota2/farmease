@@ -65,7 +65,7 @@ function print_city(city_id, city_index){
 
 // dropdown for rainfall prediction
 
-var months = ["ANNUAL", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]; 
+var months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC","ANNUAL"]; 
 
 function print_months(month_id) {
     var option_months = document.getElementById(month_id);
