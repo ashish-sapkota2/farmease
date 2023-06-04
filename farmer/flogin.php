@@ -41,9 +41,9 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
          <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
-		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="index.php">Home</a></li>
-		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="contact.php">Contact</a></li>
-          <li class="nav-item px-2"><a class="nav-link fw-medium" href="index.php">Opportunities</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="../index.php">Home</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="../contact.php">Contact</a></li>
+          <li class="nav-item px-2"><a class="nav-link fw-medium" href="../index.php">Opportunities</a></li>
           <li class="nav-item px-2"><div class="dropdown show">
 		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		                  <span class="nav-link-inner--text"
@@ -52,8 +52,8 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 		  </a>
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="farmer/fregister.php">Farmer</a>
-			<a class="dropdown-item" href="customer/cregister.php">Customer</a>
+			<a class="dropdown-item" href="fregister.php">Farmer</a>
+			<a class="dropdown-item" href="../customer/cregister.php">Customer</a>
 		  </div>
 		</div>
 			</li>
@@ -68,9 +68,9 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 		  </a>
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="farmer/flogin.php">Farmer</a>
-			<a class="dropdown-item" href="customer/clogin.php">Customer</a>
-			<a class="dropdown-item" href="admin/alogin.php">Admin </a>
+			<a class="dropdown-item" href="flogin.php">Farmer</a>
+			<a class="dropdown-item" href="../customer/clogin.php">Customer</a>
+			<a class="dropdown-item" href="../admin/alogin.php">Admin </a>
 		  </div>
 		</div>
 			</li>

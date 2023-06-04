@@ -29,7 +29,7 @@ include('aloginScript.php'); // Includes Login Script
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 
  
-  <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css">
+  <link rel="stylesheet" href="../assets/css/theme.css" type="text/css">
 
 </head>
 
@@ -37,106 +37,48 @@ include('aloginScript.php'); // Includes Login Script
     <!-- Navbar -->
     <nav
       id="navbar-main"
-      class="
-        navbar navbar-main navbar-expand-lg
-        bg-default
-        navbar-light
-        position-sticky
-        top-0
-        shadow
-        py-0
-      "
-    >
-      <div class="container">
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-          <li class="nav-item dropdown">
-            <a href="../index.php" class="navbar-brand mr-lg-5 text-white">
-                               <img src="../assets/img/nav.png" />
-            </a>
-          </li>
-        </ul>
-
-        <button
-          class="navbar-toggler bg-white"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar_global"
-          aria-controls="navbar_global"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon text-white"></span>
-        </button>
-        <div class="navbar-collapse collapse bg-default" id="navbar_global">
-          <div class="navbar-collapse-header">
-            <div class="row">
-              <div class="col-10 collapse-brand">
-                <a href="../index.html">
-                  <img src="../assets/img/nav.png" />
-                </a>
-              </div>
-              <div class="col-2 collapse-close bg-danger">
-                <button
-                  type="button"
-                  class="navbar-toggler"
-                  data-toggle="collapse"
-                  data-target="#navbar_global"
-                  aria-controls="navbar_global"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span></span>
-                  <span></span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <ul class="navbar-nav align-items-lg-center ml-auto">
-		  
-		   <li class="nav-item">
-              <a href="../contact.php" class="nav-link">
-                <span class="text-white nav-link-inner--text"
-                  ><i class="text-white fas fa-address-card"></i> Contact</span
-                >
-              </a>
-            </li>
-			
-						  <li class="nav-item">
-			   <div class="dropdown show ">
-		  <a class="nav-link dropdown-toggle text-white " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                  <span class="text-white nav-link-inner--text"
-                  ><i class="text-white fas fa-user-plus"></i> Sign Up</span
+      class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-light opacity-85" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand" href="../index.php"><img class="d-inline-block align-top img-fluid" src="../assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+         <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+         <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
+		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="../index.php">Home</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="../contact.php">Contact</a></li>
+          <li class="nav-item px-2"><a class="nav-link fw-medium" href="../index.php">Opportunities</a></li>
+          <li class="nav-item px-2"><div class="dropdown show">
+		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                  <span class="nav-link-inner--text"
+                  ><i class="fas fa-user-plus"></i> Sign Up</span
                 >
 		  </a>
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="farmer/fregister.php">Farmer</a>
-			<a class="dropdown-item" href="customer/cregister.php">Customer</a>
+			<a class="dropdown-item" href="../farmer/fregister.php">Farmer</a>
+			<a class="dropdown-item" href="../customer/cregister.php">Customer</a>
 		  </div>
 		</div>
 			</li>
 			
 		  
-		  	  <li class="nav-item">
+				  <li class="nav-item px-2">
 			   <div class="dropdown show ">
-		  <a class="nav-link dropdown-toggle text-success " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                  <span class="text-success nav-link-inner--text"
-                  ><i class="text-success fas fa-sign-in-alt"></i> Login</span
+		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                  <span class="nav-link-inner--text"
+                  ><i class="fas fa-sign-in-alt"></i> Login</span
                 >
 		  </a>
 
-		   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			<a class="dropdown-item" href="../farmer/flogin.php">Farmer</a>
-			<a class="dropdown-item" href="../customer/clogin.php">Customer</a>
+			<a class="dropdown-item" href="../customerclogin.php">Customer</a>
 			<a class="dropdown-item" href="alogin.php">Admin </a>
 		  </div>
 		</div>
 			</li>
-           
-
+			
           
           </ul>
+          
         </div>
       </div>
     </nav>

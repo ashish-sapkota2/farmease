@@ -51,7 +51,7 @@ function getdistrict(val) {
     <nav
       id="navbar-main"
       class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-light opacity-85" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="index.php"><img class="d-inline-block align-top img-fluid" src="../assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
+      <div class="container"><a class="navbar-brand" href="../index.php"><img class="d-inline-block align-top img-fluid" src="../assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
          <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
@@ -67,7 +67,7 @@ function getdistrict(val) {
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			<a class="dropdown-item" href="../farmer/fregister.php">Farmer</a>
-			<a class="dropdown-item" href="customer/cregister.php">Customer</a>
+			<a class="dropdown-item" href="cregister.php">Customer</a>
 		  </div>
 		</div>
 			</li>
@@ -83,7 +83,7 @@ function getdistrict(val) {
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			<a class="dropdown-item" href="../farmer/flogin.php">Farmer</a>
-			<a class="dropdown-item" href="customer/clogin.php">Customer</a>
+			<a class="dropdown-item" href="clogin.php">Customer</a>
 			<a class="dropdown-item" href="../admin/alogin.php">Admin </a>
 		  </div>
 		</div>
@@ -186,13 +186,6 @@ function getdistrict(val) {
                   <div class="col-md-9">
                     <input class="form-control" type="text" name="city" required="true"/>
                   </div>				
-                </div>
-
-                <div class="form-group row">
-                  <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark">Address<strong class="text-default"> *</strong></label>
-                  <div class="col-md-9">
-                    <input class="form-control" type="text" name="address" required="true" />
-                  </div>
                 </div>
 
                 <div class="form-group row">
