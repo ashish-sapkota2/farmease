@@ -1,10 +1,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/png" href="../assets/img/logo.png" />
-    <title>Agriculture Portal - Admin</title>
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
+    <title>FarmEase - Admin</title>
 
-  <!--     Fonts and icons     -->
+   <!--     Fonts and icons     -->
   
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,7 +25,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 		
 
-  <link rel="stylesheet" href="../assets/css/creativetim.min.css" type="text/css">
-
+  <link rel="stylesheet" href="../assets/css/theme.css" type="text/css">
 
 </head>

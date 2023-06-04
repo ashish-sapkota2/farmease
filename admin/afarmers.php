@@ -54,7 +54,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 
 				<div class="card text-white bg-gradient-success mb-3">
 				  <div class="card-header">
-				  <span class=" text-success display-4" > Farmers List  </span>
+				  <span class=" text-color display-4" > Farmers List  </span>
 					
 				  </div>
 
@@ -62,7 +62,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display" id="myTable">
 
     <thead>
-					<tr class="font-weight-bold text-default">
+					<tr class="font-weight-bold text-dark">
             <th><center>ID</center></th>
 					<th><center>Farmer Name</center></th>
 					<th><center>Gender</center></th>
@@ -85,7 +85,7 @@ $sql = "SELECT farmer_name, farmer_id, F_gender, email, phone_no, F_birthday, F_
 								while($res = mysqli_fetch_array($query)){	
 				 ?>		  
 						  
-		 <tr class="text-center">
+		 <tr class="text-center text-dark">
 							 <td> <?php echo $res['farmer_id'];  ?> </td>
 							 <td> <?php echo $res['farmer_name'];  ?> </td>
 							 <td> <?php echo $res['F_gender'];  ?> </td>

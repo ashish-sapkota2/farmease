@@ -41,7 +41,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 
 
 
-<div class="container ">
+<div class="container">
     
     	 <div class="row">
           <div class="col-md-8 mx-auto text-center">
@@ -54,7 +54,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 
 				<div class="card text-white bg-gradient-warning mb-3">
 				  <div class="card-header">
-				  <span class=" text-warning display-4" > Produced Crops  </span>
+				  <span class=" text-color display-4" > Produced Crops  </span>
 				  
 					
 				  </div>
@@ -63,7 +63,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 				<table class="table table-striped table-hover table-bordered bg-gradient-white text-center display" id="myTable">
 				
 				    <thead>
-		<tr class="font-weight-bold text-default">
+		<tr class="font-weight-bold text-dark">
 						
 								
 					<th><center>Crop Name</center></th>
@@ -84,7 +84,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 								while($res = mysqli_fetch_array($query)){	
 				 ?>		  
 						  
-		 <tr class="text-center">
+		 <tr class="text-center text-dark">
 							 <td> <?php echo $res['crop'];  ?> </td>
 							 <td> <?php echo $res['quantity'];  ?> </td>
 							</tr>
