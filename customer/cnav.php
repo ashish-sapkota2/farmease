@@ -178,7 +178,7 @@ $("#nav li a").each(function() {
 			
 		  
 		   <li class="nav-item px-2">
-              <a href="alogout.php" class="nav-link">
+              <a href="clogout.php" class="nav-link">
                 <span class="nav-link-inner--text font-weight-bold"
                   ><i class="text-danger fas fa-power-off"></i> Logout </span
                 >
