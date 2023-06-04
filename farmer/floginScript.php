@@ -17,7 +17,7 @@ if(isset($_POST ['farmerlogin'])) {
     $_SESSION['farmer_login_user']=$farmer_email; // Initializing Session
     
 
-    header("location: fsend_otp.php"); // Redirecting To Other Page
+    header("location: fsend_otp.php"); //sending otp
     } 
     else  {
        $error = "Username or Password is invalid";

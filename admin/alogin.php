@@ -8,8 +8,8 @@ include('aloginScript.php'); // Includes Login Script
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/png" href="../assets/img/logo.png" />
-    <title>Agriculture Portal</title>
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
+    <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
   
@@ -85,7 +85,7 @@ include('aloginScript.php'); // Includes Login Script
     <!-- End Navbar -->
  	
   <section class="section section-shaped section-lg">
-    <div class="shape shape-style-1 shape-primary">
+    <!-- <div class="shape shape-style-1 shape-primary">
       <span></span>
       <span></span>
       <span></span>
@@ -96,23 +96,23 @@ include('aloginScript.php'); // Includes Login Script
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </div> -->
 <!-- ======================================================================================================================================== -->
 
 
 <div class="container">
 
- <div class="row">
+ <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-info badge-pill mb-3">Login</span>
           </div>
-        </div> 
+        </div>  -->
       
 <div class="row">
 <div class="col-sm-12 mb-3">  
 			  
   <div class="nav nav-tabs nav-fill bg-gradient-default" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active font-weight-bold text-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Admin Login</a>
+    <a class="nav-item nav-link active font-weight-bold text-color" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Admin Login</a>
 
   </div>
                   
@@ -123,11 +123,11 @@ include('aloginScript.php'); // Includes Login Script
          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
            <div class="card card-body bg-gradient-success">
  
-                <form  method="post" action="">     
+                <form  method="post" action="aloginScript.php">     
                         
 					<div class="form-group row">
-                    <label for="name" class="col-md-3 col-form-label"
-                      ><h6 class="text-white font-weight-bold">Admin ID</h6>
+                    <label for="email" class="col-md-3 col-form-label"
+                      ><h6 class="text-color font-weight-bold">Email ID</h6>
                     </label>
                     <div class="col-md-9">
                       <input
@@ -135,14 +135,14 @@ include('aloginScript.php'); // Includes Login Script
                         class="form-control"
                         required
                         id="name"
-                        name="admin_name"
-                        placeholder="Enter Admin ID"
+                        name="admin_email"
+                        placeholder="Enter Email ID"
                       />
                     </div>
                   </div>
 				  
 				  				  			  		 <div class="form-group row">
-                <label for="staffid" class="col-md-3 col-form-label text-white" > Password </label>
+                <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-color" > Password </label>
 			   <div class="col-9">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -163,7 +163,7 @@ include('aloginScript.php'); // Includes Login Script
                     <div class="offset-md-3 col-md-2">
                       <button
                         type="submit"
-                        class="btn btn-info text-dark"
+                        class="btn btn-block text-white btn-success"
 						name="adminlogin" id="submit" value="submit"
                       >
                         Login
@@ -171,7 +171,18 @@ include('aloginScript.php'); // Includes Login Script
                     </div>
 					</div>
 					
-					   <span><?php echo $error; ?></span>
+             
+					   <span>
+              <?php if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+    <strong class='text-center text-dark '>$error</strong>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+
+} ?></span>
              </form>
 				
            </div>

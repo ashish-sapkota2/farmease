@@ -1,19 +1,16 @@
 <?php
-session_start();// Starting Session
-require('../sql.php'); // Includes Login Script
+include ('asession.php');
 
-// Storing Session
-$user = $_SESSION['admin_login_user'];
+ini_set('memory_limit', '-1');
 
 if(!isset($_SESSION['admin_login_user'])){
 header("location: ../index.php");} // Redirecting To Home Page
-$query4 = "SELECT * from admin where admin_name ='$user'";
+$query4 = "SELECT * from admin where email ='$user_check'";
               $ses_sq4 = mysqli_query($conn, $query4);
               $row4 = mysqli_fetch_assoc($ses_sq4);
               $para1 = $row4['admin_id'];
               $para2 = $row4['admin_name'];
-			  $para3 = $row4['admin_password'];
-			  	  
+			  
 ?>
 
 
@@ -26,7 +23,7 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
 <?php require ('anav.php');  ?>
  	
   <section class="section section-shaped section-lg">
-    <div class="shape shape-style-1 shape-primary">
+    <!-- <div class="shape shape-style-1 shape-primary">
       <span></span>
       <span></span>
       <span></span>
@@ -37,17 +34,17 @@ $query4 = "SELECT * from admin where admin_name ='$user'";
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </div> -->
 <!-- ======================================================================================================================================== -->
 
 
 <div class="container-fluid ">
     
-    	 <div class="row">
+    	 <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-danger badge-pill mb-3">CUSTOMER</span>
           </div>
-        </div>
+        </div> -->
 		
           <div class="row row-content">
             <div class="col-md-12 mb-3">

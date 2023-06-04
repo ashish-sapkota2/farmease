@@ -1,18 +1,15 @@
 <?php
-session_start();// Starting Session
-require('../sql.php'); // Includes Login Script
+include ('asession.php');
 
-// Storing Session
-$user = $_SESSION['admin_login_user'];
+ini_set('memory_limit', '-1');
 
 if(!isset($_SESSION['admin_login_user'])){
 header("location: ../index.php");} // Redirecting To Home Page
-$query4 = "SELECT * from admin where admin_name ='$user'";
+$query4 = "SELECT * from admin where email ='$user_check'";
               $ses_sq4 = mysqli_query($conn, $query4);
               $row4 = mysqli_fetch_assoc($ses_sq4);
               $para1 = $row4['admin_id'];
               $para2 = $row4['admin_name'];
-			  $para3 = $row4['admin_password'];
 			  
 ?>
 

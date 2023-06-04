@@ -76,11 +76,11 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 
 <div class="container ">
     
-    	 <div class="row">
+    	 <!-- <div class="row">
           <div class="col-md-8 mx-auto text-center">
             <span class="badge badge-danger badge-pill mb-3">Profile</span>
           </div>
-        </div>
+        </div> -->
 		
           <div class="column column-content">
             <div class="col-md-12 mb-3">
