@@ -37,8 +37,8 @@ foreach ($district as $district) {
     }
 }
 if($district_weather_id<=0){
-    $district_weather_id=1253952;
-	// Mangalore - 1263780   , Mysore - 1262321 , Udupi - 1253952
+    $district_weather_id=1283240;
+	// default kathmandu
 }
 $city_weather_id=strval($district_weather_id);
 
