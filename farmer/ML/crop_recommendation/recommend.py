@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import json
 import sys
-from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # Get the input parameters as command line arguments
 jsonn = sys.argv[1]
@@ -35,7 +35,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 #Train the model using the Random Forest Classifier algorithm
 from sklearn.ensemble import RandomForestClassifier
-classifier =     GradientBoostingClassifier(random_state=0),
+classifier =     RandomForestClassifier(random_state=0)
 classifier.fit(X_train, y_train)
 
 #Get the user inputs and store them in a numpy array
