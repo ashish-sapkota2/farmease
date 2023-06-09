@@ -16,6 +16,8 @@ data['Crop Type'] = le_crop.fit_transform(data['Crop Type'])
 X = data.iloc[:, :8] #contain all column from the beginning up to the 8th column(excluding last)
 y = data.iloc[:, -1] #contains only the last column
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
 # Training the randomforest Tree Classifier model
 dtc = RandomForestClassifier(random_state=0) #create an instance of DecisionTreeClassifier with a random state of 0(for reproducibility)
 dtc.fit(X, y) #fit model to the variables x and y 
