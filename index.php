@@ -87,7 +87,8 @@
           <div class="row align-items-center min-vh-75 min-vh-lg-100">
             <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
               <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Bridging the Gap for<br class="d-block d-lg-block" />Farmers & Customers</h1>
-              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture portal offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p><a class="btn btn-lg btn-success" href="#" role="button">Learn More</a>
+              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture portal offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p>
+              <!-- <a class="btn btn-lg btn-success" href="#" role="button">Learn More</a> -->
             </div>
           </div>
         </div>
@@ -156,7 +157,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-9 mx-auto text-center mb-3">
-              <h3 class="display-3">Innovations</h3>
+              <h3 class="display-3">Opportunities</h3>
               <p class="mb-5">Revolutionize agriculture with Farmease - connecting farmers and customers like never before.</p>
             </div>
           </div>

@@ -1,10 +1,18 @@
+import __future__ 
 import pandas as pd
+import joblib
 import numpy as np
-import json
+import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import cohen_kappa_score
+from sklearn import metrics
+from sklearn import tree
 import sys
-from sklearn.ensemble import RandomForestClassifier
+import json
+import warnings
+warnings.filterwarnings('ignore')
 
-# Get the input parameters as command line arguments
 jsonn = sys.argv[1]
 jsonp = sys.argv[2]
 jsonk = sys.argv[3]
@@ -13,7 +21,6 @@ jsonh = sys.argv[5]
 jsonph = sys.argv[6]
 jsonr = sys.argv[7]
 
-# Parse the JSON strings into Python objects
 n_params = json.loads(jsonn)
 p_params = json.loads(jsonp)
 k_params = json.loads(jsonk)
@@ -22,28 +29,9 @@ h_params = json.loads(jsonh)
 ph_params = json.loads(jsonph)
 r_params = json.loads(jsonr)
 
-#Read the dataset
-dataset = pd.read_csv('ML/crop_recommendation/Crop_recommendation.csv')
+with open('ML/crop_recommendation/croprecommendation.pkl','rb') as f:
+    fm= joblib.load(f)
+data= np.array([[n_params,p_params,k_params,t_params,h_params,ph_params,r_params]])
+prediction=fm.predict(data)
 
-#Divide the dataset into features and labels
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, -1].values
-
-#Split the dataset into training and test sets
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-
-#Train the model using the Random Forest Classifier algorithm
-from sklearn.ensemble import RandomForestClassifier
-classifier =     RandomForestClassifier(random_state=0)
-classifier.fit(X_train, y_train)
-
-#Get the user inputs and store them in a numpy array
-#user_input = np.array([[90,42,43,21,82,6.5,203]]) - ans is rice.
-user_input = np.array([[n_params,p_params,k_params,t_params,h_params,ph_params,r_params]])
-
-#Make predictions using the trained model
-predictions = classifier.predict(user_input)
-
-#Print the predicted crop
-print(str(predictions[0]))
+print(str(prediction[0]))
