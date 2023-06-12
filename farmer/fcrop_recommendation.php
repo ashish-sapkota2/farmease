@@ -65,8 +65,8 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
     <thead>
 					<tr class="font-weight-bold text-dark">
 					<th><center> Nitrogen</center></th>
-					<th><center>Phosporous</center></th>
-					<th><center>Potasioum</center></th>
+					<th><center>Phosphorous</center></th>
+					<th><center>Potassium</center></th>
 					<th><center>Temparature</center></th>
 					<th><center>Humidity</center></th>
 					<th><center>PH</center></th>
