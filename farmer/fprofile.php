@@ -45,7 +45,7 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               $provincename = $row5['ProvinceName'];
               
     $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);	 	  
-    $updatequery1 = "UPDATE farmerlogin set  farmer_name='$name', email='$email', phone_no='$mobile',  F_gender='$gender',  F_birthday='$dob',  F_province='$statename', F_District='$district', F_Location='$city', password='$hashedPassword', photo='$folder'  where farmer_id='$id'";mysqli_query($conn, $updatequery1);
+    $updatequery1 = "UPDATE farmerlogin set  farmer_name='$name', email='$email', phone_no='$mobile',  F_gender='$gender',  F_birthday='$dob',  F_province='$provincename', F_District='$district', F_Location='$city', password='$hashedPassword', photo='$folder'  where farmer_id='$id'";mysqli_query($conn, $updatequery1);
   header("location: fprofile.php");
   }		  
 ?>
@@ -341,10 +341,10 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
               <input name="pass" type="password" value="<?php echo "$para3"?>" class="input form-control" id="password" placeholder="password" required="true" aria-label="password" aria-describedby="basic-addon1" />
               <div class="input-group-append">
-                <!-- <span class="input-group-text" onclick="password_show_hide();">
+                <span class="input-group-text" onclick="password_show_hide();">
                   <i class="fas fa-eye" id="show_eye"></i>
                   <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
-                </span> -->
+                </span>
               </div>
             </div>
           </div>

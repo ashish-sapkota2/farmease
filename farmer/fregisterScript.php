@@ -143,7 +143,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
     if (is_valid_email($email) == true && is_valid_phone($mobile) == true && is_valid_passwords($password,$cpassword) == true)
     {	
 		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        if (create_user($name, $hashedpassword, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder)) {
+        if (create_user($name, $hashedPassword, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder)) {
 			$_SESSION['farmer_login_user']=$email; // Initializing Session  
         header("location: fsend_otp.php");
         }else{	
