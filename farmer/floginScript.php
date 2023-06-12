@@ -10,7 +10,7 @@ if(isset($_POST ['farmerlogin'])) {
   //$farmer_password=SHA1($farmer_password);
 
 
-  $farmerquery = "SELECT * from `farmerlogin` where email='".$farmer_email."' and password='".$farmer_password."' ";
+  $farmerquery = "SELECT * from `farmerlogin` where email='".$farmer_email."' ";
   $result = mysqli_query($conn, $farmerquery);
   $rowcount=mysqli_num_rows($result);
   if ($rowcount==1) {
@@ -18,16 +18,16 @@ if(isset($_POST ['farmerlogin'])) {
     $hashedPassword = $row['password'];
     
     // Verify the entered password against the stored hashed password
-    if (password_verify($customer_password, $hashedPassword)) {
+    if (password_verify($farmer_password, $hashedPassword)) {
       $_SESSION['farmer_login_user']=$farmer_email; // Initializing Session
     
 
       header("location: fsend_otp.php"); //sending otp
     } else  {
-       $error = "Username or Password is invalid";
+       $error = "Invalid username and password";
        header("location: flogin.php?error=" . urlencode($error)); // Redirect with error message
      }}else  {
-       $error = "Username or Password is invalid";
+       $error = "Invalid username and password";
        header("location: flogin.php?error=" . urlencode($error)); // Redirect with error message
      }
     
