@@ -1,7 +1,7 @@
 import pandas as pd #data manipulation
 import sys #accessing command line arguments
 from sklearn.preprocessing import LabelEncoder #for label encoding categorical features
-from sklearn.ensemble import RandomForestClassifier 
+from sklearn.tree import DecisionTreeClassifier #for creating decision tree classifier model
 
 # Load the dataset
 data = pd.read_csv("ML/fertilizer_recommendation/fertilizer_recommendation.csv")
@@ -16,16 +16,8 @@ data['Crop Type'] = le_crop.fit_transform(data['Crop Type'])
 X = data.iloc[:, :8] #contain all column from the beginning up to the 8th column(excluding last)
 y = data.iloc[:, -1] #contains only the last column
 
-<<<<<<< HEAD
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-=======
-#Split the dataset into training and test sets
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
->>>>>>> 521c26d03adecae364c1eaf6986eae0cca5c2d26
-
-# Training the randomforest Tree Classifier model
-dtc = RandomForestClassifier(random_state=0) #create an instance of DecisionTreeClassifier with a random state of 0(for reproducibility)
+# Training the Decision Tree Classifier model
+dtc = DecisionTreeClassifier(random_state=0) #create an instance of DecisionTreeClassifier with a random state of 0(for reproducibility)
 dtc.fit(X, y) #fit model to the variables x and y 
 
 # Get the input parameters as command line arguments

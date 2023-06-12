@@ -39,8 +39,9 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
               $provincename = $row5['ProvinceName'];
-			  
-    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', password='$pass', photo='$folder'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
+              
+    $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);	  
+    $updatequery1 = "UPDATE custlogin set  cust_name='$name', email='$email', phone_no='$mobile',  province='$provincename',  district='$district',  address='$address', password='$hashedPassword', photo='$folder'  where cust_id='$id'";mysqli_query($conn, $updatequery1);
 	 header("location: cprofile.php");
   }			  
 ?>

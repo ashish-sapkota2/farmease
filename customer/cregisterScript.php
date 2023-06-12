@@ -95,9 +95,9 @@ if ($password != $cpassword) {
 function create_user($name, $password, $email, $mobile, $provincename, $district, $address, $folder) 
 {
 	global $conn;
-	
+	$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
       $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address, photo) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$provincename', '$district', '$address', '$folder')";
+	  VALUES ('$name', '$hashedPassword', '$email', '$mobile', '$provincename', '$district', '$address', '$folder')";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -135,7 +135,8 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 			  
     if (is_valid_email($email) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $provincename, $district, $address, $folder)) {
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        if (create_user($name, $hashedPassword, $email, $mobile, $provincename, $district, $address, $folder)) {
 			$_SESSION['customer_login_user']=$email; // Initializing Session    
         header("location: csend_otp.php");
         }else{

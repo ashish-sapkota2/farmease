@@ -95,9 +95,9 @@ $error = '
 function create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder) 
 {
 	global $conn;
-	
+	$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
       $query = "INSERT INTO `farmerlogin` (farmer_name, password, email, phone_no, F_gender, F_birthday, F_province, F_District, F_Location, photo) 
-	  VALUES ('$name', '$password', '$email', '$mobile', '$gender', '$dob', '$provincename', '$district', '$city', '$folder')";
+	  VALUES ('$name', '$hashedPassword', '$email', '$mobile', '$gender', '$dob', '$provincename', '$district', '$city', '$folder')";
       $result = mysqli_query($conn, $query);
       if($result){
           return true; // Success
@@ -142,7 +142,8 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
 
     if (is_valid_email($email) == true && is_valid_phone($mobile) == true && is_valid_passwords($password,$cpassword) == true)
     {	
-        if (create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder)) {
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        if (create_user($name, $hashedpassword, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder)) {
 			$_SESSION['farmer_login_user']=$email; // Initializing Session  
         header("location: fsend_otp.php");
         }else{	

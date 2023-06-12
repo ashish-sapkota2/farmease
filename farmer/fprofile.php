@@ -43,8 +43,9 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
 	$ses_sq5 = mysqli_query($conn, $query5);
               $row5 = mysqli_fetch_assoc($ses_sq5);
               $provincename = $row5['ProvinceName'];
-			  
-    $updatequery1 = "UPDATE farmerlogin set  farmer_name='$name', email='$email', phone_no='$mobile',  F_gender='$gender',  F_birthday='$dob',  F_province='$statename', F_District='$district', F_Location='$city', password='$pass', photo='$folder'  where farmer_id='$id'";mysqli_query($conn, $updatequery1);
+              
+    $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);	 	  
+    $updatequery1 = "UPDATE farmerlogin set  farmer_name='$name', email='$email', phone_no='$mobile',  F_gender='$gender',  F_birthday='$dob',  F_province='$statename', F_District='$district', F_Location='$city', password='$hashedPassword', photo='$folder'  where farmer_id='$id'";mysqli_query($conn, $updatequery1);
   header("location: fprofile.php");
   }		  
 ?>
