@@ -162,5 +162,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
         }
     }
 }
+//check
     // You don't need to write another 'else' since this is the end of PHP code 
 ?>
+
