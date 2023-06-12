@@ -18,13 +18,13 @@ if(isset($_POST ['farmerlogin'])) {
     $hashedPassword = $row['password'];
     
     // Verify the entered password against the stored hashed password
-    if (password_verify($customer_password, $hashedPassword)) {
+    if (password_verify($farmer_password, trim($hashedPassword))) {
       $_SESSION['farmer_login_user']=$farmer_email; // Initializing Session
     
 
       header("location: fsend_otp.php"); //sending otp
     } else  {
-       $error = "Username or Password is invalid";
+       $error = "Something went wrong";
        header("location: flogin.php?error=" . urlencode($error)); // Redirect with error message
      }}else  {
        $error = "Username or Password is invalid";
