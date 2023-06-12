@@ -341,10 +341,10 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
               </div>
               <input name="pass" type="password" value="<?php echo "$para3"?>" class="input form-control" id="password" placeholder="password" required="true" aria-label="password" aria-describedby="basic-addon1" />
               <div class="input-group-append">
-                <span class="input-group-text" onclick="password_show_hide();">
+                <!-- <span class="input-group-text" onclick="password_show_hide();">
                   <i class="fas fa-eye" id="show_eye"></i>
                   <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
-                </span>
+                </span> -->
               </div>
             </div>
           </div>
