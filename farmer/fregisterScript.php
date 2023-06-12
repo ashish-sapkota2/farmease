@@ -92,10 +92,10 @@ $error = '
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder) 
+function create_user($name, $hashedPassword, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder) 
 {
 	global $conn;
-	$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+	
       $query = "INSERT INTO `farmerlogin` (farmer_name, password, email, phone_no, F_gender, F_birthday, F_province, F_District, F_Location, photo) 
 	  VALUES ('$name', '$hashedPassword', '$email', '$mobile', '$gender', '$dob', '$provincename', '$district', '$city', '$folder')";
       $result = mysqli_query($conn, $query);
@@ -162,5 +162,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
         }
     }
 }
+//check
     // You don't need to write another 'else' since this is the end of PHP code 
 ?>
+

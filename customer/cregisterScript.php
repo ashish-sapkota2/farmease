@@ -92,10 +92,10 @@ if ($password != $cpassword) {
 }
 
 // function for creating user
-function create_user($name, $password, $email, $mobile, $provincename, $district, $address, $folder) 
+function create_user($name, $hashedPassword, $email, $mobile, $provincename, $district, $address, $folder) 
 {
 	global $conn;
-	$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+	
       $query = "INSERT INTO `custlogin` (cust_name, password, email, phone_no, province, district, address, photo) 
 	  VALUES ('$name', '$hashedPassword', '$email', '$mobile', '$provincename', '$district', '$address', '$folder')";
       $result = mysqli_query($conn, $query);
