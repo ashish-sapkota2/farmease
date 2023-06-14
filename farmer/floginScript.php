@@ -10,7 +10,7 @@ if(isset($_POST ['farmerlogin'])) {
   //$farmer_password=SHA1($farmer_password);
 
 
-  $farmerquery = "SELECT * from `farmerlogin` where email='".$farmer_email."' ";
+  $farmerquery = "SELECT * from `farmerlogin` where email='".$farmer_email."' and password='".$farmer_password."' ";
   $result = mysqli_query($conn, $farmerquery);
   $rowcount=mysqli_num_rows($result);
   if ($rowcount==1) {
@@ -27,7 +27,7 @@ if(isset($_POST ['farmerlogin'])) {
        $error = "Something went wrong";
        header("location: flogin.php?error=" . urlencode($error)); // Redirect with error message
      }}else  {
-       $error = "Invalid username and password";
+       $error = "Username or Password is invalid";
        header("location: flogin.php?error=" . urlencode($error)); // Redirect with error message
      }
     
