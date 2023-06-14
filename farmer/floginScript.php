@@ -10,7 +10,7 @@ if(isset($_POST ['farmerlogin'])) {
   //$farmer_password=SHA1($farmer_password);
 
 
-  $farmerquery = "SELECT * from `farmerlogin` where email='".$farmer_email."' and password='".$farmer_password."' ";
+  $farmerquery = "SELECT * from `farmerlogin` where email='".$farmer_email."'";
   $result = mysqli_query($conn, $farmerquery);
   $rowcount=mysqli_num_rows($result);
   if ($rowcount==1) {

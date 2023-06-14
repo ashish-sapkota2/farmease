@@ -59,7 +59,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
     <thead>
 					<tr class="font-weight-bold text-dark">
-					<th><center> State</center></th>
+					<th><center> Province</center></th>
 					<th><center>District</center></th>
 					<th><center>Season</center></th>
 					<th><center>Prediction</center></th>
@@ -71,18 +71,18 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
                                     <td>
                                     	<div class="form-group">
-											<select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
-											<script language="javascript">print_state("sts");</script>
+											<select onchange="print_city('province', this.selectedIndex);" id="pr" name ="stt" class="form-control" required></select>
+											<script language="javascript">print_province("pr");</script>
 											
 										</div>
                                     </td>
 
 									<td>
 										<div class="form-group ">
-											<select id ="state" name="district" class="form-control" required>
+											<select id ="province" name="district" class="form-control" required>
 											<option value="">Select District</option>
 											</select>
-											<script language="javascript">print_state("sts");</script>
+											<script language="javascript">print_province("pr");</script>
 										</div>
                                     </td>
 									
