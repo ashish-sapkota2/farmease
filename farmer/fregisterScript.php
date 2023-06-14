@@ -92,6 +92,7 @@ $error = '
 }
 
 // function for creating user. changes made
+
 function create_user($name, $hashedPassword, $email, $mobile, $gender, $dob, $provincename, $district, $city, $folder) 
 {
 	global $conn;
