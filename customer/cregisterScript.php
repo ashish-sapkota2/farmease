@@ -91,7 +91,7 @@ if ($password != $cpassword) {
      }
 }
 
-// function for creating user
+// function for creating user. changes made
 function create_user($name, $hashedPassword, $email, $mobile, $provincename, $district, $address, $folder) 
 {
 	global $conn;
