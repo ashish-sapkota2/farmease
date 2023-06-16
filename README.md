@@ -4,15 +4,26 @@
 - IT also has direct crop sales to customer with real payment interface using Stripe API.
 - Other supporting features are Chatbot using OPENAI's gpt-3.5-turbo model, Weather Forecast upto 4 days using Weather API, Agriculture realetd news using News API.
 
+<<<<<<< HEAD
+=======
+## Pre Requisites
+
+>>>>>>> 774499a1f73192693fd3e50a9fad072c5e45adc7
 ## Features
 - Crop Prediction
 - Crop Recommendation
 - Fertilizer Recommendation
 - Rainfall Prediction
-- Yield Prediction
 - OTP Verification through mail
+<<<<<<< HEAD
 - Dynamically changing quotes using OpenAI's API
 - Weather Forecast upto 4 days using OpenWeatherMap API
+=======
+- Agriculture realetd news using News API
+- Dynamically changing quotes using OpenAI's API
+- Weather Forecast upto 4 days using OpenWeatherMap API
+
+>>>>>>> 774499a1f73192693fd3e50a9fad072c5e45adc7
 
 
 ## Technologies Used
@@ -26,6 +37,7 @@
 - Scikit-learn
 
 ## Dataset
+<<<<<<< HEAD
 The Crop Management System dataset includes the following features:
 
 ### Crop Prediction Dataset
@@ -34,6 +46,8 @@ The Crop Management System dataset includes the following features:
 - Season
 - Crop
 
+=======
+>>>>>>> 774499a1f73192693fd3e50a9fad072c5e45adc7
 ### Crop Recommendation Dataset
 - N
 - P
