@@ -40,7 +40,7 @@ $("#nav li a").each(function() {
 
 		   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 		   <a class="dropdown-item" href="fcrop_prediction.php">Crop Prediction​</a>
-		   <!-- <a class="dropdown-item" href="fyield_prediction.php">Yield Prediction​</a> -->
+		   <a class="dropdown-item" href="fyield_prediction.php">Yield Prediction​</a>
 			<a class="dropdown-item" href="frainfall_prediction.php">Rainfall Prediction​</a>
 		  </div>
 		</div>

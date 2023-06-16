@@ -10,7 +10,7 @@ import sys
 
 
 
-header = ['State_Name', 'District_Name', 'Season', 'Crop'] 
+header = ['Province_Name', 'District_Name', 'Season', 'Crop'] 
 
 class Question:
     def __init__(self,column,value):
@@ -89,16 +89,16 @@ def classify(row,node):
 
 
 
-dt_model_final= joblib.load('ML/crop_prediction/filetest2.pkl') 
+dt_model_final= joblib.load('ML/crop_prediction/cropprediction.pkl') 
 
 
 
-state =sys.argv[1]
+province =sys.argv[1]
 district=sys.argv[2]
 season=sys.argv[3]
 
 
-testing_data = [[state,district,season]]
+testing_data = [[province,district,season]]
 
 
 
