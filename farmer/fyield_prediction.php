@@ -60,7 +60,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
     <thead>
 					<tr class="font-weight-bold text-dark">
-					<th><center> State</center></th>
+					<th><center> Province</center></th>
 					<th><center>District</center></th>
 					<th><center>Season</center></th>
 					<th><center>Crop</center></th>
@@ -75,8 +75,8 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
                                    <td>
                                     	<div class="form-group">
-										<select  name="state" class="form-control" required>
-											<option value="Karnataka">Karnataka</option>
+										<select  id ="pr"name="province" class="form-control" required>
+											<script language ="javascript"> print_province("pr")</script>
 										</select>
 																				
 										</div>
@@ -85,39 +85,10 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 									<td>
 										<div class="form-group ">
 										<select id="district" name="district" class="form-control" required>
-										  <option value="">Select a district</option>
-										  <option value="BAGALKOT">Bagalkot</option>
-										  <option value="BANGALORE_RURAL">Bangalore Rural</option>
-										  <option value="BELGAUM">Belgaum</option>
-										  <option value="BELLARY">Bellary</option>
-										  <option value="BENGALURU_URBAN">Bengaluru Urban</option>
-										  <option value="BIDAR">Bidar</option>
-										  <option value="BIJAPUR">Bijapur</option>
-										  <option value="CHAMARAJANAGAR">Chamarajanagar</option>
-										  <option value="CHIKBALLAPUR">Chikballapur</option>
-										  <option value="CHIKMAGALUR">Chikmagalur</option>
-										  <option value="CHITRADURGA">Chitradurga</option>
-										  <option value="DAKSHIN_KANNAD">Dakshin Kannad</option>
-										  <option value="DAVANGERE">Davangere</option>
-										  <option value="DHARWAD">Dharwad</option>
-										  <option value="GADAG">Gadag</option>
-										  <option value="GULBARGA">Gulbarga</option>
-										  <option value="HAVERI">Haveri</option>
-										  <option value="HASSAN">Hassan</option>
-										  <option value="KODAGU">Kodagu</option>
-										  <option value="KOLAR">Kolar</option>
-										  <option value="KOPPAL">Koppal</option>
-										  <option value="MANDYA">Mandya</option>
-										  <option value="MYSORE">Mysore</option>
-										  <option value="RAMANAGARA">Ramanagara</option>
-										  <option value="RAICHUR">Raichur</option>
-										  <option value="SHIMOGA">Shimoga</option>
-										  <option value="TUMKUR">Tumkur</option>
-										  <option value="UDUPI">Udupi</option>
-										  <option value="UTTAR_KANNAD">Uttar Kannad</option>
-										  <option value="YADGIR">Yadgir</option>
+										  <option value="Bhojpur">Bhojpur</option>
 										</select>
-
+										<!-- <script language ="javascript">print_province("pr"); -->
+									</script>
 										</div>
                                     </td>
 									
