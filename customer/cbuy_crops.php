@@ -210,28 +210,27 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
     }
 }
 ?>
-	 <!-- <?php
-
-						
-							// require_once "StripePayment/config.php";
+	 <?php		
+							require_once "StripePayment/config.php";
 							
-							// 	$TotalCartPrice=$_SESSION['Total_Cart_Price']*100;
+								$TotalCartPrice=$_SESSION['Total_Cart_Price']*100;
 								
-							// 	$session = \Stripe\Checkout\Session::create([
-							// 		'payment_method_types' => ['card'],
-							// 		'line_items' => [[
-							// 			'price_data' => [
-							// 				'product' => 'prod_NdAYaoDLX3DnMY',
-							// 				'unit_amount' => $TotalCartPrice,
-							// 				'currency' => 'inr',
-							// 			],
-							// 			'quantity' => 1,
-							// 		]],
-							// 		'mode' => 'payment',
-							// 		'success_url' => 'http://localhost/agriculture_portal/customer/cupdatedb.php',
-							// 		'cancel_url' => 'http://localhost/agriculture_portal/customer/cbuy_crops.php',
-							// 	]);
-						 ?> -->
+								$session = \Stripe\Checkout\Session::create([
+									'payment_method_types' => ['card'],
+									'line_items' => [[
+										'price_data' => [
+											// 'product' => 'prod_NdAYaoDLX3DnMY',
+                      'product' => 'prod_O5rZ5Btv3rJcys',
+											'unit_amount' => $TotalCartPrice,
+											'currency' => 'npr',
+										],
+										'quantity' => 1,
+									]],
+									'mode' => 'payment',
+									'success_url' => 'http://localhost/agriculture_portal/customer/cupdatedb.php',
+									'cancel_url' => 'http://localhost/agriculture_portal/customer/cbuy_crops.php',
+								]);
+						 ?>
 
 <tr class="text-dark">
     <td colspan="2" align="right">Total</td>
