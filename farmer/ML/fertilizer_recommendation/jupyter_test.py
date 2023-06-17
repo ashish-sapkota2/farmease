@@ -1,9 +1,7 @@
-#jupiter code
-
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[32]:
+# In[1]:
 
 
 import pandas as pd
@@ -16,13 +14,13 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 
 
-# In[33]:
+# In[2]:
 
 
 data = pd.read_csv("fertilizer_recommendation.csv")
 
 
-# In[34]:
+# In[3]:
 
 
 le_soil = LabelEncoder()
@@ -31,21 +29,21 @@ le_crop = LabelEncoder()
 data['Crop Type'] = le_crop.fit_transform(data['Crop Type'])
 
 
-# In[35]:
+# In[4]:
 
 
 X = data.iloc[:, :8]
 y = data.iloc[:, -1]
 
 
-# In[36]:
+# In[5]:
 
 
 dtc = DecisionTreeClassifier(random_state=0)
 dtc.fit(X, y)
 
 
-# In[37]:
+# In[6]:
 
 
 def recommend_fertilizer(temperature, humidity, soil_moisture, soil_type, crop_type, nitrogen, potassium, phosphorous):
@@ -59,7 +57,7 @@ def recommend_fertilizer(temperature, humidity, soil_moisture, soil_type, crop_t
     return fertilizer_name[0]
 
 
-# In[38]:
+# In[7]:
 
 
 temperature = 20
@@ -75,24 +73,22 @@ recommended_fertilizer = recommend_fertilizer(temperature, humidity, soil_moistu
 print("Recommended Fertilizer:", recommended_fertilizer)
 
 
-# In[46]:
+# In[14]:
 
 
 # Split the data into training and testing subsets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
-# In[51]:
+# In[26]:
 
 
 from sklearn.metrics import accuracy_score
 
-classifiers = [DecisionTreeClassifier(random_state=0),
-               RandomForestClassifier(random_state=0),
-               LogisticRegression(random_state=0, solver='liblinear', max_iter=1000),
-               SVC(random_state=0),
-               KNeighborsClassifier(),
-               GradientBoostingClassifier(random_state=0)]
+classifiers = [DecisionTreeClassifier(random_state=42, max_depth=4),
+               RandomForestClassifier(n_estimators=3, random_state=42),
+               LogisticRegression(random_state=42, solver='liblinear', max_iter=1000),
+               SVC(random_state=42)]
 
 accuracies = []
 
@@ -107,17 +103,15 @@ for i, classifier in enumerate(classifiers):
      print(f"Accuracy of {classifier.__class__.__name__}: {accuracies[i]:.3f}")
 
 
-# In[52]:
+# In[28]:
 
 
 import matplotlib.pyplot as plt
 
-classifiers = [DecisionTreeClassifier(random_state=0),
-               RandomForestClassifier(random_state=0),
-               LogisticRegression(random_state=0, solver='liblinear', max_iter=1000),
-               SVC(random_state=0),
-               KNeighborsClassifier(),
-               GradientBoostingClassifier(random_state=0)]
+classifiers = [DecisionTreeClassifier(random_state=42, max_depth=4),
+               RandomForestClassifier(n_estimators=3, random_state=42),
+               LogisticRegression(random_state=42, solver='liblinear', max_iter=1000),
+               SVC(random_state=42)]
 
 accuracies = []
 
