@@ -76,6 +76,7 @@ $("#nav li a").each(function() {
 		   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			<a class="dropdown-item" href="ftradecrops.php">Trade Crops​</a>
 			<a class="dropdown-item" href="fstock_crop.php">Crop Stocks​</a>
+			<a class="dropdown-item" href="fmy_crop.php">My crops​</a>
 			<!-- <a class="dropdown-item" href="fselling_history.php">Selling History​</a> -->
 		  </div>
 		</div>
