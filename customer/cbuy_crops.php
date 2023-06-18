@@ -210,6 +210,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
     }
 }
 ?>
+<<<<<<< HEAD
 	 <?php		
 							// require_once "StripePayment/config.php";
 							
@@ -231,6 +232,29 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 							// 		'cancel_url' => 'http://localhost/farmease/customer/cbuy_crops.php',
 							// 	]);
 						 ?>
+=======
+ 	 <?php		
+// 							require_once "StripePayment/config.php";
+							
+// 								$TotalCartPrice=$_SESSION['Total_Cart_Price']*100;
+								
+// 								$session = \Stripe\Checkout\Session::create([
+// 									'payment_method_types' => ['card'],
+// 									'line_items' => [[
+// 										'price_data' => [
+// 											// 'product' => 'prod_NdAYaoDLX3DnMY',
+//                       'product' => 'prod_O5rZ5Btv3rJcys',
+// 											'unit_amount' => $TotalCartPrice,
+// 											'currency' => 'npr',
+// 										],
+// 										'quantity' => 1,
+// 									]],
+// 									'mode' => 'payment',
+// 									'success_url' => 'http://localhost/agriculture_portal/customer/cupdatedb.php',
+// 									'cancel_url' => 'http://localhost/agriculture_portal/customer/cbuy_crops.php',
+// 								]);
+		 ?>
+>>>>>>> fa42ea07e2bf2ffc87693b34a7f6f5599b8de0bb
 
 <tr class="text-dark">
     <td colspan="2" align="right">Total</td>
@@ -269,7 +293,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 </section>
 	   <?php require("footer.php");?>
 
-												<script src="https://js.stripe.com/v3/"></script>
+												<!-- <script src="https://js.stripe.com/v3/"></script>
 												<script>
 												const stripe = Stripe('<?php echo $stripeDetails['publishableKey']; ?>');
 
@@ -284,7 +308,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 													}
 												  });
 												});
-												</script>
+												</script>  -->
 												
 												
 <script>
