@@ -16,6 +16,17 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 
 <!DOCTYPE html>
 <html>
+  <head>
+  <script src="https://khalti.com/static/khalti-checkout.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</head>
 <?php include ('cheader.php');  ?>
 
   <body class="bg-white" id="top">
@@ -230,15 +241,15 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 // 									'success_url' => 'http://localhost/agriculture_portal/customer/cupdatedb.php',
 // 									'cancel_url' => 'http://localhost/agriculture_portal/customer/cbuy_crops.php',
 // 								]);
+
 		 ?>
 
 <tr class="text-dark">
     <td colspan="2" align="right">Total</td>
-    <td align="right">Rs. <?php echo number_format($total, 2); ?></td>
+    <td align="right"><strong>Rs. <?php echo number_format($total, 2); ?></strong></td>
     <td>
-        <form action="checkout.php" method="POST">
-            <button class="btn btn-info form-control" name="pay" type="submit" id="checkout-button">Pay</button>
-        </form>
+        <a href="#" data-amount=10 id='payment-button-1' class="btn btn-primary pay-khalti">Pay with Khalti</a>
+      
     </td>
 </tr>	
 		
@@ -285,6 +296,23 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 												  });
 												});
 												</script> -->
+
+                        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="khalti/khalti-client.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://rawgit.com/google/code-prettify/master/styles/sons-of-obsidian.css" />
+<script type="text/javascript">
+    $(function(){
+        // just show the live js here.
+        $.ajax({url: "khalti/khalti-client.js", success: function(resp){
+            $("#js-code-here").text(resp.trim());
+            addEventListener('load', function(event) { PR.prettyPrint(); }, false);
+        }, dataType: 'html'});
+        $.get({url: "khalti/example.js", success: function(resp){
+            $("#js-example-here").text(resp.trim());
+            addEventListener('load', function(event) { PR.prettyPrint(); }, false);
+        }, dataType: 'html'});
+    });
+</script>
 												
 												
 <script>
