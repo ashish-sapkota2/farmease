@@ -1,6 +1,6 @@
 <?php
 include ('fsession.php');
-
+include ('../sql.php');
 ini_set('memory_limit', '-1');
 
 if(!isset($_SESSION['farmer_login_user'])){
@@ -71,7 +71,15 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
                             $sql = "SELECT trade_id, farmer_fkid, Trade_crop, Crop_quantity, costperkg FROM farmer_crops_trade WHERE farmer_fkid = $para1";
 
 								$query = mysqli_query($conn,$sql);
-								while($res = mysqli_fetch_array($query)){	
+								$res = mysqli_fetch_array($query);
+                if(!$res){
+                  ?>
+                  <tr>
+                  <td colspan= "3"><p class='text-center no-data-message'>No data available in table</p></td>
+                  </tr>
+                  <?php
+                }else{	
+                  do{
 				             ?>		  
 						  
 		                    <tr class="text-center text-dark">
@@ -83,7 +91,8 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 							</tr>
 
 							 <?php 
-                                }
+                                }while($res =mysqli_fetch_array($query));
+                              }
                              
 							 
 							  ?>
