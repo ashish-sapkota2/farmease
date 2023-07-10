@@ -1,39 +1,63 @@
 <?php
+try {
+    $curl = curl_init();
 
-// Khalti Transaction verification
-// PHP Script 
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://a.khalti.com/api/v2/epayment/initiate/',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => '{
+            "return_url": "https://test-pay.khalti.com/wallet",
+            "website_url": "https://example.com/",
+            "amount": 1300,
+            "purchase_order_id": "test12",
+            "purchase_order_name": "test",
+            "customer_info": {
+                "name": "Ashim Upadhaya",
+                "email": "example@gmail.com",
+                "phone": "9811496763"
+            },
+            "amount_breakdown": [
+                {
+                    "label": "Mark Price",
+                    "amount": 1000
+                },
+                {
+                    "label": "VAT",
+                    "amount": 300
+                }
+            ],
+            "product_details": [
+                {
+                    "identity": "1234567890",
+                    "name": "Khalti logo",
+                    "total_price": 1300,
+                    "quantity": 1,
+                    "unit_price": 1300
+                }
+            ]
+        }',
+        CURLOPT_HTTPHEADER => array(
+            'Authorization: Key fd6d0d148b344d52bcbb4e26a2d63736',
+            'Content-Type: application/json'
+        ),
+    ));
 
-$token = $_POST['token'];
-$amount = $_POST['amount'];
+    $response = curl_exec($curl);
 
-$args = http_build_query(array(
-'token' => $token,
-'amount'  => $amount
-));
+    curl_close($curl);
 
-$url = "https://khalti.com/api/payment/verify/";
-
-# Make the call using API.
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,$args);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-$headers = ['Authorization: Key test_secret_key_a296105bf9ea4a0bb4475cf5a21e6e4e'];
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-// for debug
-curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-
-// Response
-$response = curl_exec($ch);
-
-$dump = array(
-    "curl" => curl_getinfo($ch),
-    "khalti" => $response
-);
-
-curl_close($ch);
-
-die(json_encode($dump, JSON_PRETTY_PRINT));
+    // Return the response as JSON
+    header('Content-Type: application/json');
+    echo $response;
+} catch (Exception $e) {
+    // Return an error response
+    header('Content-Type: application/json');
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
+}

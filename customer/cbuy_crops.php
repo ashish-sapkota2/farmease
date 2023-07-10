@@ -17,7 +17,7 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 <!DOCTYPE html>
 <html>
   <head>
-  <script src="https://khalti.com/static/khalti-checkout.js"></script>
+ 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -137,13 +137,14 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 	
 						<script>
   // JavaScript code to update the max attribute based on the selected crop's available quantity
-  document.getElementById('crops').addEventListener('change', function() {
+  var formData = {
+  name: document.getElementById('crops').addEventListener('change', function() {
     var selectedOption = this.options[this.selectedIndex];
     var quantityInput = document.getElementById('quantity');
     quantityInput.max = selectedOption.getAttribute('data-quantity');
     quantityInput.value = ""; // Reset the quantity input field
     checkQuantityValidity(); // Call the function to check the quantity validity
-  });
+  })};
 
   // Function to check the quantity validity and enable/disable the Add to Cart button
   function checkQuantityValidity() {
@@ -158,9 +159,10 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
   }
 
   // Event listener to check the quantity validity whenever the quantity input field is changed
-  document.getElementById('quantity').addEventListener('input', function() {
+  var formData={ 
+  quantityy: document.getElementById('quantity').addEventListener('input', function() {
     checkQuantityValidity(); // Call the function to check the quantity validity
-  });
+  })};
 </script>
 
 				
@@ -221,39 +223,14 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
     }
 }
 ?>
-	 <?php		
-							// require_once "StripePayment/config.php";
-							
-							// 	$TotalCartPrice=$_SESSION['Total_Cart_Price']*100;
-							
-							// 	$session = \Stripe\Checkout\Session::create([
-							// 		'payment_method_types' => ['card'],
-							// 		'line_items' => [[
-							// 			'price_data' => [
-							// 				// 'product' => 'prod_NdAYaoDLX3DnMY',
-              //         'product' => 'prod_O5rZ5Btv3rJcys',
-							// 				'unit_amount' => $TotalCartPrice,
-							// 				'currency' => 'npr',
-							// 			],
-							// 			'quantity' => 1,
-							// 		]],
-							// 		'mode' => 'payment',
-							// 		'success_url' => 'http://localhost/farmease/customer/cupdatedb.php',
-							// 		'cancel_url' => 'http://localhost/farmease/customer/cbuy_crops.php',
-							// 	]);
-						 ?>
-
 <tr class="text-dark">
     <td colspan="2" align="right">Total</td>
     <td align="right"><strong>Rs. <?php echo number_format($total, 2); ?></strong></td>
     <td>
-        <a href="#" data-amount=10 id='payment-button-1' class="btn btn-primary pay-khalti">Pay with Khalti</a>
+        <a href= "#" data-amount=10 id='payment-button' class="btn btn-primary pay-khalti" type="submit">Pay with Khalti</a>
       
     </td>
-</tr>	
-		
-
-						
+</tr>		
 					<?php
 					}else {
 						// No items found in the cart
@@ -278,38 +255,27 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 		 
 </section>
 	   <?php require("footer.php");?>
-
-												<!-- <script src="https://js.stripe.com/v3/"></script>
-												<script>
-												const stripe = Stripe('<?php echo $stripeDetails['publishableKey']; ?>');
-
-												const checkoutButton = document.getElementById('checkout-button');
-
-												checkoutButton.addEventListener('click', () => {
-												  stripe.redirectToCheckout({
-													sessionId: '<?php echo $session->id; ?>'
-												  }).then(function (result) {
-													if (result.error) {
-													  alert(result.error.message);
-													}
-												  });
-												});
-												</script> -->
-
-                        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-<script src="khalti/khalti-client.js" type="text/javascript"></script>
-<link rel="stylesheet" href="https://rawgit.com/google/code-prettify/master/styles/sons-of-obsidian.css" />
-<script type="text/javascript">
-    $(function(){
-        // just show the live js here.
-        $.ajax({url: "khalti/khalti-client.js", success: function(resp){
-            $("#js-code-here").text(resp.trim());
-            addEventListener('load', function(event) { PR.prettyPrint(); }, false);
-        }, dataType: 'html'});
-        $.get({url: "khalti/example.js", success: function(resp){
-            $("#js-example-here").text(resp.trim());
-            addEventListener('load', function(event) { PR.prettyPrint(); }, false);
-        }, dataType: 'html'});
+  <script type="text/javascript">
+    document.getElementById("payment-button").addEventListener("click", function(){
+   $.ajax({
+        url: 'khalti/verify.php',
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function(response) {
+          // Process the response
+          console.log(response);
+          if (response.payment_url) {
+            // Redirect the user to the payment URL
+            window.location.href = response.payment_url;
+          }
+        },
+        error: function(error) {
+          // Handle any error that occurred during the AJAX request
+          console.error(error);
+        }
+      });
     });
 </script>
 												
