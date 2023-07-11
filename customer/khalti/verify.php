@@ -10,7 +10,7 @@ try {
     $price = $data['price'];
     $email = $data['email'];
     $name = $data['name'];
-    $phone =$data['phone_no'];
+    $phone = $data['phone_no'];
 
     $customerInfo = array(
         'name' => $name,
@@ -19,29 +19,36 @@ try {
     );
 
     $productDetails = array();
+    $totalPrice = 0; // Initialize total price
 
     // Create an array of product details for each crop
     for ($i = 0; $i < count($crops); $i++) {
+        $unitPrice = $price[$i];
+        $totalPrice += $unitPrice * $quantity[$i]; // Calculate the total price
+
         $productDetails[] = array(
             'identity' => $i + 1,
             'name' => $crops[$i],
-            'total_price' => $price[$i],
+            'total_price' => $unitPrice * $quantity[$i], // Calculate the total price for each crop
             'quantity' => $quantity[$i],
-            'unit_price' => $price[$i]
+            'unit_price' => $unitPrice
         );
     }
+
+    // Convert the total price to an integer
+    $totalPrice = intval($totalPrice);
 
     $payloadData = array(
         'return_url' => 'https://test-pay.khalti.com/wallet',
         'website_url' => 'https://example.com/',
-        'amount' => array_sum($price), // Total amount based on the prices of all crops
-        'purchase_order_id' => 'test12',
-        'purchase_order_name' => 'test',
+        'amount' => $totalPrice, // Total amount based on the sum of total prices for all crops
+        'purchase_order_id' => $name,
+        'purchase_order_name' => $email,
         'customer_info' => $customerInfo,
         'amount_breakdown' => array(
             array(
                 'label' => 'Total Amount',
-                'amount' => arrray_sum($price) // Total amount based on the prices of all crops
+                'amount' => $totalPrice // Total amount based on the sum of total prices for all crops
             )
         ),
         'product_details' => $productDetails
