@@ -1,7 +1,18 @@
 <?php
+// Retrieve the JSON data from the request body
+$jsonData = file_get_contents('php://input');
+
+// Decode the JSON data into an associative array
+$data = json_decode($jsonData, true);
+
+// Get the 'crops' and 'quantity' values from the data array
+$name = $data['name'];
+$quantity = $data['quantity'];
+$email = $data['email'];
+$phone = $data['phone'];
+
 try {
     $curl = curl_init();
-
     curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://a.khalti.com/api/v2/epayment/initiate/',
         CURLOPT_RETURNTRANSFER => true,
@@ -11,37 +22,41 @@ try {
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => '{
-            "return_url": "https://test-pay.khalti.com/wallet",
-            "website_url": "https://example.com/",
-            "amount": 1300,
-            "purchase_order_id": "test12",
-            "purchase_order_name": "test",
-            "customer_info": {
-                "name": "Ashim Upadhaya",
-                "email": "example@gmail.com",
-                "phone": "9811496763"
-            },
-            "amount_breakdown": [
-                {
-                    "label": "Mark Price",
-                    "amount": 1000
-                },
-                {
-                    "label": "VAT",
-                    "amount": 300
-                }
-            ],
-            "product_details": [
-                {
-                    "identity": "1234567890",
-                    "name": "Khalti logo",
-                    "total_price": 1300,
-                    "quantity": 1,
-                    "unit_price": 1300
-                }
-            ]
-        }',
+        CURLOPT_POSTFIELDS => json_encode(array(
+            'return_url' => 'https://test-pay.khalti.com/wallet',
+            'website_url' => 'https://example.com/',
+            'amount' => 1300,
+            'purchase_order_id' => 'test12',
+            'purchase_order_name' => 'test',
+            'customer_info' => array(
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone
+            ),
+            'amount_breakdown' => array(
+                array(
+                    'label' => 'Mark Price',
+                    'amount' => 1000
+                ),
+                array(
+                    'label' => 'VAT',
+                    'amount' => 300
+                )
+            ),
+            'product_details' => array(
+                array(
+                    'identity' => '1234567890',
+                    'name' => 'Khalti logo',
+                    'total_price' => 1300,
+                    'quantity' => 1,
+                    'unit_price' => 1300
+                )
+            ),
+            'name' => $name,
+            'quantity' => $quantity,
+            'email' =>$email,
+            'phone' =>$phone
+        )),
         CURLOPT_HTTPHEADER => array(
             'Authorization: Key fd6d0d148b344d52bcbb4e26a2d63736',
             'Content-Type: application/json'
@@ -61,3 +76,4 @@ try {
     http_response_code(500);
     echo json_encode(['error' => $e->getMessage()]);
 }
+?>

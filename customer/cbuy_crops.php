@@ -11,7 +11,9 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
               $row4 = mysqli_fetch_assoc($ses_sq4);
               $para1 = $row4['cust_id'];
               $para2 = $row4['cust_name'];
-		  
+              $email =$row4['email'];
+              $phone = $row4['phone_no'];
+
 ?>
 
 <!DOCTYPE html>
@@ -137,14 +139,14 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 	
 						<script>
   // JavaScript code to update the max attribute based on the selected crop's available quantity
-  var formData = {
+
   name: document.getElementById('crops').addEventListener('change', function() {
     var selectedOption = this.options[this.selectedIndex];
     var quantityInput = document.getElementById('quantity');
     quantityInput.max = selectedOption.getAttribute('data-quantity');
     quantityInput.value = ""; // Reset the quantity input field
     checkQuantityValidity(); // Call the function to check the quantity validity
-  })};
+  });
 
   // Function to check the quantity validity and enable/disable the Add to Cart button
   function checkQuantityValidity() {
@@ -159,10 +161,10 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
   }
 
   // Event listener to check the quantity validity whenever the quantity input field is changed
-  var formData={ 
-  quantityy: document.getElementById('quantity').addEventListener('input', function() {
+
+  quantity: document.getElementById('quantity').addEventListener('input', function() {
     checkQuantityValidity(); // Call the function to check the quantity validity
-  })};
+  });
 </script>
 
 				
@@ -257,12 +259,21 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 	   <?php require("footer.php");?>
   <script type="text/javascript">
     document.getElementById("payment-button").addEventListener("click", function(){
+      // Get the crop and quantity values
+    // var crops = jQuery('#crops').val();
+    // var quantity = jQuery('#quantity').val();
+    var name = "<?php echo $para2; ?>";
+    var quantity = "<?php echo $para1; ?>";
+    var email = "<?php echo $email; ?>";
+    var phone = "<?php echo $phone; ?>";
+
+
    $.ajax({
         url: 'khalti/verify.php',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
-        data: JSON.stringify(formData),
+        data: JSON.stringify({ name: name, quantity: quantity, email : email, phone : phone }),
         success: function(response) {
           // Process the response
           console.log(response);
@@ -359,5 +370,4 @@ quantityInput.addEventListener("change", () => {
 </script>
 	
 </body>
-</html>						
-           
+</html>
