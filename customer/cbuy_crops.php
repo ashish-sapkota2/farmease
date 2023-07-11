@@ -221,7 +221,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 		 
 </section>
 <?php require("footer.php");?>
-  <script type="text/javascript">
+<script type="text/javascript">
 document.getElementById("payment-button").addEventListener("click", function(){
   var crops = [];
   var quantity = [];
@@ -236,12 +236,11 @@ document.getElementById("payment-button").addEventListener("click", function(){
     while ($row = mysqli_fetch_assoc($result)) {
         $cropname = $row['cropname'];
         $quantity = $row['quantity'];
-        $price = $row['price'];
+        $price = ($row['price'] / $row['quantity'])*100;
         ?>
         crops.push("<?php echo $cropname; ?>");
         quantity.push("<?php echo $quantity; ?>");
-        price.push("<?php echo $price; ?>");
-        
+        price.push("<?php echo $price; ?>");    
         <?php
     }
     ?>
@@ -272,7 +271,8 @@ document.getElementById("payment-button").addEventListener("click", function(){
         }
       });
     });
-</script>								
+</script>	
+								
 												
 <script>
 				$(document).ready( function () {
