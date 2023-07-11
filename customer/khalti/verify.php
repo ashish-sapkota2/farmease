@@ -1,16 +1,4 @@
 <?php
-// Retrieve the JSON data from the request body
-$jsonData = file_get_contents('php://input');
-
-// Decode the JSON data into an associative array
-$data = json_decode($jsonData, true);
-
-// Get the 'crops' and 'quantity' values from the data array
-$name = $data['name'];
-$quantity = $data['quantity'];
-$email = $data['email'];
-$phone = $data['phone'];
-
 try {
     // Retrieve the JSON payload sent from the AJAX request
     $payload = file_get_contents('php://input');
@@ -22,11 +10,12 @@ try {
     $price = $data['price'];
     $email = $data['email'];
     $name = $data['name'];
+    $phone =$data['phone_no'];
 
     $customerInfo = array(
         'name' => $name,
         'email' => $email,
-        'phone' => '9811496763'
+        'phone' => $phone
     );
 
     $productDetails = array();
@@ -52,13 +41,14 @@ try {
         'amount_breakdown' => array(
             array(
                 'label' => 'Total Amount',
-                'amount' => array_sum($price) // Total amount based on the prices of all crops
+                'amount' => arrray_sum($price) // Total amount based on the prices of all crops
             )
         ),
         'product_details' => $productDetails
     );
 
     $curl = curl_init();
+
     curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://a.khalti.com/api/v2/epayment/initiate/',
         CURLOPT_RETURNTRANSFER => true,

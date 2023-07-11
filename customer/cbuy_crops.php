@@ -353,4 +353,5 @@ quantityInput.addEventListener("change", () => {
 </script>
 	
 </body>
-</html>
+</html>						
+           
