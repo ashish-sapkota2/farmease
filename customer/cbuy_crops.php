@@ -12,8 +12,10 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
               $para1 = $row4['cust_id'];
               $para2 = $row4['cust_name'];
               $email =$row4['email'];
-              $phone = $row4['phone_no'];
-
+              $name =$row4['cust_name'];
+              $phone_no =$row4['phone_no'];
+              
+		  
 ?>
 
 <!DOCTYPE html>
@@ -30,14 +32,10 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
         crossorigin="anonymous"></script>
 </head>
 <?php include ('cheader.php');  ?>
-
   <body class="bg-white" id="top">
-  
 <?php include ('cnav.php');  ?>
- 	
- 	
-  <section class="section section-shaped section-lg">
-    <div class="shape shape-style-1 shape-primary">
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 shape-primary">
       <span></span>
       <span></span>
       <span></span>
@@ -49,98 +47,68 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
       <span></span>
       <span></span>
     </div>
-<!-- ======================================================================================================================================== -->
 
-
-<div class="container ">
-    
-    	 <!-- <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-danger badge-pill mb-3">Shopping</span>
-          </div>
-        </div> -->
-		
-          <div class="row row-content">
-            <div class="col-md-12 mb-3">
-
-				<div class="card text-dark bg-gradient-danger mb-3">
-				  <div class="card-header">
+<div class="container ">		
+  <div class="row row-content">
+    <div class="col-md-12 mb-3">
+      <div class="card text-dark bg-gradient-danger mb-3">
+				<div class="card-header">
 				  <span class=" text-color display-4" > Buy Crops </span>
-				  
-					
-				  </div>
-				  
-				  <div class="card-body ">
-			
+				</div>
+				<div class="card-body ">
+			    <table class="table table-striped table-bordered table-responsive-md btn-table  ">
+            <thead class=" text-dark text-center">
+              <tr>
+				        <th>Crop Name</th>
+                <th>Quantity (in KG)</th>
+                <th>Price (in Rs)</th>
+						    <th>Add Item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <form method="POST" action="cbuy_redirect.php">
+                  <td>
+                    <div class="form-group">
+                      <?php
+                        // Query the database table for crops with quantity greater than zero
+                        $sql = "SELECT crop, quantity FROM production_approx WHERE quantity > 0";
+                        $result = $conn->query($sql);
 
-				                                                                                                                         
-
-                <table class="table table-striped table-bordered table-responsive-md btn-table  ">
-
-                    <thead class=" text-dark text-center">
-                    <tr>
-					
-                        <th>Crop Name</th>
-                        <th>Quantity (in KG)</th>
-                        <th>Price (in Rs)</th>
-						<th>Add Item</th>
-	
-                    </tr>
-                    </thead>
-
-                    <tbody>
-					
-                    <tr>
-					
-			
-						 
-	<form method="POST" action="cbuy_redirect.php">
-    <td>
-        <div class="form-group">
-            <?php
-            // Query the database table for crops with quantity greater than zero
-            $sql = "SELECT crop, quantity FROM production_approx WHERE quantity > 0";
-            $result = $conn->query($sql);
-
-            // Populate dropdown menu options with the crop names and available quantity
-            echo "<select id='crops' name='crops' class='form-control text-dark'>";
-            echo "<option value=''>Select Crop</option>";
-            while ($row = $result->fetch_assoc()) {
-                echo "<option value='" . $row["crop"] . "' data-quantity='" . $row["quantity"] . "'>" . $row["crop"] . "</option>";
-            }
-            echo "</select>";
-            ?>
-        </div>
-		</td>
-
-    <input type="hidden" name="tradeid" id="tradeid" value="">
-
-
-    <td>
-        <div class="form-group">
-            <input id="quantity" type="number" placeholder="Available Quantity" name="quantity" required class="form-control text-dark" min="1" max ="1">
-        </div>
-    </td>
-
-    <td>
-        <div class="form-group">
-            <input id="price" type="text" value="0" name="price" readonly class="form-control text-dark">
-        </div>
-    </td>
-
-    <td>
-        <div class="form-group">
-            <button class="btn btn-success form-control" name="add_to_cart" type="submit" disabled>Add To Cart</button>
-        </div>
-    </td>
-</form></tr>
+                        // Populate dropdown menu options with the crop names and available quantity
+                        echo "<select id='crops' name='crops' class='form-control text-dark'>";
+                        echo "<option value=''>Select Crop</option>";
+                        while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row["crop"] . "' data-quantity='" . $row["quantity"] . "'>" . $row["crop"] . "</option>";
+                        }
+                        echo "</select>";
+                      ?>
+                    </div>
+		              </td>
+              <input type="hidden" name="tradeid" id="tradeid" value="">
+                <td>
+                  <div class="form-group">
+                    <input id="quantity" type="number" placeholder="Available Quantity" name="quantity" required class="form-control text-dark" min="1" max ="1">
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <input id="price" type="text" value="0" name="price" readonly class="form-control text-dark">
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <button class="btn btn-success form-control" name="add_to_cart" type="submit" disabled>Add To Cart</button>
+                  </div>
+                </td>
+              </form></tr>
 						</tbody>
-                        </table> 
+          </table> 
 	
-						<script>
+<script>
   // JavaScript code to update the max attribute based on the selected crop's available quantity
 
-  name: document.getElementById('crops').addEventListener('change', function() {
+  document.getElementById('crops').addEventListener('change', function() {
     var selectedOption = this.options[this.selectedIndex];
     var quantityInput = document.getElementById('quantity');
     quantityInput.max = selectedOption.getAttribute('data-quantity');
@@ -162,14 +130,12 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 
   // Event listener to check the quantity validity whenever the quantity input field is changed
 
-  quantity: document.getElementById('quantity').addEventListener('input', function() {
+  document.getElementById('quantity').addEventListener('input', function() {
     checkQuantityValidity(); // Call the function to check the quantity validity
   });
 </script>
 
-				
-
-			<h3 class=" text-title">Order Details</h3>
+		<h3 class=" text-title">Order Details</h3>
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-responsive-md btn-table display text-dark" id="myTable">
 					<tr class=" bg-dange text-dark">
@@ -178,21 +144,20 @@ $query4 = "SELECT * from custlogin where email='$user_check'";
 						<th width="20%">Price (in Rs.)</th>				
 						<th width="5%">Action</th>
 					</tr>
-					<?php
 
+<?php
 $userlogin = $_SESSION['customer_login_user'];
 require('../sql.php'); // Includes SQL connection script
-
 // Retrieve cust_id from the custlogin table based on the customer's email
 $query1 = "SELECT cust_id FROM custlogin WHERE email = '" . $userlogin . "';";
 $run = mysqli_query($conn, $query1);
 $row = mysqli_fetch_array($run);
 $cust_pid = $row['0'];
 
-
 // Retrieve cart items from the cart table based on the cust_id
 $query2 = "SELECT cid, cropname, quantity, price FROM cart WHERE cust_id = '$cust_pid';";
 $result = mysqli_query($conn, $query2);
+
 
 if (mysqli_num_rows($result) > 0) {
     $total = 0;
@@ -233,47 +198,66 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
       
     </td>
 </tr>		
-					<?php
-					}else {
-						// No items found in the cart
-						echo "<tr><td colspan='4'>No items in the cart</td></tr>";
-					}
-					if (isset($_SESSION['error_message'])) {
-						echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';
-						unset($_SESSION['error_message']); // Remove the error message from the session
-					}
 					
-					?>
+<?php
+		}else {
+			// No items found in the cart
+			echo "<tr><td colspan='4'>No items in the cart</td></tr>";
+			}
+			if (isset($_SESSION['error_message'])) {
+			echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';
+			unset($_SESSION['error_message']); // Remove the error message from the session
+		}
+				
+?>
 						
-				</table>
-			</div>
-
-
+	</table>
 </div>
-				</div>				 		  
-            </div>
-          </div>
-        </div>
+</div>
+</div>				 		  
+</div>
+</div>
+</div>
 		 
 </section>
-	   <?php require("footer.php");?>
+<?php require("footer.php");?>
   <script type="text/javascript">
-    document.getElementById("payment-button").addEventListener("click", function(){
-      // Get the crop and quantity values
-    // var crops = jQuery('#crops').val();
-    // var quantity = jQuery('#quantity').val();
-    var name = "<?php echo $para2; ?>";
-    var quantity = "<?php echo $para1; ?>";
-    var email = "<?php echo $email; ?>";
-    var phone = "<?php echo $phone; ?>";
+document.getElementById("payment-button").addEventListener("click", function(){
+  var crops = [];
+  var quantity = [];
+  var price = [];
+  var email = "<?php echo $email; ?>";
+  var name = "<?php echo $name; ?>";
+  var phone_no = "<?php echo $phone_no; ?>";
+  <?php
+    $query2 = "SELECT cid, cropname, quantity, price FROM cart WHERE cust_id = '$cust_pid';";
+    $result = mysqli_query($conn, $query2);
+    
+    while ($row = mysqli_fetch_assoc($result)) {
+        $cropname = $row['cropname'];
+        $quantity = $row['quantity'];
+        $price = $row['price'];
+        ?>
+        crops.push("<?php echo $cropname; ?>");
+        quantity.push("<?php echo $quantity; ?>");
+        price.push("<?php echo $price; ?>");
+        
+        <?php
+    }
+    ?>
+    console.log("Crops: ", crops);
+    console.log("Quantity: ", quantity);
+    console.log("Price: ", price);
+    console.log("Email: ", email);
+    console.log("Name: ", name);
+    console.log("Phone_no: ", phone_no);
 
-
-   $.ajax({
+    $.ajax({
         url: 'khalti/verify.php',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
-        data: JSON.stringify({ name: name, quantity: quantity, email : email, phone : phone }),
+        data: JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
         success: function(response) {
           // Process the response
           console.log(response);
@@ -288,8 +272,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
         }
       });
     });
-</script>
-												
+</script>								
 												
 <script>
 				$(document).ready( function () {
