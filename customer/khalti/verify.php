@@ -75,7 +75,6 @@ try {
     $response = curl_exec($curl);
 
     curl_close($curl);
-
     // Return the response as JSON
     header('Content-Type: application/json');
     echo $response;

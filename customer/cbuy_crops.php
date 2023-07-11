@@ -307,6 +307,48 @@ document.getElementById("payment-button").addEventListener("click", function(){
       console.error(error);
     }
     });
+    $.ajax({
+    url: 'update_db.php',
+    type: 'POST',
+    dataType: 'json',
+    data:JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
+    success: function(response) {
+      // Process the response
+      console.log(response);
+      if (response.success) {
+        // Cart items deleted successfully
+        // Redirect the user to the payment page or perform any other actions
+      } else {
+        // Failed to delete cart items
+        console.error(response.error);
+      }
+    },
+    error: function(error) {
+      // Handle any error that occurred during the AJAX request
+      console.error(error);
+    }
+    });
+  $.ajax({
+    url: 'corders.php',
+    type: 'POST',
+    dataType: 'json',
+    data:JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
+    success: function(response) {
+      // Process the response
+      console.log(response);
+      if (response.success) {
+        // Cart items deleted successfully
+        // Redirect the user to the payment page or perform any other actions
+      } else {
+        // Failed to delete cart items
+        console.error(response.error);
+      }
+    },
+    error: function(error) {
+      // Handle any error that occurred during the AJAX request
+      console.error(error);
+    }
+    });
     });
 </script>	
 								
