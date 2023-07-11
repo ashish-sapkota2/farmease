@@ -41,7 +41,7 @@ try {
         'amount_breakdown' => array(
             array(
                 'label' => 'Total Amount',
-                'amount' => arrray_sum($price) // Total amount based on the prices of all crops
+                'amount' => array_sum($price) // Total amount based on the prices of all crops
             )
         ),
         'product_details' => $productDetails
