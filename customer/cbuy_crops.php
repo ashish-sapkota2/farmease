@@ -223,6 +223,20 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"]))
 <?php require("footer.php");?>
 <script type="text/javascript">
 document.getElementById("payment-button").addEventListener("click", function(){
+  // Retrieve the cart item IDs
+  var itemIds = [];
+  <?php
+    $query2 = "SELECT * FROM cart WHERE cust_id = '$cust_pid';";
+    $result = mysqli_query($conn, $query2);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $itemId = $row['cust_id'];
+  ?>
+  itemIds.push(<?php echo $itemId; ?>);
+  <?php
+    }
+  ?>
+
   var crops = [];
   var quantity = [];
   var price = [];
@@ -270,6 +284,29 @@ document.getElementById("payment-button").addEventListener("click", function(){
           console.error(error);
         }
       });
+      
+  // Make an AJAX request to delete the cart items
+  $.ajax({
+    url: 'delete_cart_items.php',
+    type: 'POST',
+    dataType: 'json',
+    data: { itemIds: itemIds },
+    success: function(response) {
+      // Process the response
+      console.log(response);
+      if (response.success) {
+        // Cart items deleted successfully
+        // Redirect the user to the payment page or perform any other actions
+      } else {
+        // Failed to delete cart items
+        console.error(response.error);
+      }
+    },
+    error: function(error) {
+      // Handle any error that occurred during the AJAX request
+      console.error(error);
+    }
+    });
     });
 </script>	
 								
@@ -353,5 +390,4 @@ quantityInput.addEventListener("change", () => {
 </script>
 	
 </body>
-</html>						
-           
+</html>
