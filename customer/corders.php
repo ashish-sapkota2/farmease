@@ -31,8 +31,8 @@ $response = array();
 
 if ($cropsCount > 0) {
     for ($i = 0; $i < $cropsCount; $i++) {
-        $query1 = "INSERT INTO `orders` (`cust_id`, `cust_name`, `cropname`,`quantity`, `email`, `phone`, `address`, `date`) 
-                   VALUES ('".$row['cust_id']."', '".$name."', '".$crops[$i]."','".$quantity[$i]."', '".$email."', '".$phone."', '".$row['address']."', '".$date."')";
+        $query1 = "INSERT INTO `orders` (`cust_id`, `cust_name`, `cropname`,`quantity`, `email`, `phone`, `address`, `date`,`status`) 
+                   VALUES ('".$row['cust_id']."', '".$name."', '".$crops[$i]."','".$quantity[$i]."', '".$email."', '".$phone."', '".$row['address']."', '".$date."', 'Pending')";
         $result1 = mysqli_query($conn, $query1);
     }
 

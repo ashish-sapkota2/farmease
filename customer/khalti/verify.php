@@ -67,7 +67,7 @@ try {
         CURLOPT_CUSTOMREQUEST => 'POST',
         CURLOPT_POSTFIELDS => json_encode($payloadData),
         CURLOPT_HTTPHEADER => array(
-            'Authorization: Key fd6d0d148b344d52bcbb4e26a2d63736',
+            'Authorization: Key c26f2a09589346fea954cbc3e0000e28',
             'Content-Type: application/json'
         ),
     ));

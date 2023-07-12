@@ -266,17 +266,79 @@ document.getElementById("payment-button").addEventListener("click", function(){
     console.log("Phone_no: ", phone_no);
 
     $.ajax({
-        url: 'khalti/verify.php',
+  url: 'khalti/verify.php',
+  type: 'POST',
+  dataType: 'json',
+  contentType: 'application/json',
+  data: JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
+  success: function(response) {
+    // Process the response
+    console.log(response);
+    if (response.payment_url) {
+      // Redirect the user to the payment URL
+      window.location.href = response.payment_url;
+
+      // Execute the subsequent AJAX requests only if the first request is successful
+      $.ajax({
+        url: 'corders.php',
         type: 'POST',
         dataType: 'json',
-        contentType: 'application/json',
         data: JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
         success: function(response) {
           // Process the response
           console.log(response);
-          if (response.payment_url) {
-            // Redirect the user to the payment URL
-            window.location.href = response.payment_url;
+          if (response.success) {
+            // Order placed successfully
+            // Redirect the user to the payment page or perform any other actions
+
+            // Execute the next AJAX request
+            $.ajax({
+              url: 'update_db.php',
+              type: 'POST',
+              dataType: 'json',
+              data: JSON.stringify({ itemIds: itemIds, crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
+              success: function(response) {
+                // Process the response
+                console.log(response);
+                if (response.success) {
+                  // Cart items updated in the database successfully
+                  // Redirect the user to the payment page or perform any other actions
+
+                  // Execute the final AJAX request
+                  $.ajax({
+                    url: 'delete_cart_items.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { itemIds: itemIds },
+                    success: function(response) {
+                      // Process the response
+                      console.log(response);
+                      if (response.success) {
+                        // Cart items deleted successfully
+                        // Redirect the user to the payment page or perform any other actions
+                      } else {
+                        // Failed to delete cart items
+                        console.error(response.error);
+                      }
+                    },
+                    error: function(error) {
+                      // Handle any error that occurred during the AJAX request
+                      console.error(error);
+                    }
+                  });
+                } else {
+                  // Failed to update cart items in the database
+                  console.error(response.error);
+                }
+              },
+              error: function(error) {
+                // Handle any error that occurred during the AJAX request
+                console.error(error);
+              }
+            });
+          } else {
+            // Failed to place order items
+            console.error(response.error);
           }
         },
         error: function(error) {
@@ -284,72 +346,14 @@ document.getElementById("payment-button").addEventListener("click", function(){
           console.error(error);
         }
       });
-      
-  // Make an AJAX request to delete the cart items
-  $.ajax({
-    url: 'delete_cart_items.php',
-    type: 'POST',
-    dataType: 'json',
-    data: { itemIds: itemIds },
-    success: function(response) {
-      // Process the response
-      console.log(response);
-      if (response.success) {
-        // Cart items deleted successfully
-        // Redirect the user to the payment page or perform any other actions
-      } else {
-        // Failed to delete cart items
-        console.error(response.error);
-      }
-    },
-    error: function(error) {
-      // Handle any error that occurred during the AJAX request
-      console.error(error);
     }
-    });
-    $.ajax({
-    url: 'update_db.php',
-    type: 'POST',
-    dataType: 'json',
-    data:JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
-    success: function(response) {
-      // Process the response
-      console.log(response);
-      if (response.success) {
-        // Cart items deleted successfully
-        // Redirect the user to the payment page or perform any other actions
-      } else {
-        // Failed to delete cart items
-        console.error(response.error);
-      }
-    },
-    error: function(error) {
-      // Handle any error that occurred during the AJAX request
-      console.error(error);
-    }
-    });
-  $.ajax({
-    url: 'corders.php',
-    type: 'POST',
-    dataType: 'json',
-    data:JSON.stringify({ crops: crops, quantity: quantity, price: price, email: email, name: name, phone_no: phone_no }),
-    success: function(response) {
-      // Process the response
-      console.log(response);
-      if (response.success) {
-        // Cart items deleted successfully
-        // Redirect the user to the payment page or perform any other actions
-      } else {
-        // Failed to delete cart items
-        console.error(response.error);
-      }
-    },
-    error: function(error) {
-      // Handle any error that occurred during the AJAX request
-      console.error(error);
-    }
-    });
-    });
+  },
+  error: function(error) {
+    // Handle any error that occurred during the AJAX request
+    console.error(error);
+  }
+});
+});
 </script>	
 								
 												
