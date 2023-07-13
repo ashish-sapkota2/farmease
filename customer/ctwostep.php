@@ -13,7 +13,7 @@ $user = $_SESSION['customer_login_user'];
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
     <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
@@ -44,10 +44,10 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
       <div class="container"><a class="navbar-brand" href="../index.php"><img class="d-inline-block align-top img-fluid" src="../assets/img/fm-logo.png" alt="" width="100" /><span class="text-theme font-monospace fs-4 ps-2"></span></a>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
 		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="../index.php">Home</a></li>
 		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="../contact.php">Contact</a></li>
-          <!-- <li class="nav-item px-2"><a class="nav-link fw-medium" href="index.php">Opportunities</a></li> -->
+          <li class="nav-item px-2"><a class="nav-link fw-medium" href="index.php">Opportunities</a></li>
           <li class="nav-item px-2"><div class="dropdown show">
 		  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		                  <span class="nav-link-inner--text"
@@ -88,27 +88,8 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
     <!-- End Navbar -->
  	
   <section class="section section-shaped section-lg">
-    <!-- <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div> -->
-<!-- ======================================================================================================================================== -->
 
 <div class="container">
-
- <!-- <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-info badge-pill mb-3">Login</span>
-          </div>
-        </div>  -->
       
 <div class="row ">
 <div class=" col-sm-8 mb-3 mx-auto text-center">  

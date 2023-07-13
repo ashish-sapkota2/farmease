@@ -60,9 +60,9 @@
         <img class="company-logo" src="../assets/img/fm-logo.png" alt="FarmEase Logo">
         
         <ul class="footer-links">
-          <li><a href="index.php">Home</a></li>
+          <li><a href="cprofile.php">Home</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          <li><a href="../contact.php">Contact</a></li>
         </ul>
         <p>&copy; 2023 FarmEase. All rights reserved.</p>
       </div>

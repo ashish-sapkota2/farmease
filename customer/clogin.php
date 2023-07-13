@@ -9,7 +9,7 @@ include('cloginScript.php'); // Includes Login Script.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- <link rel="icon" type="image/png" href="../assets/img/logo.png" /> -->
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
     <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
@@ -99,12 +99,6 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 <!-- ======================================================================================================================================== -->
 
 <div class="container">
-
- <!-- <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-info badge-pill mb-3">Login</span>
-          </div>
-        </div>  -->
       
 <div class="row">
 <div class="col-sm-12 mb-3">  
@@ -204,9 +198,6 @@ if (isset($_GET['error'])) {
 </section>
 
 	    <?php require("footer.php");?>
- <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&amp;display=swap" rel="stylesheet"> -->
 
 </body>
 

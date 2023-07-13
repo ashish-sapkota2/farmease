@@ -9,7 +9,7 @@ include('floginScript.php'); // Includes Login Script
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- <link rel="icon" type="image/png" href="../assets/img/logo.png" /> -->
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
     <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
@@ -84,27 +84,8 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
     <!-- End Navbar -->
  	
   <section class="section section-shaped section-lg">
-    <!-- <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div> -->
-<!-- ======================================================================================================================================== -->
 
 <div class="container">
-
- <!-- <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-info badge-pill mb-3">Login</span>
-          </div>
-        </div>  -->
       
 <div class="row">
 <div class="col-sm-12 mb-3">  

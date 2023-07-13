@@ -9,7 +9,7 @@ require_once("../sql.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
     <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
@@ -66,8 +66,8 @@ function getdistrict(val) {
 		  </a>
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="farmer/fregister.php">Farmer</a>
-			<a class="dropdown-item" href="customer/cregister.php">Customer</a>
+			<a class="dropdown-item" href="fregister.php">Farmer</a>
+			<a class="dropdown-item" href="../customer/cregister.php">Customer</a>
 		  </div>
 		</div>
 			</li>
@@ -82,9 +82,9 @@ function getdistrict(val) {
 		  </a>
 
 		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="farmer/flogin.php">Farmer</a>
-			<a class="dropdown-item" href="customer/clogin.php">Customer</a>
-			<a class="dropdown-item" href="admin/alogin.php">Admin </a>
+			<a class="dropdown-item" href="flogin.php">Farmer</a>
+			<a class="dropdown-item" href="../customer/clogin.php">Customer</a>
+			<a class="dropdown-item" href="../admin/alogin.php">Admin </a>
 		  </div>
 		</div>
 			</li>
@@ -98,28 +98,10 @@ function getdistrict(val) {
     <!-- End Navbar -->
  	
   <section class="section section-shaped section-lg">
-    <!-- <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div> -->
-<!-- ======================================================================================================================================== -->
 
 <div class="container">
 
  <div class="row">
-          <!-- <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-info badge-pill mb-3">Register</span>
-          </div>
-        </div> 
-       -->
 <div class="row">
 <div class="col-sm-12 mb-3">  
 			  

@@ -57,17 +57,6 @@ $query5 = "SELECT ProvinceName from province where PrCode ='$province'";
  	
   <section class="section section-shaped section-lg">
     <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
 <!-- ======================================================================================================================================== -->
 
 <div class="container ">
