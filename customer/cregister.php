@@ -149,9 +149,10 @@ function getdistrict(val) {
                 <div class="form-group row">
                   <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark">Mobile No<strong class="text-default"> *</strong></label>
                   <div class="col-md-9">
-                    <input class="form-control" type="number" name="mobile" pattern="[6789][0-9]{9}" required="true" />
+                    <input class="form-control" type="text" name="mobile" pattern="[9][0-9]{9}" required="true" />
                   </div>
                 </div>
+
 
                 <div class="form-group row">
                 <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark" required="true"> Province <strong class="text-default"> *</strong></label>
