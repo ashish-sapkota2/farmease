@@ -63,6 +63,13 @@ $("#nav li a").each(function() {
               </a>
             </li>            
             <li class="nav-item px-2">
+              <a href="orders.php" class="nav-link">
+                <span class="text-dark nav-link-inner--text font-weight-bold"
+                ><i class="fa fa-shopping-bag" aria-hidden="true"></i> Orders</span
+                >
+              </a>
+            </li>            
+            <li class="nav-item px-2">
               <a href="aviewmsg.php" class="nav-link">
                 <span class="text-dark nav-link-inner--text font-weight-bold"
                   ><i class="text-dark fas fa-address-card"></i> Queries</span
