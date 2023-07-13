@@ -117,7 +117,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm
 	$mobile = $_POST['mobile'];
     $province = $_POST['province'];
 	$district = $_POST['district'];
-	$address = $_POST['address'];
+	$address = $_POST['city'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
 	$photo= $_FILES["photo"]["name"];
