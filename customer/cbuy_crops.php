@@ -388,6 +388,6 @@ quantityInput.addEventListener("change", () => {
   }
 });
 </script>
-	
+
 </body>
 </html>
