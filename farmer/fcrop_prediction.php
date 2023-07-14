@@ -94,7 +94,6 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 													<option name="Kharif" value="Kharif">Kharif</option>
 													<option name="Rabi" value="Rabi">Rabi</option>
 													<option name="Summer" value="Summer">Summer</option>
-													<option name="Winter" value="Winter">Winter</option>
 												
 													</select>
 										</div>
