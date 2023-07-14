@@ -26,20 +26,6 @@ $query4 = "SELECT * from admin where email ='$user_check'";
  	
   <section class="section section-shaped section-lg">
     <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-<!-- ======================================================================================================================================== -->
-
-
 
 <div class="container ">
     
@@ -54,7 +40,7 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 
 				<div class="card text-white bg-gradient-warning mb-3">
 				  <div class="card-header">
-				  <span class=" text-color display-4" >All Orders</span>
+				  <span class=" text-color display-4" >Farmer History</span>
 				  
 					
 				  </div>
@@ -66,13 +52,16 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 		<tr class="font-weight-bold text-dark">
 						
 								
-					<th><center>Customer Name</center></th>
+					<th><center>Farmer ID</center></th>
+					<th><center>Farmer Name</center></th>
+					<th><center>Email</center></th>
+					<th><center>Phone No.</center></th>
+					<th><center>District</center></th>
+					<th><center>Address</center></th>
 					<th><center>Crop Name</center></th>
 					<th><center>Quantity (in KG)</center></th>
-					<th><center>Address</center></th>
+					<th><center>Price (Per KG)</center></th>
 					<th><center>Date</center></th>
-					<th><center>Staus</center></th>
-					<th><center>Update Status</center></th>
 												
 						</tr>
 			</thead>
@@ -82,7 +71,7 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 		<tbody>	  
 							  
 						<?php 
-	$sql = "SELECT * FROM orders";
+	$sql = "SELECT * FROM farmerlogin INNER JOIN farmer_history ON farmerlogin.farmer_id= farmer_history.farmer_id;";
 
 								$query = mysqli_query($conn,$sql);
 
@@ -90,18 +79,18 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 				 ?>		  
 						  
 		 <tr class="text-center text-dark">
-							 <td> <?php echo $res['cust_name'];  ?> </td>
-							 <td> <?php echo $res['cropname'];  ?> </td>
-							 <td> <?php echo $res['quantity'];  ?> </td>
-							 <td> <?php echo $res['address'];  ?> </td>
+							 <td> <?php echo $res['farmer_id'];  ?> </td>
+							 <td> <?php echo $res['farmer_name'];  ?> </td>
+							 <td> <?php echo $res['email'];  ?> </td>
+							 <td> <?php echo $res['phone_no'];  ?> </td>
+							 <td> <?php echo $res['F_District'];  ?> </td>
+							 <td> <?php echo $res['F_Location'];  ?> </td>
+							 <td> <?php echo $res['farmer_crop'];  ?> </td>
+							 <td> <?php echo $res['farmer_quantity'];  ?> </td>
+							 <td> <?php echo $res['farmer_price'];  ?> </td>
 							 <td> <?php echo $res['date'];  ?> </td>
-							 <td> <?php echo $res['status'];  ?> </td>
 							<td > 
-                                <button class="btn btn-sm btn-success" <?php if ($res['status'] === 'Completed') echo 'disabled'; ?>>
-                                    <a href="order_complete.php?id=<?php echo $res['order_id']; ?>"  class=" nav-link text-white">
-                                    <?php echo ($res['status'] === 'Completed') ? 'Completed' : 'Mark as Completed'; ?>
-                                </a> 
-                                </button> 
+                               
                             </td>
 
 							</tr>

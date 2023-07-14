@@ -22,30 +22,7 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 <?php require ('anav.php');  ?>
  	
   <section class="section section-shaped section-lg">
-    <!-- <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div> -->
-<!-- ======================================================================================================================================== -->
-
-
-
 <div class="container">
-    
-    	 <!-- <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-danger badge-pill mb-3">Crops</span>
-          </div>
-        </div> -->
-		
           <div class="row row-content">
             <div class="col-md-12 mb-3">
 

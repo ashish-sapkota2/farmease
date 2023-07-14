@@ -38,7 +38,7 @@
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
          <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
-		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="#header">Home</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="index.php">Home</a></li>
 		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="contact.php">Contact</a></li>
           <li class="nav-item px-2"><a class="nav-link fw-medium" href="#Opportuanities">Opportunities</a></li>
           <li class="nav-item px-2"><div class="dropdown show">

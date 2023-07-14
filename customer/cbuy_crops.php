@@ -276,8 +276,8 @@ document.getElementById("payment-button").addEventListener("click", function(){
     console.log(response);
     if (response.payment_url) {
       // Redirect the user to the payment URL
+      
       window.location.href = response.payment_url;
-
       // Execute the subsequent AJAX requests only if the first request is successful
       $.ajax({
         url: 'corders.php',
@@ -336,6 +336,7 @@ document.getElementById("payment-button").addEventListener("click", function(){
                 console.error(error);
               }
             });
+            
           } else {
             // Failed to place order items
             console.error(response.error);
