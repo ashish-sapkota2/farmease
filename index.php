@@ -87,7 +87,7 @@
           <div class="row align-items-center min-vh-75 min-vh-lg-100">
             <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
               <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Bridging the Gap for<br class="d-block d-lg-block" />Farmers & Customers</h1>
-              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture portal offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p>
+              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture Platform offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p>
               <!-- <a class="btn btn-lg btn-success" href="#" role="button">Learn More</a> -->
             </div>
           </div>
@@ -113,7 +113,7 @@
               <div class="description pl-4">
                 <h3 class="title" >Farmers</h3>
            <p class=" ">
-           Farmers can benefit from personalized crop and fertilizer recommendations, accurate weather predictions, access to agricultural news, and the opportunity to directly sell their crops to customers. These features empower farmers to make informed decisions, optimize their yield, and maximize profitability, while establishing transparent and fair trade relationships.
+           Farmers can benefit from personalized crop and fertilizer recommendations, accurate weather Monitoring, access to agricultural news, and the opportunity to directly sell their crops to customers. These features empower farmers to make informed decisions, optimize their yield, and maximize profitability, while establishing transparent and fair trade relationships.
            </p>
                         
               </div>
