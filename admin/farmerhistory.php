@@ -61,6 +61,7 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 					<th><center>Crop Name</center></th>
 					<th><center>Quantity (in KG)</center></th>
 					<th><center>Price (Per KG)</center></th>
+					<th><center>Date</center></th>
 												
 						</tr>
 			</thead>
@@ -87,6 +88,7 @@ $query4 = "SELECT * from admin where email ='$user_check'";
 							 <td> <?php echo $res['farmer_crop'];  ?> </td>
 							 <td> <?php echo $res['farmer_quantity'];  ?> </td>
 							 <td> <?php echo $res['farmer_price'];  ?> </td>
+							 <td> <?php echo $res['date'];  ?> </td>
 							<td > 
                                
                             </td>
