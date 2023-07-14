@@ -61,14 +61,20 @@ $("#nav li a").each(function() {
                   ><i class="text-dark fad fa-store-alt"></i> Crop Stock</span
                 >
               </a>
-            </li>            
-            <li class="nav-item px-2">
-              <a href="orders.php" class="nav-link">
-                <span class="text-dark nav-link-inner--text font-weight-bold"
-                ><i class="fa fa-shopping-bag" aria-hidden="true"></i> Orders</span
-                >
-              </a>
-            </li>            
+            </li>     
+            <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+              <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
+                <li class="nav-item px-2" id="prediction"><div class="dropdown show ">
+                  <a class="nav-link dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="text-dark nav-link-inner--text font-weight-bold"
+                ><i class="fa fa-shopping-bag" aria-hidden="true"></i> Orders</span>
+                  </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="orders.php">Customers​</a>
+                    <a class="dropdown-item" href="farmerhistory.php">Farmers</a> 
+                    </div>
+                    </div>  
             <li class="nav-item px-2">
               <a href="aviewmsg.php" class="nav-link">
                 <span class="text-dark nav-link-inner--text font-weight-bold"
