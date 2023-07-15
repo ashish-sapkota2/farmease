@@ -40,6 +40,11 @@ if(isset($_POST['Crop_submit'])){
     $query4= "UPDATE production_approx SET quantity=quantity+'$quantity' where crop='$trade_crop'";
     $result = mysqli_query($conn, $query4);
 
+    $date =date('d/m/Y');
+    $query5="INSERT INTO `farmer_history`(`farmer_id`, `farmer_crop`, `farmer_quantity`,`farmer_price`,`date`) 
+    VALUES ($farmer_pid,'$trade_crop', $quantity, $costperkg,$date);";
+    $result = mysqli_query($conn, $query5);
+
     	echo 
 "<script type='text/javascript'>alert('Crop Details Added Successfully');
       window.location='ftradecrops.php';</script>";
