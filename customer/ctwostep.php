@@ -195,7 +195,7 @@ function submit_otp(){
 	jQuery.ajax({
 		url:'ccheck_otp.php',
 		type:'post',
-		data:'otp='+otp,
+		data:'otp='+otp, //sends the OTP value as a parameter named "otp".
 		success:function(result){
 			if(result=='yes'){
 				window.location='cprofile.php';
