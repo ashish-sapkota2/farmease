@@ -210,4 +210,3 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 
 </body>
 </html>
-
