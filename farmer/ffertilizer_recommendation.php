@@ -119,7 +119,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 									
 									<td>
 										<div class="form-group ">
-													<select name="soil" class="form-control">
+													<select name="soil" class="form-control" required>
 													<option  value="">Select Soil Type</option>
 													<option  value="Sandy">Sandy</option>
 													<option  value="Loamy">Loamy</option>
@@ -132,7 +132,7 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 									
 									<td>
 										<div class="form-group ">
-									<select name="crop" class="form-control">
+									<select name="crop" class="form-control" required>
 													<option  value="">Select Crop</option>
 													<option  value="Maize">Maize</option>
 													<option  value="Sugarcane">Sugarcane</option>

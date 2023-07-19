@@ -9,7 +9,7 @@ if($count>0){
     $otp=rand(11111,99999);
     mysqli_query($conn,"update custlogin set otp='$otp' where email ='$email'");
 	$html="Your otp verification code for FarmEase is ".$otp;
-	$_SESSION['farmer_login_user']= $email;
+	$_SESSION['customer_login_user']= $email;
     smtp_mailer($email,'OTP Verification',$html); 
 }
 else{

@@ -1,6 +1,6 @@
 <?php
 include('asession.php');
-ini_set('memory_limit', '1');
+ini_set('memory_limit', '-1');
 
 if(!isset($_SESSION['admin_login_user'])){
   header("location: ../index.php");} // Redirecting To Home Page

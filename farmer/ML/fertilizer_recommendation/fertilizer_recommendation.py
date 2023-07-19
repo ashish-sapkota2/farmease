@@ -1,26 +1,18 @@
-import pandas as pd #data manipulation
-import sys #accessing command line arguments
-from sklearn.preprocessing import LabelEncoder #for label encoding categorical features
-from sklearn.tree import DecisionTreeClassifier #for creating decision tree classifier model
+import pandas as pd
+import joblib
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import cohen_kappa_score
+from sklearn import metrics
+from sklearn import tree
+import sys
+import json
+import warnings
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+warnings.filterwarnings('ignore')
 
-# Load the dataset
-data = pd.read_csv("ML/fertilizer_recommendation/fertilizer_recommendation.csv")
-
-# Label encoding for categorical features
-le_soil = LabelEncoder()
-data['Soil Type'] = le_soil.fit_transform(data['Soil Type'])
-le_crop = LabelEncoder()
-data['Crop Type'] = le_crop.fit_transform(data['Crop Type'])
-
-# Splitting the data into input and output variables
-X = data.iloc[:, :8] #contain all column from the beginning up to the 8th column(excluding last)
-y = data.iloc[:, -1] #contains only the last column
-
-# Training the Decision Tree Classifier model
-dtc = DecisionTreeClassifier(random_state=0) #create an instance of DecisionTreeClassifier with a random state of 0(for reproducibility)
-dtc.fit(X, y) #fit model to the variables x and y 
-
-# Get the input parameters as command line arguments
 jsonn = sys.argv[1]
 jsonp = sys.argv[2]
 jsonk = sys.argv[3]
@@ -30,15 +22,30 @@ jsonsm = sys.argv[6]
 jsonsoil = sys.argv[7]
 jsoncrop = sys.argv[8]
 
-soil_enc = le_soil.transform([jsonsoil])[0]
-crop_enc = le_crop.transform([jsoncrop])[0]
+n_params = json.loads(jsonn)
+p_params = json.loads(jsonp)
+k_params = json.loads(jsonk)
+t_params = json.loads(jsont)
+h_params = json.loads(jsonh)
+sm_params = json.loads(jsonsm)
 
-# Get the user inputs and store them in a numpy array - Urea
-#user_input = [[26,52,38,'Sandy','Maize',37,0,0]]
 
-user_input = [[jsont,jsonh,jsonsm,soil_enc,crop_enc,jsonn,jsonk,jsonp]]
 
-fertilizer_name = dtc.predict(user_input)
+# Load the label encoders for soil type and crop type
+with open('ML/fertilizer_recommendation/label_encoder.pkl', 'rb') as f:
+    le_soil, le_crop = joblib.load(f)
 
-# Return the prediction as a string
-print(str(fertilizer_name[0]))
+# Perform label encoding on soil type and crop type
+st_encoded = le_soil.transform([jsonsoil])[0]
+c_encoded = le_crop.transform([jsoncrop])[0]
+
+
+with open('ML/fertilizer_recommendation/fertilizerrecommendation.pkl', 'rb') as f:
+    fm = joblib.load(f)
+
+data = np.array([[t_params, h_params, sm_params, st_encoded, c_encoded, n_params, p_params, k_params]])
+prediction = fm.predict(data)
+
+print(str(prediction[0]))
+
+

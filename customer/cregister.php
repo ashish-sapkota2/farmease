@@ -9,7 +9,7 @@ require_once("../sql.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- <link rel="icon" type="image/png" href="../assets/img/logo.png" /> -->
+  <link rel="icon" type="image/png" href="../assets/img/fm-logo.png" />
     <title>FarmEase</title>
 
   <!--     Fonts and icons     -->
@@ -98,24 +98,7 @@ function getdistrict(val) {
     <!-- End Navbar -->
    
 <section class="section section-shaped section-lg">
-<!-- <div class="shape shape-style-1 shape-primary">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div> -->
   <div class="container">
-     <!-- <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <span class="badge badge-info badge-pill mb-3">Register</span>
-          </div>
-        </div>  -->
     <div class="row">
       <div class="col-sm-12 mb-3">  
         <div class="nav nav-tabs nav-fill bg-gradient-default" id="nav-tab" role="tablist">
@@ -149,9 +132,10 @@ function getdistrict(val) {
                 <div class="form-group row">
                   <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark">Mobile No<strong class="text-default"> *</strong></label>
                   <div class="col-md-9">
-                    <input class="form-control" type="number" name="mobile" pattern="[6789][0-9]{9}" required="true" />
+                    <input class="form-control" type="text" name="mobile" pattern="[9][0-9]{9}" required="true" />
                   </div>
                 </div>
+
 
                 <div class="form-group row">
                 <label for="staffid" class="col-md-3 col-form-label font-weight-bold text-dark" required="true"> Province <strong class="text-default"> *</strong></label>

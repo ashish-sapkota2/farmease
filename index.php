@@ -38,7 +38,7 @@
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="navbar-collapse collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
          <ul class="navbar-nav align-items-lg-center ml-auto topnav" id="nav">
-		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="#header">Home</a></li>
+		  <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="index.php">Home</a></li>
 		  <li class="nav-item px-2"><a class="nav-link fw-medium" aria-current="page" href="contact.php">Contact</a></li>
           <li class="nav-item px-2"><a class="nav-link fw-medium" href="#Opportuanities">Opportunities</a></li>
           <li class="nav-item px-2"><div class="dropdown show">
@@ -87,7 +87,7 @@
           <div class="row align-items-center min-vh-75 min-vh-lg-100">
             <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
               <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Bridging the Gap for<br class="d-block d-lg-block" />Farmers & Customers</h1>
-              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture portal offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p>
+              <p class="mb-4 fs-1">Welcome to Farmease, your comprehensive agriculture Platform offering a range of services to revolutionize farming practices. We specialize in leveraging advanced technologies to enhance productivity, mitigate risks, and optimize agricultural decision-making.</p>
               <!-- <a class="btn btn-lg btn-success" href="#" role="button">Learn More</a> -->
             </div>
           </div>
@@ -113,7 +113,7 @@
               <div class="description pl-4">
                 <h3 class="title" >Farmers</h3>
            <p class=" ">
-           Farmers can benefit from personalized crop and fertilizer recommendations, accurate weather predictions, access to agricultural news, and the opportunity to directly sell their crops to customers. These features empower farmers to make informed decisions, optimize their yield, and maximize profitability, while establishing transparent and fair trade relationships.
+           Farmers can benefit from personalized crop and fertilizer recommendations, accurate weather Monitoring, access to agricultural news, and the opportunity to directly sell their crops to customers. These features empower farmers to make informed decisions, optimize their yield, and maximize profitability, while establishing transparent and fair trade relationships.
            </p>
                         
               </div>

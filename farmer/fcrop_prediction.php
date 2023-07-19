@@ -89,14 +89,11 @@ $query4 = "SELECT * from farmerlogin where email='$user_check'";
 									<td>
 										<div class="form-group ">
 									
-													<select name="Season" class="form-control">
+													<select name="Season" class="form-control" required>
 													<option value="">Select Season ...</option>
 													<option name="Kharif" value="Kharif">Kharif</option>
-													<option name="Whole Year" value="Whole Year">Whole Year</option>
-													<option name="Autumn" value="Autumn">Autumn</option>
 													<option name="Rabi" value="Rabi">Rabi</option>
 													<option name="Summer" value="Summer">Summer</option>
-													<option name="Winter" value="Winter">Winter</option>
 												
 													</select>
 										</div>

@@ -5,10 +5,15 @@
 - Other supporting features are Chatbot using OPENAI's gpt-3.5-turbo model, Weather Forecast upto 4 days using Weather API, Agriculture realetd news using News API.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## Pre Requisites
 
 >>>>>>> 774499a1f73192693fd3e50a9fad072c5e45adc7
+=======
+## Pre Requisites
+
+>>>>>>> master
 ## Features
 - Crop Prediction
 - Crop Recommendation
@@ -16,6 +21,10 @@
 - Rainfall Prediction
 - OTP Verification through mail
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+- Agriculture realetd news using News API
+>>>>>>> master
 - Dynamically changing quotes using OpenAI's API
 - Weather Forecast upto 4 days using OpenWeatherMap API
 =======
@@ -24,6 +33,7 @@
 - Weather Forecast upto 4 days using OpenWeatherMap API
 
 >>>>>>> 774499a1f73192693fd3e50a9fad072c5e45adc7
+
 
 
 ## Technologies Used
@@ -38,6 +48,7 @@
 
 ## Dataset
 <<<<<<< HEAD
+<<<<<<< HEAD
 The Crop Management System dataset includes the following features:
 
 ### Crop Prediction Dataset
@@ -48,6 +59,8 @@ The Crop Management System dataset includes the following features:
 
 =======
 >>>>>>> 774499a1f73192693fd3e50a9fad072c5e45adc7
+=======
+>>>>>>> master
 ### Crop Recommendation Dataset
 - N
 - P
